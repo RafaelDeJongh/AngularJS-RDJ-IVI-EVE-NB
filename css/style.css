@@ -1,0 +1,69 @@
+/*Style created by Rafael De Jongh 
+Content Table:
+--------------
+- Reset
+- Body
+- MediaQueries
+- Links
+- Scrollbar
+- Selection
+*/
+@charset "utf-8";
+/*Reset
+------------------*/
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}
+/*Body
+------------------*/
+html {
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing:border-box;
+    -moz-background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+body {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:14px;
+    line-height:1.6;
+    color: #bbb;
+    background-color: #1a1a1a;
+    height: 100%;
+}
+/*Content
+------------------*/
+/*MediaQueries
+------------------*/
+@media screen and (min-width: 1920px) { 
+}
+@media screen and (max-width: 1024px) { 
+}
+@media screen and (max-width: 945px) { 
+}
+@media screen and (max-width: 740px) { 
+}
+@media screen and (max-width: 510px) { 
+}
+/*Links
+------------------*/
+a {
+    color: #eee;
+    text-decoration: none;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+a:visited, a:active, a:hover {color: #fff}
+/*Scrollbar
+------------------*/
+::-webkit-scrollbar {width:12px;height:12px;background-color:#121212}
+::-webkit-scrollbar-corner {background-color:#0e0e0e}
+::-webkit-scrollbar-track {background-color:#121212}
+::-webkit-scrollbar-thumb {background:#990000}
+::-webkit-scrollbar:horizontal {height: 12px}
+/*Selection
+------------------*/
+::selection {color: #fff;background-color: #990000}
+::-moz-selection {color: #fff;background-color: #990000}
