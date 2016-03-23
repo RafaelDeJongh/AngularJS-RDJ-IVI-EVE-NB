@@ -32,8 +32,8 @@ body {
     font-size:14px;
     line-height:1.6;
     color:#eee;
-    /*background-color:#1a1a1a;*/
-    background-color:#36BB9B;
+    background-color:#1a1a1a;
+    /*background-color:#36BB9B;*/
     height:100%;
     position: relative;
     min-height: 100%;
@@ -77,7 +77,7 @@ aside nav a i:before{
 ------------------*/
 main {
     display:inline-block;
-    background-color: rgba(240, 248, 255,.5);
+    background-color: rgba(240, 248, 255,.15);
     width: calc(100% - 88px);
     height: calc(100% - 3em);
 }
