@@ -26,44 +26,72 @@
 <link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-touch-icon-152x152.png">
 -->
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<script src="bower_components/angularjs/angular.js"></script>
+<!--<script src="bower_components/angularjs/angular.js"></script>-->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 <script src="js/script.js"></script>
 <title>QuestLogger</title>
 </head>
-<body ng-app="QuestLogger" >
+<body ng-app="QuestLogger">
 	<aside>
 		<nav>
-		<a href="#"><i id="avatar" class="fa fa-user"></i></a>
-		<a href="#"><i class="fa fa-plus"></i></a>
-		<a href="#"><i class="fa fa-th-list"></i></a>
-		<a href="#"><i class="fa fa-paint-brush"></i></a>
-		<a href="#"><i class="fa fa-cog"></i></a>
-        <a href="#"><i class="fa fa-question"></i></a>
+		<a href="#avatar"><i class="fa fa-user"></i></a>
+		<a href="#add"><i class="fa fa-plus"></i></a>
+		<a href="#lists"><i class="fa fa-th-list"></i></a>
+		<a href="#styles"><i class="fa fa-paint-brush"></i></a>
+		<a href="#settings"><i class="fa fa-cog"></i></a>
+        <a href="#about"><i class="fa fa-question"></i></a>
 		</nav>
 	</aside>
 	<main>
         <div id="avatar" class="content none">
+            <a class="fa fa-times close" href="#close"></a>
             <h2>Avatar Settings</h2>
             <p>Avatar</p>
         </div>
-        <div id="add" class="content none">
-            <h2>Add new list</h2>
-            <p>New List Form</p>
+        <div ng-controller="toDoC" id="addlist" class="content">
+            <a class="fa fa-times close" href="#close"></a>
+            <h2>Add a new list</h2>
+<!--toDoList-->   
+        <input type="text" ng-model="todoText" placeholder="Add a quest!" ng-keyup="addTodo()" required/>
+
+        <div ng-show="isTodo()">
+        <input id="toggle" type="checkbox" ng-model="markAll" ng-click="toggleMarkAll()" />
+        <label for="toggle">Mark all as complete</label>
+        </div>
+
+        <ul id="todolist">
+            <li ng-repeat="todo in todos" ng-dblclick="toggleEditMode()">
+                <div ng-keyup="editTodo()">
+                  <input type="checkbox" ng-model="todo.done" />
+                  <span class="done-{{todo.done}}">{{todo.text}}</span>
+                </div>
+            <input class="edit" type="text" ng-model="todo.text" ng-keyup="editOnEnter(todo)" />
+            </li>
+        </ul>
+
+        <div class="count">{{remaining()}} of {{todos.length}} remaining</div>
+        <a id="clear" ng-click="clear()" ng-show="hasDone()">
+          Clear <span >{{(todos.length - remaining())}} {{itemText()}}</span>.
+      </a>
+<!--toDoList-->       
         </div>
         <div id="lists" class="content none">
+            <a class="fa fa-times close" href="#close"></a>
             <h2>Lists Settings/Archive</h2>
             <p>List Settings</p>
         </div>
         <div id="styles" class="content none">
+            <a class="fa fa-times close" href="#close"></a>
             <h2>Styles</h2>
             <p>Style Settingsn</p>
         </div>
         <div id="settings" class="content none">
+            <a class="fa fa-times close" href="#close"></a>
             <h2>Settings</h2>
             <p>Settings information</p>
         </div>
-        <div ng-controller="year" id="about" class="content">
+        <div id="about" class="content none" ng-controller="yearC">
+            <a class="fa fa-times close" href="#close"></a>
             <h2>About INSERT NAME OF APP HERE</h2>
             <p>Text about what this app is all about and how it functions!</p>
             <p>Created by Rafa&euml;l De Jongh | Inias Van Ingelgom | Evelyne Van Esbroeck | Nico Bosmans | Copyright &copy; {{cDate}}</p>

@@ -12,7 +12,6 @@ Content Table:
 - Links
 - Scrollbar
 - Selection
-
 Reset
 ------------------*/
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}
@@ -91,8 +90,7 @@ main {
     display:inline-block;
     /*background-color: rgba(240, 248, 255,.15);*/
     width: calc(100% - 6em);
-    height: 100%;
-    
+    height: 100%;   
 }
 .content::before {
 	content:"";
@@ -111,19 +109,19 @@ main {
 	background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/bg.jpg");
 	background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/bg.jpg");
 	background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/bg.jpg");
-	filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='5');
-	-webkit-filter:blur(5px);
-	-moz-filter:blur(5px);
-	-o-filter:blur(5px);
-	-ms-filter:blur(5px);
-	filter:blur(5px);
+	filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
+	-webkit-filter:blur(4px);
+	-moz-filter:blur(4px);
+	-o-filter:blur(4px);
+	-ms-filter:blur(4px);
+	filter:blur(4px);
 	overflow:hidden;
 }
 .content {
     width:600px;
     height:300px;
     left:calc(50% - 300px);
-    top:24%;
+    top:10%;
     position:absolute;
     -webkit-border-radius:4px;
 	-moz-border-radius:4px;
@@ -155,6 +153,26 @@ main {
   -webkit-box-shadow:0 10px 50px rgba(0,0,0,.9);
   box-shadow:0 10px 50px rgba(0,0,0,.9);
 }*/
+.close {
+    position: absolute;
+    right:0;
+    top:0;
+    font-size: 1.8em;
+    background-color:rgba(200,0,0,.8);
+    padding: 6px 7px;
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    border-top-right-radius: 4px;
+    -webkit-transition:all .2s ease;
+    -moz-transition:all .2s ease;
+    -o-transition:all .2s ease;
+    transition:all .2s ease;
+}
+.close:hover {background-color:#b00}
+/*ToDoList
+------------------*/
+
+
 /*Footer
 ------------------*/
 /*footer {
