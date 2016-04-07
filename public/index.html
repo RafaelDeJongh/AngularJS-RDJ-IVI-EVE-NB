@@ -33,7 +33,7 @@
 <script src="js/script.js"></script>
 <title>QuestLogger</title>
 </head>
-<body ng-app="QuestLogger">
+<body ng-app="QuestLogger" class="day">
 	<aside>
 		<nav>
 		<a href="#avatar"><i class="fa fa-user"></i></a>
@@ -77,7 +77,7 @@
     </ul>
 </form>    
 <a id="clear" ng-click="clear()" ng-show="hasDone()">Remove {{(todos.length - remaining())}} {{itemText()}}.</a>
-<p class="remaining">{{remaining()}} of {{todos.length}} quests remaining!</p>
+<footer class="remaining">{{remaining()}} of {{todos.length}} quests remaining!</footer>
 <!--toDoList-->       
         </div>
         <div id="lists" class="content none">

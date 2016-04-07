@@ -66,7 +66,7 @@ app.controller('toDoC', function ($scope) {
 });
 /*Jquery*/
 $(function(){
-    $(".content").draggable({containment:"main"});
+    $(".content").draggable({containment:"main",scroll:false});
     $("a.close").closest("a.close").click(function(){$(this).closest(".content").addClass("none")});
     $("nav a").click(function(){$($(this).attr("href")).removeClass("none").siblings(".content").addClass("none");});
 });
@@ -76,6 +76,7 @@ $(document).keydown(function(e) {
   kkeys.push(e.keyCode);
   if (kkeys.toString().indexOf( konami ) >= 0 ){
     $(document).unbind('keydown',arguments.call);
-    window.open('http://games.freearcade.com/Contra.flash/ContraFlash.swf', '_blank');
+    //window.open('http://games.freearcade.com/Contra.flash/ContraFlash.swf', '_blank');
+    $("body").addClass("kcode");
   }
 });
