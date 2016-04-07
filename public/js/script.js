@@ -70,3 +70,12 @@ $(function(){
     $("a.close").closest("a.close").click(function(){$(this).closest(".content").addClass("none")});
     $("nav a").click(function(){$($(this).attr("href")).removeClass("none").siblings(".content").addClass("none");});
 });
+/*EasterEggs*/
+var kkeys = [], konami = "38,38,40,40,37,39,37,39,66,65";
+$(document).keydown(function(e) {
+  kkeys.push(e.keyCode);
+  if (kkeys.toString().indexOf( konami ) >= 0 ){
+    $(document).unbind('keydown',arguments.call);
+    window.open('http://games.freearcade.com/Contra.flash/ContraFlash.swf', '_blank');
+  }
+});
