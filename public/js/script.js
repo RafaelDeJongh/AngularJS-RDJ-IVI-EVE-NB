@@ -3,8 +3,9 @@
 ** C = Controller
 **/
 "use strict";
+/*Application*/
 var app = angular.module('QuestLogger', []);
-/*Current Year*/
+/*About - Current Year*/
 app.controller('yearC', function ($scope) {
     $scope.cDate = new Date().getFullYear(); 
 });
@@ -12,46 +13,60 @@ app.controller('yearC', function ($scope) {
 app.controller('toDoC', function ($scope) {
     $scope.todos = [];
     $scope.markAll = false;
+    //addToDo
     $scope.addTodo = function() {
-      if(event.keyCode == 13 && $scope.todoText){
-          $scope.todos.push({text:$scope.todoText, done:false});
-          $scope.todoText = '';
-      }
+        if($scope.todoText){
+            $scope.todos.push({text:$scope.todoText, done:false});
+            $scope.todoText = "";
+        }
     };
     $scope.isTodo = function(){
       return $scope.todos.length > 0;  
-    }
+    };
+    //Toggle Edit Mode
     $scope.toggleEditMode = function(){
       $(event.target).closest('li').toggleClass('editing');
     };
+    //Edit
     $scope.editOnEnter = function(todo){
       if(event.keyCode == 13 && todo.text){
           $scope.toggleEditMode();
       }
     };
+    //Remaining
     $scope.remaining = function() {
     var count = 0;
     angular.forEach($scope.todos, function(todo) {
       count += todo.done ? 0 : 1;
-    });
-    return count;
+        });
+        return count;
     };
+    //isDone
     $scope.hasDone = function() {
       return ($scope.todos.length != $scope.remaining());
-    }    
+    };
+    //itemText
     $scope.itemText = function() {
       return ($scope.todos.length - $scope.remaining() > 1) ? "items" : "item";     
     };
+    //ToggleAll
     $scope.toggleMarkAll = function() {
       angular.forEach($scope.todos, function(todo) {
         todo.done =$scope.markAll;
       });
     };
+    //Clear
     $scope.clear = function() {
-    var oldTodos = $scope.todos;
-    $scope.todos = [];
-    angular.forEach(oldTodos, function(todo) {
-      if (!todo.done) $scope.todos.push(todo);
-    });
+        var oldTodos = $scope.todos;
+        $scope.todos = [];
+        angular.forEach(oldTodos, function(todo) {
+          if (!todo.done) $scope.todos.push(todo);
+        });
     };
+});
+/*Jquery*/
+$(function(){
+    $(".content").draggable({containment:"main"});
+    $("a.close").closest("a.close").click(function(){$(this).closest(".content").addClass("none")});
+    $("nav a").click(function(){$($(this).attr("href")).removeClass("none").siblings(".content").addClass("none");});
 });

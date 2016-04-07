@@ -28,6 +28,8 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <!--<script src="bower_components/angularjs/angular.js"></script>-->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script src="js/script.js"></script>
 <title>QuestLogger</title>
 </head>
@@ -35,7 +37,7 @@
 	<aside>
 		<nav>
 		<a href="#avatar"><i class="fa fa-user"></i></a>
-		<a href="#add"><i class="fa fa-plus"></i></a>
+		<a href="#addlist"><i class="fa fa-plus"></i></a>
 		<a href="#lists"><i class="fa fa-th-list"></i></a>
 		<a href="#styles"><i class="fa fa-paint-brush"></i></a>
 		<a href="#settings"><i class="fa fa-cog"></i></a>
@@ -44,55 +46,66 @@
 	</aside>
 	<main>
         <div id="avatar" class="content none">
-            <a class="fa fa-times close" href="#close"></a>
-            <h2>Avatar Settings</h2>
-            <p>Avatar</p>
+            <header>
+                <h2>Avatar Settings</h2>
+                <a class="fa fa-times close" href="#close"></a>
+            </header>
+            <p>Avatar Info</p>
+            <img src="images/iphone_favicon.png" alt="avatar"/>
         </div>
-        <div ng-controller="toDoC" id="addlist" class="content">
-            <a class="fa fa-times close" href="#close"></a>
+        <div ng-controller="toDoC" id="addlist" class="content none">
+        <header>
             <h2>Add a new list</h2>
+            <a class="fa fa-times close" href="#close"></a>
+        </header>
 <!--toDoList-->   
-        <input type="text" ng-model="todoText" placeholder="Add a quest!" ng-keyup="addTodo()" required/>
-
-        <div ng-show="isTodo()">
-        <input id="toggle" type="checkbox" ng-model="markAll" ng-click="toggleMarkAll()" />
+<form ng-submit="addTodo()">
+    <input type="text" ng-model="todoText" placeholder="Add a new list...">
+    <input type="submit" value="Add Quest">
+    <div ng-show="isTodo()" id="markall">
+        <input id="toggle" type="checkbox" ng-model="markAll" ng-click="toggleMarkAll()">
         <label for="toggle">Mark all as complete</label>
-        </div>
-
-        <ul id="todolist">
-            <li ng-repeat="todo in todos" ng-dblclick="toggleEditMode()">
-                <div ng-keyup="editTodo()">
-                  <input type="checkbox" ng-model="todo.done" />
-                  <span class="done-{{todo.done}}">{{todo.text}}</span>
-                </div>
-            <input class="edit" type="text" ng-model="todo.text" ng-keyup="editOnEnter(todo)" />
-            </li>
-        </ul>
-
-        <div class="count">{{remaining()}} of {{todos.length}} remaining</div>
-        <a id="clear" ng-click="clear()" ng-show="hasDone()">
-          Clear <span >{{(todos.length - remaining())}} {{itemText()}}</span>.
-      </a>
+    </div>
+    <ul id="todolist">
+        <li ng-repeat="todo in todos" ng-dblclick="toggleEditMode()">
+            <div class="view" ng-keyup="editTodo()">
+                <input id="{{'questtask' + $index}}" type="checkbox" ng-model="todo.done">
+                <label for="{{'questtask' + $index}}" class="done-{{todo.done}}">{{todo.text}}</label>
+            </div>
+            <input class="edit" type="text" ng-model="todo.text" ng-keyup="editOnEnter(todo)">
+        </li>
+    </ul>
+</form>    
+<a id="clear" ng-click="clear()" ng-show="hasDone()">Remove {{(todos.length - remaining())}} {{itemText()}}.</a>
+<p class="remaining">{{remaining()}} of {{todos.length}} quests remaining!</p>
 <!--toDoList-->       
         </div>
         <div id="lists" class="content none">
-            <a class="fa fa-times close" href="#close"></a>
-            <h2>Lists Settings/Archive</h2>
+            <header>
+                <h2>Lists Settings/Archive</h2>
+                <a class="fa fa-times close" href="#close"></a>
+            </header>
             <p>List Settings</p>
         </div>
         <div id="styles" class="content none">
-            <a class="fa fa-times close" href="#close"></a>
-            <h2>Styles</h2>
-            <p>Style Settingsn</p>
+            <header>
+                <h2>Style Changer</h2>
+                <a class="fa fa-times close" href="#close"></a>
+            </header>
+            <p>Style Settings</p>
         </div>
         <div id="settings" class="content none">
-            <a class="fa fa-times close" href="#close"></a>
-            <h2>Settings</h2>
+            <header>
+                <h2>Settings</h2>
+                <a class="fa fa-times close" href="#close"></a>
+            </header>
             <p>Settings information</p>
         </div>
         <div id="about" class="content none" ng-controller="yearC">
-            <a class="fa fa-times close" href="#close"></a>
-            <h2>About INSERT NAME OF APP HERE</h2>
+            <header>
+                <h2>About Quest Logger</h2>
+                <a class="fa fa-times close" href="#close"></a>
+            </header>
             <p>Text about what this app is all about and how it functions!</p>
             <p>Created by Rafa&euml;l De Jongh | Inias Van Ingelgom | Evelyne Van Esbroeck | Nico Bosmans | Copyright &copy; {{cDate}}</p>
         </div>
