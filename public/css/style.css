@@ -30,10 +30,9 @@ html {
     -moz-background-clip:padding-box;
     -webkit-background-clip:padding-box;
     background-clip:padding-box;
-    overflow:hidden; /*REMOVE LATER*/
 }
 body {
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family:"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size:14px;
     line-height:1.6;
     color:#eee;
@@ -51,16 +50,17 @@ body {
 /*Aside
 ------------------*/
 aside {
-    background-color:rgba(240, 248, 255,.1);
+    background-color:rgba(240,248,255,.1);
     display:inline-block;
     height:100%;
     width: 6em;
     float:left;
     clear:both;
     text-align: center;
+    z-index: 999
 }
 aside nav a {display:inline-block}
-aside nav a:first-of-type {margin-top:3em;}
+aside nav a:first-of-type {margin-top:3em}
 aside nav a i{
     border:1px solid #fff;
     margin:.6em;
@@ -92,9 +92,9 @@ aside nav a i:before{
 ------------------*/
 main {
     display:inline-block;
-    width: 92%;
-    width: calc(100% - 6em);
-    height: 100%;   
+    width:92%;
+    width:calc(100% - 6em);
+    height:100%;   
 }
 .content::before {
 	content:"";
@@ -156,38 +156,38 @@ main {
 }
 main .content header {
     cursor:move;
-    width: 100%;
-    height: 36px;
-    background-color: rgba(255,255,255,.2);
-    -webkit-box-shadow: 0 2px 0 0 rgba(0,0,0,0.1);
-    -moz-box-shadow: 0 2px 0 0 rgba(0,0,0,0.1);
-    box-shadow: 0 2px 0 0 rgba(0,0,0,0.1);
-    -webkit-border-top-left-radius: 4px;
-    -webkit-border-top-right-radius: 4px;
-    -moz-border-radius-topleft: 4px;
-    -moz-border-radius-topright: 4px;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    margin-bottom: 10px;
+    width:100%;
+    height:36px;
+    background-color:rgba(255,255,255,.2);
+    -webkit-box-shadow:0 2px 0 0 rgba(0,0,0,0.1);
+    -moz-box-shadow:0 2px 0 0 rgba(0,0,0,0.1);
+    box-shadow:0 2px 0 0 rgba(0,0,0,0.1);
+    -webkit-border-top-left-radius:4px;
+    -webkit-border-top-right-radius:4px;
+    -moz-border-radius-topleft:4px;
+    -moz-border-radius-topright:4px;
+    border-top-left-radius:4px;
+    border-top-right-radius:4px;
+    margin-bottom:10px;
 }
 main .content header h2 {
-    height: 36px;
-    line-height: 36px;
-    text-transform: capitalize;
+    height:36px;
+    line-height:36px;
+    text-transform:capitalize;
 }
 main .content header .close {
-    position: absolute;
+    position:absolute;
     right:0;
     top:0;
-    font-size: 1.8em;
+    font-size:1.8em;
     background-color:rgba(200,0,0,.84);
-    padding: 6px 7px;
-    -webkit-border-top-right-radius: 4px;
-    -moz-border-radius-topright: 4px;
-    border-top-right-radius: 4px;
-    -webkit-border-bottom-left-radius: 4px;
-    -moz-border-radius-bottomleft: 4px;
-    border-bottom-left-radius: 4px;
+    padding:6px 7px;
+    -webkit-border-top-right-radius:4px;
+    -moz-border-radius-topright:4px;
+    border-top-right-radius:4px;
+    -webkit-border-bottom-left-radius:4px;
+    -moz-border-radius-bottomleft:4px;
+    border-bottom-left-radius:4px;
     -webkit-transition:all .2s ease;
     -moz-transition:all .2s ease;
     -o-transition:all .2s ease;
@@ -208,128 +208,119 @@ main .content header .close {
 }
 /*ToDoList
 ------------------*/
-input, select, textarea {outline:none;border:none;}
+input, select, textarea {outline:none;border:none}
 input[type=text], select {
-    padding: 14px 20px;
-    margin: 8px -4px 8px 0;
-    display: inline-block;
-    box-sizing: border-box;
-    -webkit-border-top-left-radius: 4px;
-    -webkit-border-bottom-left-radius: 4px;
-    -moz-border-radius-topleft: 4px;
-    -moz-border-radius-bottomleft: 4px;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
+    padding:14px 20px;
+    margin:8px -4px 8px 0;
+    display:inline-block;
+    box-sizing:border-box;
+    -webkit-border-top-left-radius:4px;
+    -webkit-border-bottom-left-radius:4px;
+    -moz-border-radius-topleft:4px;
+    -moz-border-radius-bottomleft:4px;
+    border-top-left-radius:4px;
+    border-bottom-left-radius:4px;
     width:70%
 }
 input[type=submit] {
-    background-color: #4CAF50;
-    color: #fff;
-    padding: 14px 20px;
-    margin: 8px 0;
-    cursor: pointer;
-    -webkit-border-top-right-radius: 4px;
-    -webkit-border-bottom-right-radius: 4px;
-    -moz-border-radius-topright: 4px;
-    -moz-border-radius-bottomright: 4px;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
+    background-color:#4CAF50;
+    color:#fff;
+    padding:14px 20px;
+    margin:8px 0;
+    cursor:pointer;
+    -webkit-border-top-right-radius:4px;
+    -webkit-border-bottom-right-radius:4px;
+    -moz-border-radius-topright:4px;
+    -moz-border-radius-bottomright:4px;
+    border-top-right-radius:4px;
+    border-bottom-right-radius:4px;
 }
-input[type=submit]:hover {
-    background-color: #45a049;
-}
+input[type=submit]:hover {background-color: #45a049}
 #todolist li {
-    padding: 12px 0;
-    position: relative;
-	border-bottom: 1px solid #ccc;
+    padding:12px 0;
+    position:relative;
+	border-bottom:1px solid #ccc;
 }
 #todolist li:last-child {
-	border-bottom: none;
-    padding-bottom: 40px;
+	border-bottom:none;
+    padding-bottom:40px;
 }
-#todolist li .edit {
-    display: none;
-}
-#todolist li.editing {
-	border-bottom: 1px solid #778899;
-}
-#todolist li.editing .view {
-	display: none;
-}
+#todolist li .edit, #todolist li.editing .view {display:none}
+#todolist li.editing {border-bottom:1px solid #778899}
 #todolist li.editing .edit {
-    display: block;
-    width: 86.5%;
-    margin: auto;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #333;
-    font-size: 18px;
-    padding: 14px 20px 15px;
+    display:block;
+    width:86.5%;
+    margin:auto;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    font-size:14px;
+    color:#333;
+    font-size:18px;
+    padding:14px 20px 15px;
 }
-#todolist li.done label, #todolist li .done-true  {text-decoration: line-through}
+#todolist li.done label, #todolist li .done-true {text-decoration:line-through}
 #todolist .destroy {
-	position: absolute;
-	right: 5px;
-	top: 20px;
-	display: none;
-	cursor: pointer;
-	width: 20px;
-	height: 20px;
+	position:absolute;
+	right:5px;
+	top:20px;
+	display:none;
+	cursor:pointer;
+	width:20px;
+	height:20px;
 }
 .remaining {
-    -webkit-border-bottom-right-radius: 4px;
-    -webkit-border-bottom-left-radius: 4px;
-    -moz-border-radius-bottomright: 4px;
-    -moz-border-radius-bottomleft: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-    width: 100%;
+    -webkit-border-bottom-right-radius:4px;
+    -webkit-border-bottom-left-radius:4px;
+    -moz-border-radius-bottomright:4px;
+    -moz-border-radius-bottomleft:4px;
+    border-bottom-right-radius:4px;
+    border-bottom-left-radius:4px;
+    width:100%;
     background-color:#099;
-    padding: 4px 0;
-    position: absolute;
+    padding:4px 0;
+    position:absolute;
     bottom:0;
-    color:#fff;
+    color:#fff
 }
 #clear {
-    background-color: #900;
-    padding: 5px 0;
-    width: 100%;
-    position: absolute;
+    background-color:#900;
+    padding:5px 0;
+    width:100%;
+    position:absolute;
     bottom:0;
     left:0;
     display:inline-block;
-    z-index: 999;
     cursor:pointer;
+    z-index:999;
 }
 #markall {
-    color: #aaa;
-    background-color: #fff;
-    width: 30%;
-    display: inline-block;
-    margin: 4px 0 0 56%;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    padding: 4px;
-    text-align: center;
+    color:#aaa;
+    background-color:#fff;
+    width:30%;
+    display:inline-block;
+    margin:4px 0 0 56%;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    padding:4px;
+    text-align:center
 }
 .view label{
-    background-color: #fff;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    color: #aaa;
-    vertical-align: middle;
-    text-align: left;
-    padding: 14px 20px;
-    width: 80%;
-    margin: auto;
-    display: inline-block;
+    background-color:#fff;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    color:#aaa;
+    vertical-align:middle;
+    text-align:left;
+    padding:14px 20px;
+    width:80%;
+    margin:auto;
+    display:inline-block
 }
 /*CheckBoxStyling*/
-input[type=checkbox]{display:none;}
+input[type=checkbox]{display:none}
 input[type=checkbox] + label::before{
     content:"\00A0";
     display:inline-block;
@@ -338,28 +329,16 @@ input[type=checkbox] + label::before{
     height:20px;
     background-color:#4CAF50;
     color:#fff;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    margin-right: 10px;
-    vertical-align: middle;
-    text-align: center;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    margin-right:10px;
+    vertical-align:middle;
+    text-align:center;
 }
-input[type=checkbox]:checked + label::before{
-    content:"\2714";
-}
-input[type=checkbox] + label {
-  display: inline-block;
-  cursor: pointer;
-}
-label {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+input[type=checkbox]:checked + label::before{content:"\2714";}
+input[type=checkbox] + label {display:inline-block;cursor:pointer}
+label {-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
 /*MediaQueries
 ------------------*/
 @media screen and (min-width: 1920px) { 
@@ -386,7 +365,7 @@ a {
     -o-transition:all .2s ease;
     transition:all .2s ease;
 }
-a:visited, a:active, a:hover {color: #fff}
+a:visited, a:active, a:hover {color:#fff}
 /*Scrollbar
 ------------------*/
 ::-webkit-scrollbar {width:12px;height:12px;background-color:#323a45}
