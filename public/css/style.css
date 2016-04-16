@@ -245,7 +245,7 @@ input[type=submit]:hover {background-color: #45a049}
     padding-bottom:40px;
 }
 #todolist li .edit, #todolist li.editing .view {display:none}
-#todolist li.editing {border-bottom:1px solid #778899}
+/*#todolist li.editing {} Usefull for editing specific styling*/
 #todolist li.editing .edit {
     display:block;
     width:86.5%;
@@ -257,6 +257,7 @@ input[type=submit]:hover {background-color: #45a049}
     color:#333;
     font-size:18px;
     padding:14px 20px 15px;
+    list-style:none;
 }
 #todolist li.done label, #todolist li .done-true {text-decoration:line-through}
 #todolist .destroy {
