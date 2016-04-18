@@ -23,13 +23,13 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 /*Body
 ------------------*/
 html {
-    height:100%;
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
     box-sizing:border-box;
     -moz-background-clip:padding-box;
     -webkit-background-clip:padding-box;
     background-clip:padding-box;
+	height:100%
 }
 body {
     font-family:"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -42,10 +42,10 @@ body {
     background-size:cover;
     background-attachment:fixed;
     background-position:center center;
-	-webkit-transition:all 4s linear;
-    -moz-transition:all 4s linear;
-    -o-transition:all 4s linear;
-    transition:all 4s linear;
+	-webkit-transition:background-image 4s linear;
+    -moz-transition:background-image 4s linear;
+    -o-transition:background-image 4s linear;
+    transition:background-image 4s linear;
 	position:relative;
     height:100%
 }
@@ -118,7 +118,10 @@ main {
 	background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG1-D.png");
 	background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG1-D.png");
 	background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG1-D.png");
-	filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
+	-webkit-transition:background-image 4s linear;
+    -moz-transition:background-image 4s linear;
+    -o-transition:background-image 4s linear;
+    transition:background-image 4s linear;
 	-webkit-filter:blur(4px);
 	-moz-filter:blur(4px);
 	-o-filter:blur(4px);
@@ -137,7 +140,7 @@ main {
     -moz-box-shadow:0 10px 30px rgba(0,0,0,.6);
     -webkit-box-shadow:0 10px 30px rgba(0,0,0,.6);
     box-shadow:0 10px 30px rgba(0,0,0,.6);
-    border:1px solid rgba(255, 255, 255,.1);
+    border:1px solid rgba(255,255,255,.1);
     text-align:center;
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
