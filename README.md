@@ -11,3 +11,5 @@ JS = for all JS fiels
 Images = for all images
 
 DEV = for all project related files (psd/ai/etc).
+
+Document: https://goo.gl/jInL1I
