@@ -6,9 +6,9 @@
 <meta name="author" content="Rafa&euml;l De Jongh, Inias Van Ingelgom, Evelyne Vas Esbroeck, Nico Bosmans">
 <meta name="description" content="QuestLogger">
 <meta name="keywords" content="AngularJS">
-<meta property="og:description" content="QuestLogger">
+<meta property="og:description" content="Quest Logger">
 <meta property="og:image" content="favicon.png">
-<meta property="og:site_name" content="QuestLogger">
+<meta property="og:site_name" content="Quest Logger">
 <meta property="og:type" content="website">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" sizes="16x16 32x32 48x48 64x64" href="favicon.ico">
@@ -31,7 +31,7 @@
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script src="js/script.js"></script>
-<title>QuestLogger</title>
+<title>Quest Logger</title>
 </head>
 <body ng-app="QuestLogger" class="day">
 	<aside>
@@ -55,12 +55,12 @@
         </div>
         <div ng-controller="toDoC" id="addlist" class="content none">
         <header>
-            <h2>Add a new list</h2>
+            <h2>Quest Logger</h2>
             <a class="fa fa-times close" href="#close"></a>
         </header>
 <!--toDoList-->   
 <form ng-submit="addTodo()">
-    <input type="text" ng-model="todoText" placeholder="Add a new list...">
+    <input type="text" ng-model="todoText" placeholder="Enter a new Quest...">
     <input type="submit" value="Add Quest">
     <div ng-show="isTodo()" id="markall">
         <input id="toggle" type="checkbox" ng-model="markAll" ng-click="toggleMarkAll()">
@@ -77,7 +77,7 @@
     </ul>
 </form>    
 <a id="clear" ng-click="clear()" ng-show="hasDone()">Remove {{(todos.length - remaining())}} {{itemText()}}.</a>
-<footer class="remaining">{{remaining()}} of {{todos.length}} quests remaining!</footer>
+<footer class="remaining">{{remaining()}} of {{todos.length}} Quests remaining!</footer>
 <!--toDoList-->       
         </div>
         <div id="lists" class="content none">
