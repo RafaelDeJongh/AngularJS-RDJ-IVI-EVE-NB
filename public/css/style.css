@@ -131,6 +131,7 @@ main {
 .content {
     width:600px;
     min-height:300px;
+	max-height:82%;
     left:calc(50% - 300px);
     top:10%;
     position:absolute;
@@ -209,6 +210,7 @@ main .content header .close {
 }
 /*ToDoList
 ------------------*/
+#logform{height:calc(100% - 165px)}
 input, select, textarea {outline:none;border:none}
 input[type=text], select {
     padding:14px 20px;
@@ -231,6 +233,7 @@ input[type=submit] {
 	border-radius:0 4px 4px 0;
 }
 input[type=submit]:hover {background-color:#45a049}
+#todolist{max-height:625px;overflow:auto}
 #todolist li {
     padding:12px 0;
     position:relative;
@@ -291,7 +294,7 @@ input[type=submit]:hover {background-color:#45a049}
     background-color:#fff;
     width:30%;
     display:inline-block;
-    margin:4px 0 0 56%;
+    margin:4px 0 6px 56%;
     -webkit-border-radius:4px;
     -moz-border-radius:4px;
     border-radius:4px;
@@ -346,9 +349,10 @@ label {-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:no
 	.content {
 		width:calc(100% - 6em);
 		height:100%;
-		right:0;
-		top:0;
-		left:initial;
+		max-height:100%;
+		right:0!important;
+		top:0!important;
+		left:initial!important;
 		-moz-box-shadow:none;
 		-webkit-box-shadow:none;
 		box-shadow:none;
@@ -382,6 +386,13 @@ label {-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:no
 		-moz-border-radius:4px 4px 0 0;
 		border-radius:4px 4px 0 0;
 	}
+	#todolist{max-height:100%}
+}
+@media screen and (max-width:635px) {
+	#markall{
+		margin:10px 0 5px 4px;
+		width:88%
+	}
 }
 @media screen and (max-width:550px) {
 	input[type=text], select, input[type=submit] {
@@ -399,6 +410,7 @@ label {-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:no
 		-moz-border-radius:0 0 4px 4px;
 		border-radius:0 0 4px 4px;
 	}
+	#logform{height:calc(100% - 220px)}
 }
 /*Links
 ------------------*/
