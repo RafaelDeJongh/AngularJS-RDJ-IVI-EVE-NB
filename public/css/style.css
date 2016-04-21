@@ -9,9 +9,10 @@ Content Table:
         - Avatar
         - Navigation
     - Content
-        - Day Night Cycle
         - ToDoList
             - CheckBoxStyling
+		- StyleSwitch
+		- Day Night Cycle
 - MediaQueries
 - Links
 - Scrollbar
@@ -41,10 +42,10 @@ body{
     background-size:cover;
     background-attachment:fixed;
     background-position:center center;
-    -webkit-transition:background-image 4s linear;
-    -moz-transition:background-image 4s linear;
-    -o-transition:background-image 4s linear;
-    transition:background-image 4s linear;
+    -webkit-transition:background 2s linear;
+    -moz-transition:background 2s linear;
+    -o-transition:background 2s linear;
+    transition:background 2s linear;
     position:relative;
     height:100%
 }
@@ -100,33 +101,6 @@ main {
     height:100%;
     float:left
 }
-.content::before {
-    content:"";
-    display:inline-block;
-    width:610px;
-    min-height:310px;
-    height:105%;
-    position:absolute;
-    z-index:-1;
-    left:-5px;
-    top:-5px;
-    background-repeat:no-repeat;
-    background-size:cover;
-    background-attachment:fixed;
-    background-position:center center;
-    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG1-D.png");
-    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG1-D.png");
-    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG1-D.png");
-    -webkit-transition:background-image 4s linear;
-    -moz-transition:background-image 4s linear;
-    -o-transition:background-image 4s linear;
-    transition:background-image 4s linear;
-    -webkit-filter:blur(4px);
-    -moz-filter:blur(4px);
-    -o-filter:blur(4px);
-    -ms-filter:blur(4px);
-    filter:blur(4px);
-}
 .content {
     width:600px;
     min-height:300px;
@@ -145,11 +119,38 @@ main {
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
     box-sizing:border-box; 
-    -webkit-transition:box-shadow .3s ease-in-out;
-    -moz-transition:box-shadow .3s ease-in-out;
-    -o-transition:box-shadow .3s ease-in-out;
-    transition:box-shadow .3s ease-in-out;
+    -webkit-transition:box-shadow .3s ease-in-out, background 2s linear;
+    -moz-transition:box-shadow .3s ease-in-out, background 2s linear;
+    -o-transition:box-shadow .3s ease-in-out, background 2s linear;
+    transition:box-shadow .3s ease-in-out, background 2s linear;
     overflow:hidden;
+}
+.content::before {
+    content:"";
+    display:inline-block;
+    width:610px;
+    min-height:310px;
+    height:105%;
+    position:absolute;
+    z-index:-1;
+    left:-5px;
+    top:-5px;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-attachment:fixed;
+    background-position:center center;
+    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG1-D.png");
+    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG1-D.png");
+    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG1-D.png");
+    -webkit-transition:inherit;
+    -moz-transition:inherit;
+    -o-transition:inherit;
+    transition:inherit;
+    -webkit-filter:blur(4px);
+    -moz-filter:blur(4px);
+    -o-filter:blur(4px);
+    -ms-filter:blur(4px);
+    filter:blur(4px);
 }
 .content:hover{
     -moz-box-shadow:0 10px 32px rgba(0,0,0,.7);
@@ -196,17 +197,6 @@ main .content header .close {
 }
 .close:hover {background-color:#b00}
 .content p {padding:5px 10px}
-/*Day Night Cycle
-------------------*/
-.day main .content {color:#444}
-.night  main .content, .kcode  main .content {color:#fff}
-.kcode {background-image:url("../images/backgrounds/BG-Synth.jpg")}
-.kcode main .content::before {
-    background-image:url("../images/backgrounds/BG-Synth.jpg");
-    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
-    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
-    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
-}
 /*ToDoList
 ------------------*/
 #logform{height:calc(100% - 165px)}
@@ -334,52 +324,37 @@ input[type=checkbox] + label::before{
 input[type=checkbox]:checked + label::before{content:"\2714"}
 input[type=checkbox] + label {display:inline-block;cursor:pointer}
 label {-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
-
 /*StyleSwitch
 ------------------*/
-.theme{
-    width: auto;
-    height: auto;
-    margin: 1rem 1.5%;
-    display: inline-block;
-    background-color:rgba(0,0,0,0);
-    background-repeat:no-repeat;
-    background-size:cover;
-    background-position:center center;
-    -webkit-transition:background-image 4s linear;
-    -moz-transition:background-image 4s linear;
-    -o-transition:background-image 4s linear;
-    transition:background-image 4s linear;
-    position:relative;
-}
+.theme div{margin:1rem 1.5%;display:inline-block}
 .theme img{
-    height: 110px;
-    width: auto;
-    clear: both;
+	height:110px;
+	width:auto;
+	clear:both;
+	-webkit-transition:all .2s ease;
+    -moz-transition:all .2s ease;
+    -o-transition:all .2s ease;
+    transition:all .2s ease;
+	-webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
 }
-.themetitle{
-    margin: 0.2rem auto;
+.themetitle{margin:.2rem auto}
+.themeHover{border:2px solid #fff}
+.themeHover:hover{cursor:pointer;border:2px solid #099}
+img.currentTheme{border:2px solid #099}
+.theme1{background-image:url("../images/backgrounds/BG1-D.png")}
+.theme2{background-image:url("../images/backgrounds/BG-Synth.jpg")}
+.theme2 main .content::before {
+    background-image:url("../images/backgrounds/BG-Synth.jpg");
+    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
+    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
+    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
 }
-.themeHover{
-    border: 2px solid #fff;
-}
-.themeHover:hover{
-    cursor: pointer;
-    border: 2px solid #099;
-}
-.currentTheme{
-    border: 2px solid #099;
-}
-.theme1{
-   background-image:url("../images/backgrounds/BG1-D.png");
-}
-.theme2{
-   background-image: url("../images/backgrounds/BG-Synth.jpg");
-}
-.theme3{
-    background: #099;
-}
-
+/*Day Night Cycle
+------------------*/
+.day main .content {color:#444}
+.night  main .content, .theme2  main .content {color:#fff}
 /*MediaQueries
 ------------------*/
 @media screen and (min-width:1920px) { 

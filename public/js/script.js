@@ -3,13 +3,16 @@
 ** C = Controller
 **/
 "use strict";
-/*Application*/
+/*Application
+------------------*/
 var app = angular.module('QuestLogger', []);
-/*About - Current Year*/
+/*Current Year
+------------------*/
 app.controller('yearC', function ($scope) {
     $scope.cDate = new Date().getFullYear(); 
 });
-/*ToDoList - Placeholder*/
+/*ToDoList
+------------------*/
 app.controller('toDoC', function ($scope) {
     $scope.todos = [];
     $scope.markAll = false;
@@ -64,14 +67,15 @@ app.controller('toDoC', function ($scope) {
         });
     };
 });
-/*Jquery*/
+/*Jquery
+------------------*/
 $(function(){
     $(".content").draggable({containment:"main",scroll:false});
     $("a.close").closest("a.close").click(function(){$(this).closest(".content").addClass("none")});
     $("nav a").click(function(){$($(this).attr("href")).removeClass("none").siblings(".content").addClass("none");});
 });
-
-/*StyleChanger*/
+/*StyleChanger
+------------------*/
 $(function(){
    $(".themeHover").click(function(){
       var myClass = $(this).attr("class");
@@ -81,14 +85,14 @@ $(function(){
       $("body").addClass(myClass).removeClass("themeHover");
     }); 
 });
-
-/*EasterEggs*/
+/*EasterEggs
+------------------*/
 var kkeys = [], konami = "38,38,40,40,37,39,37,39,66,65";
 $(document).keydown(function(e) {
   kkeys.push(e.keyCode);
   if (kkeys.toString().indexOf( konami ) >= 0 ){
     $(document).unbind('keydown',arguments.call);
-    //window.open('http://games.freearcade.com/Contra.flash/ContraFlash.swf', '_blank');
-    $("body").addClass("kcode");
+    window.open('http://games.freearcade.com/Contra.flash/ContraFlash.swf', '_blank');
+	//Add code here to do something fun!
   }
 });
