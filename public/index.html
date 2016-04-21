@@ -33,7 +33,7 @@
 <script src="js/script.js"></script>
 <title>Quest Logger</title>
 </head>
-<body ng-app="QuestLogger" class="day">
+<body ng-app="QuestLogger" class="day t1">
 	<aside>
 		<nav>
 		<a href="#avatar"><i class="fa fa-user"></i></a>
@@ -45,7 +45,7 @@
 		</nav>
 	</aside>
 	<main>
-        <div id="avatar" class="content none">
+        <div id="avatar" class="content t1 none">
             <header>
                 <h2>Avatar Settings</h2>
                 <a class="fa fa-times close" href="#close"></a>
@@ -75,6 +75,7 @@
             <input class="edit" type="text" ng-model="todo.text" ng-keyup="editOnEnter(todo)">
         </li>
     </ul>
+    
 </form>    
 <a id="clear" ng-click="clear()" ng-show="hasDone()">Remove {{(todos.length - remaining())}} {{itemText()}}.</a>
 <footer class="remaining">{{remaining()}} of {{todos.length}} Quests remaining!</footer>
@@ -92,7 +93,10 @@
                 <h2>Style Changer</h2>
                 <a class="fa fa-times close" href="#close"></a>
             </header>
-            <p>Style Settings</p>
+            <p>Choose your theme!</p>
+            <div class="theme t1 currentTheme"><p class="themetitle">Into The woods</p></div>
+            <div class="theme t2"><p class="themetitle">Spaceman</p></div>
+            <div class="theme t3"><p class="themetitle">Black and Blue</p></div>
         </div>
         <div id="settings" class="content none">
             <header>

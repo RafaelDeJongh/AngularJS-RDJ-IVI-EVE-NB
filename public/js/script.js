@@ -70,6 +70,18 @@ $(function(){
     $("a.close").closest("a.close").click(function(){$(this).closest(".content").addClass("none")});
     $("nav a").click(function(){$($(this).attr("href")).removeClass("none").siblings(".content").addClass("none");});
 });
+
+/*StyleChanger*/
+$(function(){
+   $(".theme").click(function(){
+      var myClass = $(this).attr("class");
+      $(".theme").removeClass("currentTheme");
+      $(this).addClass("currentTheme");
+      $("body").removeClass("t1, t2, t3").removeClass("t2").removeClass("t3");
+      $("body").addClass(myClass).removeClass("theme");
+   }); 
+});
+
 /*EasterEggs*/
 var kkeys = [], konami = "38,38,40,40,37,39,37,39,66,65";
 $(document).keydown(function(e) {
