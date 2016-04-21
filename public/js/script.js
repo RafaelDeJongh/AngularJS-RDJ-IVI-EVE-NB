@@ -73,13 +73,13 @@ $(function(){
 
 /*StyleChanger*/
 $(function(){
-   $(".theme").click(function(){
+   $(".themeHover").click(function(){
       var myClass = $(this).attr("class");
-      $(".theme").removeClass("currentTheme");
+      $(".themeHover").removeClass("currentTheme");
       $(this).addClass("currentTheme");
-      $("body").removeClass("t1, t2, t3").removeClass("t2").removeClass("t3");
-      $("body").addClass(myClass).removeClass("theme");
-   }); 
+      $("body").removeClass("theme1").removeClass("theme2");
+      $("body").addClass(myClass).removeClass("themeHover");
+    }); 
 });
 
 /*EasterEggs*/

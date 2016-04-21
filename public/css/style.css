@@ -114,9 +114,9 @@ main {
     background-size:cover;
     background-attachment:fixed;
     background-position:center center;
-    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3));
-    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3));
-    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3));
+    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG1-D.png");
+    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG1-D.png");
+    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG1-D.png");
     -webkit-transition:background-image 4s linear;
     -moz-transition:background-image 4s linear;
     -o-transition:background-image 4s linear;
@@ -338,9 +338,9 @@ label {-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:no
 /*StyleSwitch
 ------------------*/
 .theme{
-    width: 29%;
-    height: 100px;
-    margin: 1rem 1.5% 2.5rem;
+    width: auto;
+    height: auto;
+    margin: 1rem 1.5%;
     display: inline-block;
     background-color:rgba(0,0,0,0);
     background-repeat:no-repeat;
@@ -351,26 +351,32 @@ label {-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:no
     -o-transition:background-image 4s linear;
     transition:background-image 4s linear;
     position:relative;
-    border: 2px solid rgba(0,0,0,0);
+}
+.theme img{
+    height: 110px;
+    width: auto;
+    clear: both;
+}
+.themetitle{
+    margin: 0.2rem auto;
+}
+.themeHover{
+    border: 2px solid #fff;
+}
+.themeHover:hover{
+    cursor: pointer;
+    border: 2px solid #099;
 }
 .currentTheme{
     border: 2px solid #099;
 }
-.themetitle{
-    position: relative;
-    bottom: -110px;
+.theme1{
+   background-image:url("../images/backgrounds/BG1-D.png");
 }
-.theme:hover{
-    cursor: pointer;
-    border: 2px solid #099;
+.theme2{
+   background-image: url("../images/backgrounds/BG-Synth.jpg");
 }
-.t1{
-    background-image:url("../images/backgrounds/BG1-D.png");
-}
-.t2{
-    background-image: url("../images/backgrounds/BG-Synth.jpg");
-}
-.t3{
+.theme3{
     background: #099;
 }
 
