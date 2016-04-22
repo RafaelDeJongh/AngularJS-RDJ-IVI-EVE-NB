@@ -1,6 +1,5 @@
 /*
 ** QuestLogger created by Rafael De Jongh, Inias Van Ingelgom, Evelyne Vas Esbroeck, Nico Bosmans
-** C = Controller
 **/
 "use strict";
 /*Application
@@ -11,21 +10,16 @@ var app = angular.module('QuestLogger', []);
 app.controller('yearC', function ($scope) {
     $scope.cDate = new Date().getFullYear(); 
 });
-
-function MyController($scope) {
-  $scope.clock = {
-    clock : new Date()
-  }
-    var updateClock = function () {
-        $scope.clock.now = new Date();
-    };
-
-    setInterval(function () {
-        $scope.$apply(updateClock);
-    }, 1000);
-
+/*Clock
+------------------*/
+app.controller('clock', function ($scope) {
+  $scope.clock = {clock:new Date()}
+    var updateClock = function(){
+		var nDate = new Date();
+		$scope.clock.now = (nDate.getHours()<10?'0':'') + nDate.getHours() + ":" + (nDate.getMinutes()<10?'0':'') + nDate.getMinutes() /*+ ":" + (nDate.getSeconds()<10?'0':'') + nDate.getSeconds()*/;};
+    setInterval(function(){$scope.$apply(updateClock);},1000);
     updateClock();
-}
+});
 /*ToDoList
 ------------------*/
 app.controller('toDoC', function ($scope) {
@@ -109,7 +103,7 @@ $(document).keydown(function(e) {
     $(document).unbind('keydown',arguments.call);
   //  window.open('http://games.freearcade.com/Contra.flash/ContraFlash.swf', '_blank');
 	//Add code here to do something fun!
-    $("body").removeClass("theme1").removeClass("theme2").removeClass("theme3");
-    $("body").addClass("konami");
+    $("body").removeClass("theme1 theme2 theme3 day");
+    $("body").addClass("night konami");
   }
 });

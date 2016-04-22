@@ -13,6 +13,7 @@ Content Table:
             - CheckBoxStyling
 		- StyleSwitch
 		- Day Night Cycle
+		- Clock
 - MediaQueries
 - Links
 - Scrollbar
@@ -139,9 +140,9 @@ main {
     background-size:cover;
     background-attachment:fixed;
     background-position:center center;
-    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG1-D.png");
-    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG1-D.png");
-    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG1-D.png");
+    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsDay.png");
+    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsDay.png");
+    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsDay.png");
     -webkit-transition:inherit;
     -moz-transition:inherit;
     -o-transition:inherit;
@@ -370,6 +371,15 @@ img.currentTheme{border:2px solid #099}
 ------------------*/
 .day main .content {color:#444}
 .night  main .content, .theme2  main .content {color:#fff}
+/*Clock
+------------------*/
+time#clock {
+    position:absolute;
+    right:5%;
+    top:7%;
+    font-size:3vw;
+    color:#fff;
+    text-shadow:rgba(0,0,0,.05) 2px 2px,rgba(0,0,0,.05) 3px 3px,rgba(0,0,0,.05) 4px 4px;}
 /*MediaQueries
 ------------------*/
 @media screen and (min-width:1920px) { 
