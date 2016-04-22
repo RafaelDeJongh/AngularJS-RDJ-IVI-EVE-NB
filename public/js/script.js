@@ -90,7 +90,7 @@ $(function(){
       var myClass = $(this).attr("class");
       $(".themeHover").removeClass("currentTheme");
       $(this).addClass("currentTheme");
-      $("body").removeClass("theme1").removeClass("theme2").removeClass("theme3").removeClass("konami");
+      $("body").removeClass("currentTheme theme1 theme2 theme3 konami");
       $("body").addClass(myClass).removeClass("themeHover");
     }); 
 });

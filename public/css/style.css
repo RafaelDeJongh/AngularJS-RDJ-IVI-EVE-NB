@@ -362,7 +362,7 @@ img.currentTheme{border:2px solid #099}
 
 .konami{background-image:url("../images/backgrounds/konami.jpg")}
 .konami main .content::before {
-    background-image:url("../images/backgrounds/theRagingHillsDay.png");
+    background-image:url("../images/backgrounds/konami.png");
     background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/konami.jpg");
     background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/konami.jpg");
     background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/konami.jpg ");
