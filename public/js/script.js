@@ -81,7 +81,7 @@ $(function(){
       var myClass = $(this).attr("class");
       $(".themeHover").removeClass("currentTheme");
       $(this).addClass("currentTheme");
-      $("body").removeClass("theme1").removeClass("theme2");
+      $("body").removeClass("theme1").removeClass("theme2").removeClass("theme3");
       $("body").addClass(myClass).removeClass("themeHover");
     }); 
 });
