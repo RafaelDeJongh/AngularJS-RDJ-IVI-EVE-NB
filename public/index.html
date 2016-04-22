@@ -58,6 +58,7 @@
             <h2>Quest Logger</h2>
             <a class="fa fa-times close" href="#close"></a>
         </header>
+			
 <!--toDoList-->   
 <form id="logform" ng-submit="addTodo()">
     <input type="text" ng-model="todoText" placeholder="Enter a new Quest...">
@@ -122,6 +123,14 @@
             <p>The Quest Logger is a simple Angular webapp that will help you organize your quests!</p>
             <p>Created by Rafa&euml;l De Jongh | Inias Van Ingelgom | Evelyne Van Esbroeck | Nico Bosmans | Copyright &copy; {{cDate}}</p>
         </div>
+			<div class="row" ng-app>
+    <div ng-controller="MyController" class="small-6 columns">
+        <h5>{{ clock.now }}</h5>
+    </div>
+</div>
 	</main>
+	
+
+	
 </body>
 </html>
