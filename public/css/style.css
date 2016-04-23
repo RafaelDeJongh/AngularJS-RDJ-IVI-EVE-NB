@@ -344,16 +344,16 @@ label {-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:no
 .themeHover{border:2px solid #fff}
 .themeHover:hover{cursor:pointer;border:2px solid #099}
 img.currentTheme{border:2px solid #099}
-.theme1{background-image:url("../images/backgrounds/intoTheWoodsDay.png")}
-.theme2{background-image:url("../images/backgrounds/BG-Synth.jpg")}
-.theme2 main .content::before {
+.day.theme1 {background-image:url("../images/backgrounds/intoTheWoodsDay.png")}
+.day.theme2 {background-image:url("../images/backgrounds/BG-Synth.jpg")}
+.day.theme2 main .content::before {
     background-image:url("../images/backgrounds/BG-Synth.jpg");
     background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
     background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
     background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
 }
-.theme3{background-image:url("../images/backgrounds/theRagingHillsDay.png")}
-.theme3 main .content::before {
+.day.theme3 {background-image:url("../images/backgrounds/theRagingHillsDay.png")}
+.day.theme3 main .content::before {
     background-image:url("../images/backgrounds/theRagingHillsDay.png");
     background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsDay.png");
     background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsDay.png");
@@ -369,8 +369,52 @@ img.currentTheme{border:2px solid #099}
 }
 /*Day Night Cycle
 ------------------*/
-.day main .content {color:#444}
-.night  main .content, .theme2  main .content {color:#fff}
+.day main .content, .evening main .content {color:#444}
+.night  main .content, .theme2  main .content, .evening.theme3 main .content {color:#fff}
+
+.evening.theme1 {background-image:url("../images/backgrounds/intoTheWoodsEvening.png")}
+.evening.theme1 main .content::before {
+    background-image:url("../images/backgrounds/intoTheWoodsEvening.png");
+    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsEvening.png");
+    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsEvening.png");
+    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsEvening.png");
+}
+.evening.theme2 {background-image:url("../images/backgrounds/BG-Synth.jpg")}
+.evening.theme2 main .content::before {
+    background-image:url("../images/backgrounds/BG-Synth.jpg");
+    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
+    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
+    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
+}
+.evening.theme3 {background-image:url("../images/backgrounds/theRagingHillsNight.png")}
+.evening.theme3 main .content::before {
+    background-image:url("../images/backgrounds/theRagingHillsNight.png");
+    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsNight.png");
+    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsNight.png");
+    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsNight.png");
+}
+
+.night.theme1 {background-image:url("../images/backgrounds/intoTheWoodsNight.png")}
+.night.theme1 main .content::before {
+    background-image:url("../images/backgrounds/intoTheWoodsNight.png");
+    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsNight.png");
+    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsNight.png");
+    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsNight.png");
+}
+.night.theme2 {background-image:url("../images/backgrounds/BG-Synth.jpg")}
+.night.theme2 main .content::before {
+    background-image:url("../images/backgrounds/BG-Synth.jpg");
+    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
+    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
+    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
+}
+.night.theme3 {background-image:url("../images/backgrounds/theRagingHillsNight.png")}
+.night.theme3 main .content::before {
+    background-image:url("../images/backgrounds/theRagingHillsNight.png");
+    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsNight.png");
+    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsNight.png");
+    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsNight.png");
+}
 /*Clock
 ------------------*/
 time#clock {

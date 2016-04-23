@@ -94,6 +94,35 @@ $(function(){
       $("body").addClass(myClass).removeClass("themeHover");
     }); 
 });
+/*Day-NightCycle
+------------------*/
+$(function(){
+    var time = new Date();
+    var currentTime = time.getHours();
+    
+    setInterval( function(){
+        if(currentTime >= 7 && currentTime < 17){
+            $("body").removeClass("night evening");
+            $("body").addClass("day");
+            $(".theme1").attr("src", "images/backgrounds/intoTheWoodsDay.png");
+            $(".theme2").attr("src", "images/backgrounds/BG-Synth.jpg");
+            $(".theme3").attr("src", "images/backgrounds/theRagingHillsDay.png");
+        }else if(currentTime >= 17 && currentTime <= 20){
+            $("body").removeClass("day night");
+            $("body").addClass("evening");
+            $(".theme1").attr("src", "images/backgrounds/intoTheWoodsEvening.png");
+            $(".theme2").attr("src", "images/backgrounds/BG-Synth.jpg");
+            $(".theme3").attr("src", "images/backgrounds/theRagingHillsNight.png");
+        }else{
+            $("body").removeClass("day evening");
+            $("body").addClass("night");
+            $(".theme1").attr("src", "images/backgrounds/intoTheWoodsNight.png");
+            $(".theme2").attr("src", "images/backgrounds/BG-Synth.jpg");
+            $(".theme3").attr("src", "images/backgrounds/theRagingHillsNight.png");
+        }
+    },1000);
+});
+
 /*EasterEggs
 ------------------*/
 var kkeys = [], konami = "38,38,40,40,37,39,37,39,66,65";
