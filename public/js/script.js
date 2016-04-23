@@ -2,20 +2,20 @@
 ** QuestLogger created by Rafael De Jongh, Inias Van Ingelgom, Evelyne Vas Esbroeck, Nico Bosmans
 **/
 "use strict";
-/*Application
+/*Global Variables
 ------------------*/
 var app = angular.module('QuestLogger', []);
+var nDate = new Date();
 /*Current Year
 ------------------*/
 app.controller('yearC', function ($scope) {
-    $scope.cDate = new Date().getFullYear(); 
+    $scope.cDate = nDate.getFullYear(); 
 });
 /*Clock
 ------------------*/
 app.controller('clock', function ($scope) {
-  $scope.clock = {clock:new Date()}
+  $scope.clock = {clock:nDate}
     var updateClock = function(){
-		var nDate = new Date();
 		$scope.clock.now = (nDate.getHours()<10?'0':'') + nDate.getHours() + ":" + (nDate.getMinutes()<10?'0':'') + nDate.getMinutes() /*+ ":" + (nDate.getSeconds()<10?'0':'') + nDate.getSeconds()*/;};
     setInterval(function(){$scope.$apply(updateClock);},1000);
     updateClock();
@@ -97,10 +97,7 @@ $(function(){
 /*Day-NightCycle
 ------------------*/
 $(function(){
-    var time = new Date();
-    var currentTime = time.getHours();
-    
-    setInterval( function(){
+    var currentTime = nDate.getHours();
         if(currentTime >= 7 && currentTime < 17){
             $("body").removeClass("night evening");
             $("body").addClass("day");
@@ -120,9 +117,7 @@ $(function(){
             $(".theme2").attr("src", "images/backgrounds/BG-Synth.jpg");
             $(".theme3").attr("src", "images/backgrounds/theRagingHillsNight.png");
         }
-    },1000);
 });
-
 /*EasterEggs
 ------------------*/
 var kkeys = [], konami = "38,38,40,40,37,39,37,39,66,65";

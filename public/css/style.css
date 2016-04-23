@@ -43,10 +43,10 @@ body{
     background-size:cover;
     background-attachment:fixed;
     background-position:center center;
-    -webkit-transition:background 2s linear;
-    -moz-transition:background 2s linear;
-    -o-transition:background 2s linear;
-    transition:background 2s linear;
+    -webkit-transition:background-image 2s linear;
+    -moz-transition:background-image 2s linear;
+    -o-transition:background-image 2s linear;
+    transition:background-image 2s linear;
     position:relative;
     height:100%
 }
@@ -324,7 +324,7 @@ input[type=checkbox] + label::before{
 }
 input[type=checkbox]:checked + label::before{content:"\2714"}
 input[type=checkbox] + label {display:inline-block;cursor:pointer}
-label {-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+label {-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
 /*StyleSwitch
 ------------------*/
 .theme div{margin:1rem 1.5%;display:inline-block}
@@ -371,7 +371,6 @@ img.currentTheme{border:2px solid #099}
 ------------------*/
 .day main .content, .evening main .content {color:#444}
 .night  main .content, .theme2  main .content, .evening.theme3 main .content {color:#fff}
-
 .evening.theme1 {background-image:url("../images/backgrounds/intoTheWoodsEvening.png")}
 .evening.theme1 main .content::before {
     background-image:url("../images/backgrounds/intoTheWoodsEvening.png");
@@ -422,15 +421,14 @@ time#clock {
     right:5%;
     top:7%;
     font-size:3vw;
-	font-weight: 100;
+	font-weight:100;
     color:#fff;
     text-shadow:rgba(0,0,0,.05) 2px 2px,rgba(0,0,0,.05) 3px 3px,rgba(0,0,0,.05) 4px 4px;
-	-webkit-touch-callout:none; 
 	-webkit-user-select:none;   
-	-khtml-user-select:none;    
 	-moz-user-select:none;      
 	-ms-user-select:none;       
 	user-select:none;  
+	cursor:default;
 }
 /*MediaQueries
 ------------------*/
