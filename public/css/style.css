@@ -1,6 +1,8 @@
 @charset "utf-8";
 @import "font-awesome.min.css";
 /*Stylesheet for the Quest Logger application.
+** QuestLogger is created by Rafael De Jongh, Inias Van Ingelgom, Evelyne Vas Esbroeck and Nico Bosmans.
+** This webapplication is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 Content Table:
 --------------
 - Reset
@@ -13,6 +15,10 @@ Content Table:
             - CheckBoxStyling
 		- StyleSwitch
 		- Day Night Cycle
+			- Day
+			- Evening
+			- Night
+			- Easter Egg
 		- Clock
 - MediaQueries
 - Links
@@ -344,6 +350,12 @@ label {-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-
 .themeHover{border:2px solid #fff}
 .themeHover:hover{cursor:pointer;border:2px solid #099}
 img.currentTheme{border:2px solid #099}
+/*Day Night Cycle
+------------------*/
+.day main .content, .evening main .content {color:#444}
+.night  main .content, .theme2  main .content, .evening.theme3 main .content {color:#fff}
+/*Day
+------------------*/
 .day.theme1 {background-image:url("../images/backgrounds/intoTheWoodsDay.png")}
 .day.theme2 {background-image:url("../images/backgrounds/BG-Synth.jpg")}
 .day.theme2 main .content::before {
@@ -359,18 +371,8 @@ img.currentTheme{border:2px solid #099}
     background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsDay.png");
     background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsDay.png");
 }
-
-.konami{background-image:url("../images/backgrounds/konami.jpg")}
-.konami main .content::before {
-    background-image:url("../images/backgrounds/konami.png");
-    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/konami.jpg");
-    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/konami.jpg");
-    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/konami.jpg ");
-}
-/*Day Night Cycle
+/*Evening
 ------------------*/
-.day main .content, .evening main .content {color:#444}
-.night  main .content, .theme2  main .content, .evening.theme3 main .content {color:#fff}
 .evening.theme1 {background-image:url("../images/backgrounds/intoTheWoodsEvening.png")}
 .evening.theme1 main .content::before {
     background-image:url("../images/backgrounds/intoTheWoodsEvening.png");
@@ -385,14 +387,15 @@ img.currentTheme{border:2px solid #099}
     background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
     background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
 }
-.evening.theme3 {background-image:url("../images/backgrounds/theRagingHillsDay.png")}
+.evening.theme3 {background-image:url("../images/backgrounds/theRagingHillsEvening.png")}
 .evening.theme3 main .content::before {
-    background-image:url("../images/backgrounds/theRagingHillsDay.png");
-    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsDay.png");
-    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsDay.png");
-    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsDay.png");
+    background-image:url("../images/backgrounds/theRagingHillsEvening.png");
+    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsEvening.png");
+    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsEvening.png");
+    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsEvening.png");
 }
-
+/*Night
+------------------*/
 .night.theme1 {background-image:url("../images/backgrounds/intoTheWoodsNight.png")}
 .night.theme1 main .content::before {
     background-image:url("../images/backgrounds/intoTheWoodsNight.png");
@@ -413,6 +416,15 @@ img.currentTheme{border:2px solid #099}
     background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsNight.png");
     background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsNight.png");
     background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsNight.png");
+}
+/*Easter Egg
+------------------*/
+.konami{background-image:url("../images/backgrounds/konami.jpg")}
+.konami main .content::before {
+    background-image:url("../images/backgrounds/konami.png");
+    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/konami.jpg");
+    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/konami.jpg");
+    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/konami.jpg ");
 }
 /*Clock
 ------------------*/
