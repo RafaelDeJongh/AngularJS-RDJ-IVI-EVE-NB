@@ -112,7 +112,7 @@ $(function(){
             $("body").addClass("evening");
             $(".theme1").attr("src", "images/backgrounds/intoTheWoodsEvening.png");
             $(".theme2").attr("src", "images/backgrounds/BG-Synth.jpg");
-            $(".theme3").attr("src", "images/backgrounds/theRagingHillsNight.png");
+            $(".theme3").attr("src", "images/backgrounds/theRagingHillsDay.png");
         }else{
             $("body").removeClass("day evening");
             $("body").addClass("night");
