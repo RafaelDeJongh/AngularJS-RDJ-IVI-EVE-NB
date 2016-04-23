@@ -388,9 +388,9 @@ img.currentTheme{border:2px solid #099}
 .evening.theme3 {background-image:url("../images/backgrounds/theRagingHillsDay.png")}
 .evening.theme3 main .content::before {
     background-image:url("../images/backgrounds/theRagingHillsDay.png");
-    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsDay.png");
-    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsDay.png");
-    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsDay.png");
+    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsEvening.png");
+    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsEvening.png");
+    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsEvening.png");
 }
 
 .night.theme1 {background-image:url("../images/backgrounds/intoTheWoodsNight.png")}
