@@ -39,7 +39,7 @@ html{
     -moz-background-clip:padding-box;
     -webkit-background-clip:padding-box;
     background-clip:padding-box;
-    height:100%
+	height:100%
 }
 body{
     font-family:"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -369,9 +369,23 @@ time#clock {
 	-moz-user-select:none;      
 	-ms-user-select:none;       
 	user-select:none;  
-	cursor:default;
 	z-index:-1;
+	cursor:none;
 }
+/*Custom Cursor
+------------------*/
+html {cursor:url("../images/cursors/default.png"), auto}
+a,input[type=submit],#todolist .destroy,#clear,input[type=checkbox] + label,.theme img:hover {cursor:url("../images/cursors/pointer.png"), pointer}
+input[type=text]{cursor:url("../images/cursors/text.png"), text}
+main .content header {cursor:url("../images/cursors/move.png"), move}
+.ui-resizable-n{cursor:url("../images/cursors/nr.png"), n-resize}
+.ui-resizable-s{cursor:url("../images/cursors/nr.png"), s-resize}
+.ui-resizable-e{cursor:url("../images/cursors/er.png"), e-resize}
+.ui-resizable-w{cursor:url("../images/cursors/er.png"), w-resize}
+.ui-resizable-se{cursor:url("../images/cursors/se.png"), se-resize}
+.ui-resizable-nw {cursor:url("../images/cursors/se.png"), nw-resize}
+.ui-resizable-sw{cursor:url("../images/cursors/sw.png"), sw-resize}
+.ui-resizable-ne {cursor:url("../images/cursors/sw.png"), ne-resize}
 /*MediaQueries
 ------------------*/
 @media screen and (min-width:1920px){}
