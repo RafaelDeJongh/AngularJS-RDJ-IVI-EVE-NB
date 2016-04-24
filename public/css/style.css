@@ -12,6 +12,7 @@ Content Table:
         - Avatar
         - Navigation
     - Content
+		- ContentBox Styling
         - ToDoList
             - CheckBoxStyling
 		- StyleSwitch
@@ -131,13 +132,12 @@ main {
     -moz-transition:box-shadow .3s ease-in-out;
     -o-transition:box-shadow .3s ease-in-out;
     transition:box-shadow .3s ease-in-out;
-	background: -moz-linear-gradient(-45deg,  rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.09) 9%, rgba(255,255,255,0) 11%, rgba(255,255,255,0) 16%, rgba(255,255,255,0.1) 21%, rgba(255,255,255,0.09) 37%, rgba(255,255,255,0) 41%, rgba(255,255,255,0) 47%, rgba(255,255,255,0.09) 48%, rgba(255,255,255,0.1) 49%, rgba(255,255,255,0.1) 54%, rgba(255,255,255,0.08) 55%, rgba(255,255,255,0) 57%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.1) 64%, rgba(255,255,255,0.09) 76%, rgba(255,255,255,0) 80%, rgba(255,255,255,0.01) 81%, rgba(255,255,255,0.1) 84%, rgba(255,255,255,0.1) 100%);
-	background: -webkit-linear-gradient(-45deg,  rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.09) 9%,rgba(255,255,255,0) 11%,rgba(255,255,255,0) 16%,rgba(255,255,255,0.1) 21%,rgba(255,255,255,0.09) 37%,rgba(255,255,255,0) 41%,rgba(255,255,255,0) 47%,rgba(255,255,255,0.09) 48%,rgba(255,255,255,0.1) 49%,rgba(255,255,255,0.1) 54%,rgba(255,255,255,0.08) 55%,rgba(255,255,255,0) 57%,rgba(255,255,255,0) 60%,rgba(255,255,255,0.1) 64%,rgba(255,255,255,0.09) 76%,rgba(255,255,255,0) 80%,rgba(255,255,255,0.01) 81%,rgba(255,255,255,0.1) 84%,rgba(255,255,255,0.1) 100%);
-	background: linear-gradient(135deg,  rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.09) 9%,rgba(255,255,255,0) 11%,rgba(255,255,255,0) 16%,rgba(255,255,255,0.1) 21%,rgba(255,255,255,0.09) 37%,rgba(255,255,255,0) 41%,rgba(255,255,255,0) 47%,rgba(255,255,255,0.09) 48%,rgba(255,255,255,0.1) 49%,rgba(255,255,255,0.1) 54%,rgba(255,255,255,0.08) 55%,rgba(255,255,255,0) 57%,rgba(255,255,255,0) 60%,rgba(255,255,255,0.1) 64%,rgba(255,255,255,0.09) 76%,rgba(255,255,255,0) 80%,rgba(255,255,255,0.01) 81%,rgba(255,255,255,0.1) 84%,rgba(255,255,255,0.1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1affffff', endColorstr='#1affffff',GradientType=1 );
+	background:-moz-linear-gradient(-45deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.09) 9%, rgba(255,255,255,0) 11%, rgba(255,255,255,0) 16%, rgba(255,255,255,.1) 21%, rgba(255,255,255,.09) 37%, rgba(255,255,255,0) 41%, rgba(255,255,255,0) 47%, rgba(255,255,255,.09) 48%, rgba(255,255,255,.1) 49%, rgba(255,255,255,.1) 54%, rgba(255,255,255,.08) 55%, rgba(255,255,255,0) 57%, rgba(255,255,255,0) 60%, rgba(255,255,255,.1) 64%, rgba(255,255,255,.09) 76%, rgba(255,255,255,0) 80%, rgba(255,255,255,.01) 81%, rgba(255,255,255,.1) 84%, rgba(255,255,255,.1) 100%);
+	background:-webkit-linear-gradient(-45deg, rgba(255,255,255,.1) 0%,rgba(255,255,255,.09) 9%,rgba(255,255,255,0) 11%,rgba(255,255,255,0) 16%,rgba(255,255,255,.1) 21%,rgba(255,255,255,.09) 37%,rgba(255,255,255,0) 41%,rgba(255,255,255,0) 47%,rgba(255,255,255,.09) 48%,rgba(255,255,255,.1) 49%,rgba(255,255,255,.1) 54%,rgba(255,255,255,.08) 55%,rgba(255,255,255,0) 57%,rgba(255,255,255,0) 60%,rgba(255,255,255,.1) 64%,rgba(255,255,255,.09) 76%,rgba(255,255,255,0) 80%,rgba(255,255,255,.01) 81%,rgba(255,255,255,.1) 84%,rgba(255,255,255,.1) 100%);
+	background:linear-gradient(135deg, rgba(255,255,255,.1) 0%,rgba(255,255,255,.09) 9%,rgba(255,255,255,0) 11%,rgba(255,255,255,0) 16%,rgba(255,255,255,.1) 21%,rgba(255,255,255,.09) 37%,rgba(255,255,255,0) 41%,rgba(255,255,255,0) 47%,rgba(255,255,255,.09) 48%,rgba(255,255,255,.1) 49%,rgba(255,255,255,.1) 54%,rgba(255,255,255,.08) 55%,rgba(255,255,255,0) 57%,rgba(255,255,255,0) 60%,rgba(255,255,255,.1) 64%,rgba(255,255,255,.09) 76%,rgba(255,255,255,0) 80%,rgba(255,255,255,.01) 81%,rgba(255,255,255,.1) 84%,rgba(255,255,255,.1) 100%);
 	background-color:rgba(150,180,220,.36);
 	overflow:hidden;
-	/*resize: both;*/
+	/*resize:both;*/
 }
 .content:hover{
     -moz-box-shadow:0 10px 32px rgba(0,0,0,.7);
@@ -145,18 +145,18 @@ main {
     box-shadow:0 10px 32px rgba(0,0,0,.7);
 }
 .content:active {
-  -moz-box-shadow:0 10px 50px rgba(0,0,0,.9);
-  -webkit-box-shadow:0 10px 50px rgba(0,0,0,.9);
-  box-shadow:0 10px 50px rgba(0,0,0,.9);
+    -moz-box-shadow:0 10px 50px rgba(0,0,0,.9);
+    -webkit-box-shadow:0 10px 50px rgba(0,0,0,.9);
+    box-shadow:0 10px 50px rgba(0,0,0,.9);
 }
 main .content header {
     cursor:move;
     width:100%;
     height:36px;
     background-color:rgba(255,255,255,.2);
-    -webkit-box-shadow:0 2px 0 0 rgba(0,0,0,0.1);
-    -moz-box-shadow:0 2px 0 0 rgba(0,0,0,0.1);
-    box-shadow:0 2px 0 0 rgba(0,0,0,0.1);
+    -webkit-box-shadow:0 2px 0 0 rgba(0,0,0,.1);
+    -moz-box-shadow:0 2px 0 0 rgba(0,0,0,.1);
+    box-shadow:0 2px 0 0 rgba(0,0,0,.1);
     -webkit-border-radius:4px 4px 0 0;
     -moz-border-radius:4px 4px 0 0;
     border-radius:4px 4px 0 0;
@@ -172,8 +172,8 @@ main .content header .close {
     right:0;
     top:0;
     font-size:1.8em;
+	padding:6px 7px;
     background-color:rgba(200,0,0,.84);
-    padding:6px 7px;
     -webkit-border-radius:0 4px 0 4px;
     -moz-border-radius:0 4px 0 4px;
     border-radius:0 4px 0 4px;
@@ -184,6 +184,9 @@ main .content header .close {
 }
 .close:hover {background-color:#b00}
 .content p {padding:5px 10px}
+/*ContentBox Styling
+--------------------*/
+#styles {min-height:460px}
 /*ToDoList
 ------------------*/
 #logform{height:calc(100% - 165px)}
@@ -313,7 +316,7 @@ input[type=checkbox] + label {display:inline-block;cursor:pointer}
 label {-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
 /*StyleSwitch
 ------------------*/
-.theme div{margin:1rem 1.5%;display:inline-block}
+.theme section{margin:1rem 1.5%;display:inline-block}
 .theme img{
 	height:110px;
 	width:auto;
@@ -367,6 +370,7 @@ time#clock {
 	-ms-user-select:none;       
 	user-select:none;  
 	cursor:default;
+	z-index:-1;
 }
 /*MediaQueries
 ------------------*/
@@ -415,6 +419,7 @@ time#clock {
         border-radius:4px 4px 0 0;
     }
     #todolist{max-height:100%}
+	time#clock{display:none}
 }
 @media screen and (max-width:635px){
     #markall{
