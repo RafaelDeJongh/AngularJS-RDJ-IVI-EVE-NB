@@ -105,19 +105,19 @@ $(function(){
             $("body").removeClass("night evening");
             $("body").addClass("day");
             $(".theme .theme1").attr("src", "images/backgrounds/intoTheWoodsDay.png");
-            $(".theme .theme2").attr("src", "images/backgrounds/BG-Synth.jpg");
+            $(".theme .theme2").attr("src", "images/backgrounds/RetrowaveDay.jpg");
             $(".theme .theme3").attr("src", "images/backgrounds/theRagingHillsDay.png");
         }else if(hours >= 17 && hours <= 20){
             $("body").removeClass("day night");
             $("body").addClass("evening");
             $(".theme .theme1").attr("src", "images/backgrounds/intoTheWoodsEvening.png");
-            $(".theme .theme2").attr("src", "images/backgrounds/BG-Synth.jpg");
-            $(".theme .theme3").attr("src", "images/backgrounds/theRagingHillsDay.png");
+            $(".theme .theme2").attr("src", "images/backgrounds/RetrowaveEvening.jpg");
+            $(".theme .theme3").attr("src", "images/backgrounds/theRagingHillsEvening.png");
         }else{
             $("body").removeClass("day evening");
             $("body").addClass("night");
             $(".theme .theme1").attr("src", "images/backgrounds/intoTheWoodsNight.png");
-            $(".theme .theme2").attr("src", "images/backgrounds/BG-Synth.jpg");
+            $(".theme .theme2").attr("src", "images/backgrounds/RetrowaveNight.jpg");
             $(".theme .theme3").attr("src", "images/backgrounds/theRagingHillsNight.png");
         }
 });

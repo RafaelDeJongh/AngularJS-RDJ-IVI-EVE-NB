@@ -63,6 +63,7 @@ body{
 ------------------*/
 aside {
     background-color:rgba(240,248,255,.1);
+	background-color:rgba(150,180,220,.36);
     display:inline-block;
     height:100%;
     width:6em;
@@ -340,17 +341,17 @@ img.currentTheme{border:2px solid #099}
 /*Day
 ------------------*/
 .day.theme1 {background-image:url("../images/backgrounds/intoTheWoodsDay.png")}
-.day.theme2 {background-image:url("../images/backgrounds/BG-Synth.jpg")}
+.day.theme2 {background-image:url("../images/backgrounds/RetrowaveDay.jpg")}
 .day.theme3 {background-image:url("../images/backgrounds/theRagingHillsDay.png")}
 /*Evening
 ------------------*/
 .evening.theme1 {background-image:url("../images/backgrounds/intoTheWoodsEvening.png")}
-.evening.theme2 {background-image:url("../images/backgrounds/BG-Synth.jpg")}
+.evening.theme2 {background-image:url("../images/backgrounds/RetrowaveEvening.jpg")}
 .evening.theme3 {background-image:url("../images/backgrounds/theRagingHillsEvening.png")}
 /*Night
 ------------------*/
 .night.theme1 {background-image:url("../images/backgrounds/intoTheWoodsNight.png")}
-.night.theme2 {background-image:url("../images/backgrounds/BG-Synth.jpg")}
+.night.theme2 {background-image:url("../images/backgrounds/RetrowaveNight.jpg")}
 .night.theme3 {background-image:url("../images/backgrounds/theRagingHillsNight.png")}
 /*Easter Egg
 ------------------*/
