@@ -7,6 +7,9 @@
 ------------------*/
 var app = angular.module('QuestLogger', []);
 var nDate = new Date();
+var hours = nDate.getHours();
+var minutes = nDate.getMinutes();
+var seconds = nDate.getSeconds();
 /*Current Year
 ------------------*/
 app.controller('yearC', function ($scope) {
@@ -17,7 +20,7 @@ app.controller('yearC', function ($scope) {
 app.controller('clock', function ($scope) {
   $scope.clock = {clock:nDate}
     var updateClock = function(){
-		$scope.clock.now = (nDate.getHours()<10?'0':'') + nDate.getHours() + ":" + (nDate.getMinutes()<10?'0':'') + nDate.getMinutes() /*+ ":" + (nDate.getSeconds()<10?'0':'') + nDate.getSeconds()*/;};
+		$scope.clock.now = (new Date().getHours()<10?'0':'') + new Date().getHours() + ":" + (new Date().getMinutes()<10?'0':'') + new Date().getMinutes() + ":" + (new Date().getSeconds()<10?'0':'') + new Date().getSeconds();};
     setInterval(function(){$scope.$apply(updateClock);},1000);
     updateClock();
 });
@@ -80,43 +83,42 @@ app.controller('toDoC', function ($scope) {
 /*Jquery
 ------------------*/
 $(function(){
-    $(".content").draggable({containment:"main",scroll:false});
+    $(".content").draggable({containment:"main",scroll:false}).resizable({containment:"main"});
     $("a.close").closest("a.close").click(function(){$(this).closest(".content").addClass("none")});
     $("nav a").click(function(){$($(this).attr("href")).removeClass("none").siblings(".content").addClass("none");});
 });
 /*StyleChanger
 ------------------*/
 $(function(){
-   $(".themeHover").click(function(){
+   $(".theme img").click(function(){
       var myClass = $(this).attr("class");
-      $(".themeHover").removeClass("currentTheme");
-      $(this).addClass("currentTheme");
+      $(".theme img").removeClass("currentTheme");
+      $(this).closest("img").addClass("currentTheme");
       $("body").removeClass("currentTheme theme1 theme2 theme3 konami");
-      $("body").addClass(myClass).removeClass("themeHover");
+      $("body").addClass(myClass).removeClass("currentTheme");
     }); 
 });
 /*Day-NightCycle
 ------------------*/
 $(function(){
-    var currentTime = nDate.getHours();
-        if(currentTime >= 7 && currentTime < 17){
+        if(hours >= 7 && hours < 17){
             $("body").removeClass("night evening");
             $("body").addClass("day");
-            $(".theme1").attr("src", "images/backgrounds/intoTheWoodsDay.png");
-            $(".theme2").attr("src", "images/backgrounds/BG-Synth.jpg");
-            $(".theme3").attr("src", "images/backgrounds/theRagingHillsDay.png");
-        }else if(currentTime >= 17 && currentTime <= 20){
+            $(".theme .theme1").attr("src", "images/backgrounds/intoTheWoodsDay.png");
+            $(".theme .theme2").attr("src", "images/backgrounds/BG-Synth.jpg");
+            $(".theme .theme3").attr("src", "images/backgrounds/theRagingHillsDay.png");
+        }else if(hours >= 17 && hours <= 20){
             $("body").removeClass("day night");
             $("body").addClass("evening");
-            $(".theme1").attr("src", "images/backgrounds/intoTheWoodsEvening.png");
-            $(".theme2").attr("src", "images/backgrounds/BG-Synth.jpg");
-            $(".theme3").attr("src", "images/backgrounds/theRagingHillsDay.png");
+            $(".theme .theme1").attr("src", "images/backgrounds/intoTheWoodsEvening.png");
+            $(".theme .theme2").attr("src", "images/backgrounds/BG-Synth.jpg");
+            $(".theme .theme3").attr("src", "images/backgrounds/theRagingHillsDay.png");
         }else{
             $("body").removeClass("day evening");
             $("body").addClass("night");
-            $(".theme1").attr("src", "images/backgrounds/intoTheWoodsNight.png");
-            $(".theme2").attr("src", "images/backgrounds/BG-Synth.jpg");
-            $(".theme3").attr("src", "images/backgrounds/theRagingHillsNight.png");
+            $(".theme .theme1").attr("src", "images/backgrounds/intoTheWoodsNight.png");
+            $(".theme .theme2").attr("src", "images/backgrounds/BG-Synth.jpg");
+            $(".theme .theme3").attr("src", "images/backgrounds/theRagingHillsNight.png");
         }
 });
 /*EasterEggs
@@ -126,7 +128,7 @@ $(document).keydown(function(e) {
   kkeys.push(e.keyCode);
   if (kkeys.toString().indexOf( konami ) >= 0 ){
     $(document).unbind('keydown',arguments.call);
-  //  window.open('http://games.freearcade.com/Contra.flash/ContraFlash.swf', '_blank');
+	//window.open('http://games.freearcade.com/Contra.flash/ContraFlash.swf', '_blank');
 	//Add code here to do something fun!
     $("body").removeClass("theme1 theme2 theme3 day");
     $("body").addClass("night konami");

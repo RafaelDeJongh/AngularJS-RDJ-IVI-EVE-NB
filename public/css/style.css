@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import "font-awesome.min.css";
+@import "https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.min.css";
 /*Stylesheet for the Quest Logger application.
 ** QuestLogger is created by Rafael De Jongh, Inias Van Ingelgom, Evelyne Vas Esbroeck and Nico Bosmans.
 ** This webapplication is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
@@ -30,7 +31,7 @@ Reset
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}
 /*Body
 ------------------*/
-html {
+html{
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
     box-sizing:border-box;
@@ -56,7 +57,6 @@ body{
     position:relative;
     height:100%
 }
-
 .none {display:none}
 /*Aside
 ------------------*/
@@ -110,8 +110,9 @@ main {
 }
 .content {
     width:600px;
+	min-width:600px;
     min-height:300px;
-    max-height:82%;
+    max-height:100%;
     left:calc(50% - 300px);
     top:10%;
     position:absolute;
@@ -126,38 +127,17 @@ main {
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
     box-sizing:border-box; 
-    -webkit-transition:box-shadow .3s ease-in-out, background 2s linear;
-    -moz-transition:box-shadow .3s ease-in-out, background 2s linear;
-    -o-transition:box-shadow .3s ease-in-out, background 2s linear;
-    transition:box-shadow .3s ease-in-out, background 2s linear;
-    overflow:hidden;
-}
-.content::before {
-    content:"";
-    display:inline-block;
-    width:610px;
-    min-height:310px;
-    height:105%;
-    position:absolute;
-    z-index:-1;
-    left:-5px;
-    top:-5px;
-    background-repeat:no-repeat;
-    background-size:cover;
-    background-attachment:fixed;
-    background-position:center center;
-    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsDay.png");
-    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsDay.png");
-    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsDay.png");
-    -webkit-transition:inherit;
-    -moz-transition:inherit;
-    -o-transition:inherit;
-    transition:inherit;
-    -webkit-filter:blur(4px);
-    -moz-filter:blur(4px);
-    -o-filter:blur(4px);
-    -ms-filter:blur(4px);
-    filter:blur(4px);
+    -webkit-transition:box-shadow .3s ease-in-out;
+    -moz-transition:box-shadow .3s ease-in-out;
+    -o-transition:box-shadow .3s ease-in-out;
+    transition:box-shadow .3s ease-in-out;
+	background: -moz-linear-gradient(-45deg,  rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.09) 9%, rgba(255,255,255,0) 11%, rgba(255,255,255,0) 16%, rgba(255,255,255,0.1) 21%, rgba(255,255,255,0.09) 37%, rgba(255,255,255,0) 41%, rgba(255,255,255,0) 47%, rgba(255,255,255,0.09) 48%, rgba(255,255,255,0.1) 49%, rgba(255,255,255,0.1) 54%, rgba(255,255,255,0.08) 55%, rgba(255,255,255,0) 57%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.1) 64%, rgba(255,255,255,0.09) 76%, rgba(255,255,255,0) 80%, rgba(255,255,255,0.01) 81%, rgba(255,255,255,0.1) 84%, rgba(255,255,255,0.1) 100%);
+	background: -webkit-linear-gradient(-45deg,  rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.09) 9%,rgba(255,255,255,0) 11%,rgba(255,255,255,0) 16%,rgba(255,255,255,0.1) 21%,rgba(255,255,255,0.09) 37%,rgba(255,255,255,0) 41%,rgba(255,255,255,0) 47%,rgba(255,255,255,0.09) 48%,rgba(255,255,255,0.1) 49%,rgba(255,255,255,0.1) 54%,rgba(255,255,255,0.08) 55%,rgba(255,255,255,0) 57%,rgba(255,255,255,0) 60%,rgba(255,255,255,0.1) 64%,rgba(255,255,255,0.09) 76%,rgba(255,255,255,0) 80%,rgba(255,255,255,0.01) 81%,rgba(255,255,255,0.1) 84%,rgba(255,255,255,0.1) 100%);
+	background: linear-gradient(135deg,  rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.09) 9%,rgba(255,255,255,0) 11%,rgba(255,255,255,0) 16%,rgba(255,255,255,0.1) 21%,rgba(255,255,255,0.09) 37%,rgba(255,255,255,0) 41%,rgba(255,255,255,0) 47%,rgba(255,255,255,0.09) 48%,rgba(255,255,255,0.1) 49%,rgba(255,255,255,0.1) 54%,rgba(255,255,255,0.08) 55%,rgba(255,255,255,0) 57%,rgba(255,255,255,0) 60%,rgba(255,255,255,0.1) 64%,rgba(255,255,255,0.09) 76%,rgba(255,255,255,0) 80%,rgba(255,255,255,0.01) 81%,rgba(255,255,255,0.1) 84%,rgba(255,255,255,0.1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1affffff', endColorstr='#1affffff',GradientType=1 );
+	background-color:rgba(150,180,220,.36);
+	overflow:hidden;
+	/*resize: both;*/
 }
 .content:hover{
     -moz-box-shadow:0 10px 32px rgba(0,0,0,.7);
@@ -345,10 +325,10 @@ label {-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-
 	-webkit-border-radius:4px;
     -moz-border-radius:4px;
     border-radius:4px;
+	border:2px solid #fff
 }
+.theme img:hover{cursor:pointer;border:2px solid #099}
 .themetitle{margin:.2rem auto}
-.themeHover{border:2px solid #fff}
-.themeHover:hover{cursor:pointer;border:2px solid #099}
 img.currentTheme{border:2px solid #099}
 /*Day Night Cycle
 ------------------*/
@@ -358,74 +338,20 @@ img.currentTheme{border:2px solid #099}
 ------------------*/
 .day.theme1 {background-image:url("../images/backgrounds/intoTheWoodsDay.png")}
 .day.theme2 {background-image:url("../images/backgrounds/BG-Synth.jpg")}
-.day.theme2 main .content::before {
-    background-image:url("../images/backgrounds/BG-Synth.jpg");
-    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
-    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
-    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
-}
 .day.theme3 {background-image:url("../images/backgrounds/theRagingHillsDay.png")}
-.day.theme3 main .content::before {
-    background-image:url("../images/backgrounds/theRagingHillsDay.png");
-    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsDay.png");
-    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsDay.png");
-    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsDay.png");
-}
 /*Evening
 ------------------*/
 .evening.theme1 {background-image:url("../images/backgrounds/intoTheWoodsEvening.png")}
-.evening.theme1 main .content::before {
-    background-image:url("../images/backgrounds/intoTheWoodsEvening.png");
-    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsEvening.png");
-    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsEvening.png");
-    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsEvening.png");
-}
 .evening.theme2 {background-image:url("../images/backgrounds/BG-Synth.jpg")}
-.evening.theme2 main .content::before {
-    background-image:url("../images/backgrounds/BG-Synth.jpg");
-    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
-    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
-    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
-}
 .evening.theme3 {background-image:url("../images/backgrounds/theRagingHillsEvening.png")}
-.evening.theme3 main .content::before {
-    background-image:url("../images/backgrounds/theRagingHillsEvening.png");
-    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsEvening.png");
-    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsEvening.png");
-    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsEvening.png");
-}
 /*Night
 ------------------*/
 .night.theme1 {background-image:url("../images/backgrounds/intoTheWoodsNight.png")}
-.night.theme1 main .content::before {
-    background-image:url("../images/backgrounds/intoTheWoodsNight.png");
-    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsNight.png");
-    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsNight.png");
-    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/intoTheWoodsNight.png");
-}
 .night.theme2 {background-image:url("../images/backgrounds/BG-Synth.jpg")}
-.night.theme2 main .content::before {
-    background-image:url("../images/backgrounds/BG-Synth.jpg");
-    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
-    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
-    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/BG-Synth.jpg");
-}
 .night.theme3 {background-image:url("../images/backgrounds/theRagingHillsNight.png")}
-.night.theme3 main .content::before {
-    background-image:url("../images/backgrounds/theRagingHillsNight.png");
-    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsNight.png");
-    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsNight.png");
-    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/theRagingHillsNight.png");
-}
 /*Easter Egg
 ------------------*/
 .konami{background-image:url("../images/backgrounds/konami.jpg")}
-.konami main .content::before {
-    background-image:url("../images/backgrounds/konami.png");
-    background-image:-moz-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/konami.jpg");
-    background-image:-webkit-linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/konami.jpg");
-    background-image:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)), url("../images/backgrounds/konami.jpg ");
-}
 /*Clock
 ------------------*/
 time#clock {
@@ -444,19 +370,13 @@ time#clock {
 }
 /*MediaQueries
 ------------------*/
-@media screen and (min-width:1920px) { 
-}
-@media screen and (max-width:780px) { 
-    .content::before {
-        min-width:610px;
-        min-height:310px;
-        width:105%;
-        height:105%;
-    }
+@media screen and (min-width:1920px){}
+@media screen and (max-width:780px){ 
     .content {
-        width:calc(100% - 6em);
-        height:100%;
-        max-height:100%;
+        width:calc(100% - 6em)!important;
+        height:100%!important;
+        max-height:100%!important;
+		min-width:initial;
         right:0!important;
         top:0!important;
         left:initial!important;
@@ -477,6 +397,7 @@ time#clock {
         -webkit-box-shadow:none;
         box-shadow:none;
     }
+	.ui-resizable-handle {display:none!important;}
     main .content header {
         cursor:initial;
         -webkit-border-radius:0;
@@ -495,13 +416,13 @@ time#clock {
     }
     #todolist{max-height:100%}
 }
-@media screen and (max-width:635px) {
+@media screen and (max-width:635px){
     #markall{
         margin:10px 0 5px 4px;
         width:88%
     }
 }
-@media screen and (max-width:550px) {
+@media screen and (max-width:550px){
     input[type=text], select, input[type=submit] {
         -webkit-border-radius:4px 4px 0 0;
         -moz-border-radius:4px 4px 0 0;

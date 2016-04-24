@@ -26,7 +26,6 @@
 <link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-touch-icon-152x152.png">
 -->
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<!--<script src="bower_components/angularjs/angular.js"></script>-->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
@@ -50,7 +49,7 @@
                 <h2>Avatar Settings</h2>
                 <a class="fa fa-times close" href="#close"></a>
             </header>
-            <p>Avatar Info</p>
+            <p>Choose your avatar!</p>
             <img src="images/iphone_favicon.png" alt="avatar"/>
         </div>
         <div ng-controller="toDoC" id="addlist" class="content none">
@@ -95,16 +94,16 @@
             </header>
             <p>Choose your theme!</p>
             <div>
-				<img src="images/backgrounds/intoTheWoodsDay.png" class="theme1 themeHover currentTheme" alt="Into The Woods">
+				<img src="images/backgrounds/intoTheWoodsDay.png" class="theme1 currentTheme" alt="Into The Woods">
 				<p class="themetitle">Into The Woods</p>
 			</div>
-            <div>
-				<img src="images/backgrounds/BG-Synth.jpg" class="theme2 themeHover" alt="Retrowave">
-				<p class="themetitle">Retrowave</p>
+			<div>
+				<img src="images/backgrounds/theRagingHillsDay.png" class="theme3" alt="The Raging Hills">
+				<p class="themetitle">The Raging Hills</p>
 			</div>
 			<div>
-				<img src="images/backgrounds/theRagingHillsDay.png" class="theme3 themeHover" alt="The Raging Hills">
-				<p class="themetitle">The Raging Hills</p>
+				<img src="images/backgrounds/BG-Synth.jpg" class="theme2" alt="Retrowave">
+				<p class="themetitle">Retrowave</p>
 			</div>
         </div>
         <div id="settings" class="content none">
@@ -113,6 +112,7 @@
                 <a class="fa fa-times close" href="#close"></a>
             </header>
             <p>Settings information</p>
+			<p>Here comes a slider setting to turn on/off the clock and seconds.</p>
         </div>
         <div id="about" class="content none" ng-controller="yearC">
             <header>
