@@ -175,15 +175,38 @@ main .content header .close {
     font-size:1.8em;
 	padding:6px 7px;
     background-color:rgba(200,0,0,.84);
-    -webkit-border-radius:0 4px 0 4px;
-    -moz-border-radius:0 4px 0 4px;
-    border-radius:0 4px 0 4px;
+    -webkit-border-radius:0 4px 0 0;
+    -moz-border-radius:0 4px 0 0;
+    border-radius:0 4px 0 0;
     -webkit-transition:all .2s ease;
     -moz-transition:all .2s ease;
     -o-transition:all .2s ease;
     transition:all .2s ease;
 }
-.close:hover {background-color:#b00}
+main .content header .close:hover {background-color:#b00}
+.maximized{
+	width:90%;
+	width:calc(100% - 6em);
+	height:100%;
+    left:6em!important;
+    top:0!important;
+}
+main .content header .maximize, main .content header .minimize {
+    position:absolute;
+    right:33px;
+    top:0;
+    font-size:1.8em;
+	padding:6px 7px;
+    background-color:rgba(76,175,80,.84);
+    -webkit-border-radius:0 0 0 4px;
+    -moz-border-radius:0 0 0 4px;
+    border-radius:0 0 0 4px;
+    -webkit-transition:all .2s ease;
+    -moz-transition:all .2s ease;
+    -o-transition:all .2s ease;
+    transition:all .2s ease;
+}
+main .content header .maximize:hover, main .content header .minimize:hover {background-color:#45a049}
 .content p {padding:5px 10px}
 /*ContentBox Styling
 --------------------*/
@@ -211,6 +234,10 @@ input[type=submit] {
     -webkit-border-radius:0 4px 4px 0;
     -moz-border-radius:0 4px 4px 0;
     border-radius:0 4px 4px 0;
+	-webkit-transition:all .2s ease;
+    -moz-transition:all .2s ease;
+    -o-transition:all .2s ease;
+    transition:all .2s ease;
 }
 input[type=submit]:hover {background-color:#45a049}
 #todolist{max-height:625px;overflow:auto}
@@ -401,7 +428,7 @@ time#clock {
         -webkit-box-shadow:none;
         box-shadow:none;
     }
-	.ui-resizable-handle {display:none!important;}
+	.maximize, .minimize, .ui-resizable-handle {display:none!important;}
     main .content header {
         cursor:initial;
         -webkit-border-radius:0;

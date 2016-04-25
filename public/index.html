@@ -47,7 +47,11 @@
         <div id="avatar" class="content none">
             <header>
                 <h2>Avatar Settings</h2>
+				<!--Window Buttons-->
+				<a class="fa fa-expand maximize" href="#maximized"></a>
+				<a class="fa fa-compress minimize none" href="#minimized"></a>
                 <a class="fa fa-times close" href="#close"></a>
+				<!--Window Buttons-->
             </header>
             <p>Choose your avatar!</p>
             <img src="images/iphone_favicon.png" alt="avatar"/>
@@ -55,7 +59,11 @@
         <div ng-controller="toDoC" id="addlist" class="content none">
         <header>
             <h2>Quest Logger</h2>
-            <a class="fa fa-times close" href="#close"></a>
+            <!--Window Buttons-->
+			<a class="fa fa-expand maximize" href="#maximized"></a>
+			<a class="fa fa-compress minimize none" href="#minimized"></a>
+			<a class="fa fa-times close" href="#close"></a>
+			<!--Window Buttons-->
         </header>
 <!--toDoList-->   
 <form id="logform" ng-submit="addTodo()">
@@ -83,14 +91,22 @@
         <div id="lists" class="content none">
             <header>
                 <h2>Lists Settings/Archive</h2>
+                <!--Window Buttons-->
+				<a class="fa fa-expand maximize" href="#maximized"></a>
+				<a class="fa fa-compress minimize none" href="#minimized"></a>
                 <a class="fa fa-times close" href="#close"></a>
+				<!--Window Buttons-->
             </header>
             <p>List Settings</p>
         </div>
         <div id="styles" class="content theme none">
             <header>
                 <h2>Style Changer</h2>
+                <!--Window Buttons-->
+				<a class="fa fa-expand maximize" href="#maximized"></a>
+				<a class="fa fa-compress minimize none" href="#minimized"></a>
                 <a class="fa fa-times close" href="#close"></a>
+				<!--Window Buttons-->
             </header>
             <p>Choose your theme!</p>
             <section>
@@ -109,7 +125,11 @@
         <div id="settings" class="content none">
             <header>
                 <h2>Settings</h2>
+                <!--Window Buttons-->
+				<a class="fa fa-expand maximize" href="#maximized"></a>
+				<a class="fa fa-compress minimize none" href="#minimized"></a>
                 <a class="fa fa-times close" href="#close"></a>
+				<!--Window Buttons-->
             </header>
             <p>Settings information</p>
 			<p>Here comes a slider setting to turn on/off the clock and seconds.</p>
@@ -117,7 +137,11 @@
         <div id="about" class="content none" ng-controller="yearC">
             <header>
                 <h2>About Quest Logger</h2>
+                <!--Window Buttons-->
+				<a class="fa fa-expand maximize" href="#maximized"></a>
+				<a class="fa fa-compress minimize none" href="#minimized"></a>
                 <a class="fa fa-times close" href="#close"></a>
+				<!--Window Buttons-->
             </header>
             <p>The Quest Logger is a simple Angular webapp that will help you organize your quests!</p>
             <p>Created by Rafa&euml;l De Jongh | Inias Van Ingelgom | Evelyne Van Esbroeck | Nico Bosmans | Copyright &copy; {{cDate}}</p>

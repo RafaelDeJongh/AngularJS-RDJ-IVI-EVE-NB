@@ -85,6 +85,15 @@ app.controller('toDoC', function ($scope) {
 $(function(){
     $(".content").draggable({containment:"main",scroll:false}).resizable({containment:"main"});
     $("a.close").closest("a.close").click(function(){$(this).closest(".content").addClass("none")});
+	$("a.maximize").closest("a.maximize").click(function(){
+		$(this).addClass("none").closest(".content").addClass("maximized");
+		$("a.minimize").closest("a.minimize").removeClass("none");
+	});
+	$("a.minimize").closest("a.minimize").click(function(){
+		$(this).closest(".content").removeClass("maximized");
+		$("a.minimize").closest("a.minimize").addClass("none");
+		$("a.maximize").closest("a.maximize").removeClass("none");
+	});
     $("nav a").click(function(){$($(this).attr("href")).removeClass("none").siblings(".content").addClass("none");});
 });
 /*StyleChanger
