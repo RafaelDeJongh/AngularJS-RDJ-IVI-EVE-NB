@@ -18,7 +18,7 @@ app.controller('yearC', function ($scope) {
 /*Clock
 ------------------*/
 app.controller('clock', function ($scope) {
-  $scope.clock = {clock:nDate}
+  $scope.clock = {clock:nDate};
     var updateClock = function(){
 		$scope.clock.now = (new Date().getHours()<10?'0':'') + new Date().getHours() + ":" + (new Date().getMinutes()<10?'0':'') + new Date().getMinutes() + ":" + (new Date().getSeconds()<10?'0':'') + new Date().getSeconds();};
     setInterval(function(){$scope.$apply(updateClock);},1000);
