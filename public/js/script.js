@@ -103,7 +103,7 @@ $(function(){
       var myClass = $(this).attr("class");
       $(".theme img").removeClass("currentTheme");
       $(this).closest("img").addClass("currentTheme");
-      $("body").removeClass("currentTheme theme1 theme2 theme3 konami");
+      $("body").removeClass("currentTheme theme1 theme2 theme3 theme4 konami");
       $("body").addClass(myClass).removeClass("currentTheme");
     }); 
 });
@@ -114,20 +114,23 @@ $(function(){
             $("body").removeClass("night evening");
             $("body").addClass("day");
             $(".theme .theme1").attr("src", "images/backgrounds/intoTheWoodsDay.png");
-            $(".theme .theme2").attr("src", "images/backgrounds/RetrowaveDay.jpg");
-            $(".theme .theme3").attr("src", "images/backgrounds/theRagingHillsDay.png");
+            $(".theme .theme2").attr("src", "images/backgrounds/theRagingHillsDay.png");
+            $(".theme .theme3").attr("src", "images/backgrounds/theCalmingBeachDay.png");
+            $(".theme .theme4").attr("src", "images/backgrounds/RetrowaveDay.jpg");
         }else if(hours >= 17 && hours <= 20){
             $("body").removeClass("day night");
             $("body").addClass("evening");
             $(".theme .theme1").attr("src", "images/backgrounds/intoTheWoodsEvening.png");
-            $(".theme .theme2").attr("src", "images/backgrounds/RetrowaveEvening.jpg");
-            $(".theme .theme3").attr("src", "images/backgrounds/theRagingHillsEvening.png");
+            $(".theme .theme2").attr("src", "images/backgrounds/theRagingHillsEvening.png");
+            $(".theme .theme3").attr("src", "images/backgrounds/theHowlingDesertEvening.png");
+            $(".theme .theme4").attr("src", "images/backgrounds/RetrowaveEvening.jpg");
         }else{
             $("body").removeClass("day evening");
             $("body").addClass("night");
             $(".theme .theme1").attr("src", "images/backgrounds/intoTheWoodsNight.png");
-            $(".theme .theme2").attr("src", "images/backgrounds/RetrowaveNight.jpg");
-            $(".theme .theme3").attr("src", "images/backgrounds/theRagingHillsNight.png");
+            $(".theme .theme2").attr("src", "images/backgrounds/theRagingHillsNight.png");
+            $(".theme .theme3").attr("src", "images/backgrounds/theSilentMoonNight.png");
+            $(".theme .theme4").attr("src", "images/backgrounds/RetrowaveNight.jpg");
         }
 });
 /*EasterEggs

@@ -364,22 +364,25 @@ img.currentTheme{border:2px solid #099}
 /*Day Night Cycle
 ------------------*/
 .day main .content, .evening main .content {color:#444}
-.night  main .content, .theme2  main .content, .evening.theme3 main .content {color:#fff}
+.night  main .content, .evening.theme3 main .content, .theme4 main .content {color:#fff}
 /*Day
 ------------------*/
 .day.theme1 {background-image:url("../images/backgrounds/intoTheWoodsDay.png")}
-.day.theme2 {background-image:url("../images/backgrounds/RetrowaveDay.jpg")}
-.day.theme3 {background-image:url("../images/backgrounds/theRagingHillsDay.png")}
+.day.theme2 {background-image:url("../images/backgrounds/theRagingHillsDay.png")}
+.day.theme3 {background-image:url("../images/backgrounds/theCalmingBeachDay.png")}
+.day.theme4 {background-image:url("../images/backgrounds/RetrowaveDay.jpg")}
 /*Evening
 ------------------*/
 .evening.theme1 {background-image:url("../images/backgrounds/intoTheWoodsEvening.png")}
-.evening.theme2 {background-image:url("../images/backgrounds/RetrowaveEvening.jpg")}
-.evening.theme3 {background-image:url("../images/backgrounds/theRagingHillsEvening.png")}
+.evening.theme2 {background-image:url("../images/backgrounds/theRagingHillsEvening.png")}
+.evening.theme3 {background-image:url("../images/backgrounds/theHowlingDesertEvening.png")}
+.evening.theme4 {background-image:url("../images/backgrounds/RetrowaveEvening.jpg")}
 /*Night
 ------------------*/
 .night.theme1 {background-image:url("../images/backgrounds/intoTheWoodsNight.png")}
-.night.theme2 {background-image:url("../images/backgrounds/RetrowaveNight.jpg")}
-.night.theme3 {background-image:url("../images/backgrounds/theRagingHillsNight.png")}
+.night.theme2 {background-image:url("../images/backgrounds/theRagingHillsNight.png")}
+.night.theme3 {background-image:url("../images/backgrounds/theSilentMoonNight.png")}
+.night.theme4 {background-image:url("../images/backgrounds/RetrowaveNight.jpg")}
 /*Easter Egg
 ------------------*/
 .konami{background-image:url("../images/backgrounds/konami.jpg")}
