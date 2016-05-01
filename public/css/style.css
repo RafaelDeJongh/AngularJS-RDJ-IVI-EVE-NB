@@ -42,7 +42,7 @@ html{
 	height:100%
 }
 body{
-    font-family:"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size:14px;
     line-height:1.6;
     color:#eee;
@@ -388,20 +388,101 @@ img.currentTheme{border:2px solid #099}
 /*Clock
 ------------------*/
 time#clock {
-    position:absolute;
-    right:5%;
-    top:7%;
-    font-size:3vw;
-	font-weight:100;
-    color:#fff;
+	font-family:"Open Sans",sans-serif;
+	font-weight:300;
+	font-size:3vw;
+	color:#fff;
     text-shadow:rgba(0,0,0,.05) 2px 2px,rgba(0,0,0,.05) 3px 3px,rgba(0,0,0,.05) 4px 4px;
 	-webkit-user-select:none;   
 	-moz-user-select:none;      
 	-ms-user-select:none;       
 	user-select:none;  
+	position:absolute;
+    right:5%;
+    top:7%;
 	z-index:-1;
 	cursor:none;
 }
+/*Switch
+------------------*/
+.switches{
+    margin:auto;
+    display:inline-block;
+}
+.switches h5 {
+    float:left;
+    clear:both;
+    text-align:center;
+}
+.toggle {
+    background:#fff;
+    border-radius:2em;
+    display:block;
+    border:.12em solid #e6e6e6;
+    height:2em;
+    position:relative;
+    margin:1em auto 0;
+    width:4.48em;
+    -moz-transition-duration:.2s;
+    -o-transition-duration:.2s;
+    -webkit-transition-duration:.2s;
+    transition-duration:.2s;
+}
+.toggle:hover {border-color:#d9d9d9}
+.toggle.on {background-color:rgb(76,175,80);border-color:#45a049}
+.toggle.off {background-color:rgb(200,0,0);border-color:#b00}
+.toggle input {
+  margin:0;
+  padding:0;
+  width:6.24em;
+  height:100%;
+  filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity:0;
+  position:absolute;
+  left:0;
+  top:0;
+  cursor:pointer;
+  z-index:2;
+  zoom:1;
+  filter:alpha(opacity=0);
+}
+.toggle input:checked ~ .switch {left:0}
+.toggle input ~ :checked ~ .switch {left:2.48em}
+.toggle input:checked {z-index:0}
+.switch {
+  background:#fff;
+  border-radius:2em;
+  display:block;
+  float:left;
+  height:2em;
+  width:2em;
+  left:-.1em;
+  position:relative;
+  -moz-transition-duration:.2s;
+  -o-transition-duration:.2s;
+  -webkit-transition-duration:.2s;
+  transition-duration:.2s;
+  z-index:1;
+}
+.switch.on {box-shadow:-.2em .2em .5em rgba(0,0,0,.06),.4em 0.4em 1.5em rgba(0,0,0,.08)}
+.switch.off {box-shadow:.2em .2em .5em rgba(0,0,0,.06), -.4em .4em 1.5em rgba(0,0,0,.08)}
+.toggle label {
+  font-weight: 600;
+  text-transform:uppercase;
+  position:absolute;
+  top:.26em;
+}
+.toggle label.on {
+  left:.75em;
+  color:#fff;
+  text-shadow:0 .1em 0 rgba(0,0,0,.1)
+}
+.toggle label.off {
+    right:.55em;
+    color:#fff;
+    text-shadow:0 .1em 0 rgba(0,0,0,.1)
+}
+
 /*MediaQueries
 ------------------*/
 @media screen and (max-width:780px){ 
@@ -420,17 +501,8 @@ time#clock {
         -moz-border-radius:0;
         border-radius:0;
     }
-    .content:hover{
-        -moz-box-shadow:none;
-        -webkit-box-shadow:none;
-        box-shadow:none;
-    }
-    .content:active {
-        -moz-box-shadow:none;
-        -webkit-box-shadow:none;
-        box-shadow:none;
-    }
-	.maximize, .minimize, .ui-resizable-handle {display:none!important;}
+    .content:hover{-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none}
+    .content:active{-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none}
     main .content header {
         cursor:initial;
         -webkit-border-radius:0;
@@ -448,7 +520,7 @@ time#clock {
         border-radius:4px 4px 0 0;
     }
     #todolist{max-height:100%}
-	time#clock{display:none}
+    .maximize, .minimize, .ui-resizable-handle,time#clock,#clockSwitch{display:none!important;}
 }
 @media screen and (max-width:635px){
     #markall{

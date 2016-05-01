@@ -12,16 +12,14 @@ var minutes = nDate.getMinutes();
 var seconds = nDate.getSeconds();
 /*Current Year
 ------------------*/
-app.controller('yearC', function ($scope) {
-    $scope.cDate = nDate.getFullYear(); 
-});
+app.controller('yearC',function($scope){$scope.cDate = nDate.getFullYear();});
 /*Clock
 ------------------*/
 app.controller('clock', function ($scope) {
   $scope.clock = {clock:nDate};
     var updateClock = function(){
-		$scope.clock.now = (new Date().getHours()<10?'0':'') + new Date().getHours() + ":" + (new Date().getMinutes()<10?'0':'') + new Date().getMinutes() + ":" + (new Date().getSeconds()<10?'0':'') + new Date().getSeconds();};
-    setInterval(function(){$scope.$apply(updateClock);},1000);
+		$scope.clock.now = (new Date().getHours()<10?'0':'') + new Date().getHours() + ':' + (new Date().getMinutes()<10?'0':'') + new Date().getMinutes() + ':' + (new Date().getSeconds()<10?'0':'') + new Date().getSeconds();};
+    setInterval(function(){$scope.$apply(updateClock);},500);
     updateClock();
 });
 /*ToDoList
@@ -79,6 +77,20 @@ app.controller('toDoC', function ($scope) {
           if (!todo.done) $scope.todos.push(todo);
         });
     };
+});
+/*Switches
+------------------*/
+app.controller('secondsSwitch', function ($scope) {
+    $scope.secondsSwitch = "on";
+    $scope.$watch('secondsSwitch', function () {
+        if ($scope.secondsSwitch == "off") {
+            //Remove seconds
+            $("time").addClass("none");
+        } else {
+            //Add seconds
+            $("time").removeClass("none");
+        }
+    });
 });
 /*Jquery
 ------------------*/

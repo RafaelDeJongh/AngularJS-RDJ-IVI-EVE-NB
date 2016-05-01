@@ -135,8 +135,18 @@
                 <a class="fa fa-times close" href="#close"></a>
 				<!--Window Buttons-->
             </header>
-            <p>Settings information</p>
-			<p>Here comes a slider setting to turn on/off the clock and seconds.</p>
+            <section id="clockSwitch">
+            <h5>Turn the clock on/off.</h5>
+                <form class="switches" ng-controller="secondsSwitch">
+                    <div class="toggle {{secondsSwitch}}">
+                        <label class="{{secondsSwitch}}">{{secondsSwitch}}</label>
+                        <input type="radio" name="toggle" value="off" ng-model="secondsSwitch">
+                        <input type="radio" name="toggle" value="on" ng-model="secondsSwitch">
+                        <span class="switch {{secondsSwitch}}"></span>
+                        <!--<p>State:{{secondsSwitch}}</p>-->
+                    </div> 
+                </form>
+            </section>
         </div>
         <div id="about" class="content none" ng-controller="yearC">
             <header>
