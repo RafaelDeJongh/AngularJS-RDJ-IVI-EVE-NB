@@ -103,7 +103,7 @@ $(function(){
       var myClass = $(this).attr("class");
       $(".theme img").removeClass("currentTheme");
       $(this).closest("img").addClass("currentTheme");
-      $("body").removeClass("currentTheme theme1 theme2 theme3 theme4 konami");
+      $("body").removeClass("currentTheme theme1 theme2 theme3 theme4 kcode");
       $("body").addClass(myClass).removeClass("currentTheme");
     }); 
 });
@@ -135,14 +135,14 @@ $(function(){
 });
 /*EasterEggs
 ------------------*/
-var kkeys = [], konami = "38,38,40,40,37,39,37,39,66,65";
+var kkeys = [], kcode = "38,38,40,40,37,39,37,39,66,65";
 $(document).keydown(function(e) {
   kkeys.push(e.keyCode);
-  if (kkeys.toString().indexOf( konami ) >= 0 ){
+  if (kkeys.toString().indexOf( kcode ) >= 0 ){
     $(document).unbind('keydown',arguments.call);
 	//window.open('http://games.freearcade.com/Contra.flash/ContraFlash.swf', '_blank');
 	//Add code here to do something fun!
-    $("body").removeClass("theme1 theme2 theme3 day");
-    $("body").addClass("night konami");
+    $("body").removeClass("theme1 theme2 theme3 theme4 day");
+    $("body").addClass("night kcode");
   }
 });
