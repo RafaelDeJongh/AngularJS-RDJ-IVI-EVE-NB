@@ -92,6 +92,16 @@ app.controller('secondsSwitch', function ($scope) {
         }
     });
 });
+/*Hash URL Check
+------------------*/
+$(document).ready(function() {
+    if(window.location.hash == "#avatar"){$("#avatar").removeClass("none")}
+    if(window.location.hash == "#addlist"){$("#addlist").removeClass("none")}
+    if(window.location.hash == "#lists"){$("#lists").removeClass("none")}
+    if(window.location.hash == "#styles"){$("#styles").removeClass("none")}
+    if(window.location.hash == "#settings"){$("#settings").removeClass("none")}
+    if(window.location.hash == "#about"){$("#about").removeClass("none")}
+});
 /*Jquery
 ------------------*/
 $(function(){
