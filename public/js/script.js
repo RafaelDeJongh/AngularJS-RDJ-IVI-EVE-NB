@@ -120,8 +120,8 @@ $(function(){
 });
 /*StyleChanger
 ------------------*/
-app.controller("styles", function($scope){
-    $scope.style = [
+app.controller('styles', function($scope){
+		$scope.style = [
         {
             name: 'Into The Woods',
             img: 'images/backgrounds/intoTheWoodsDay.png',
@@ -194,8 +194,8 @@ app.controller("styles", function($scope){
             version: 'Night',
             class: 'theme4'
         }
-    ]
-})
+    ];
+});
 $(function(){
    $(".theme img").click(function(){
       var myClass = $(this).attr("class");

@@ -82,7 +82,6 @@
             <input class="edit" type="text" ng-model="todo.text" ng-keyup="editOnEnter(todo)">
         </li>
     </ul>
-    
 </form>    
 <a id="clear" ng-click="clear()" ng-show="hasDone()">Remove {{(todos.length - remaining())}} {{itemText()}}.</a>
 <footer class="remaining">{{remaining()}} of {{todos.length}} Quests remaining!</footer>
@@ -99,7 +98,7 @@
             </header>
             <p>List Settings</p>
         </div>
-        <div id="styles" class="content theme none">
+        <div id="styles" class="content theme none" ng-controller="styles">
             <header>
                 <h2>Style Changer</h2>
                 <!--Window Buttons-->
@@ -109,7 +108,8 @@
 				<!--Window Buttons-->
             </header>
             <p>Choose your theme!</p>
-            <section  ng-repeat="style in styles">
+			<!--<p>{{style}}</p>-->
+            <section ng-repeat="styles in style">
 				<img ng-src="{{style.img}}" class="{{style.class}}" alt="{{style.name}}">
 				<h5 class="themetitle">{{style.name}}</h5>
 			</section>
