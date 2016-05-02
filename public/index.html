@@ -109,21 +109,9 @@
 				<!--Window Buttons-->
             </header>
             <p>Choose your theme!</p>
-            <section>
-				<img src="images/backgrounds/intoTheWoodsDay.png" class="theme1 currentTheme" alt="Into The Woods">
-				<h5 class="themetitle">Into The Woods</h5>
-			</section>
-			<section>
-				<img src="images/backgrounds/theRagingHillsDay.png" class="theme2" alt="The Raging Hills">
-				<h5 class="themetitle">The Raging Hills</h5>
-			</section>
-            <section>
-				<img src="images/backgrounds/theCalmingBeachDay.png" class="theme3" alt="Elegancy">
-				<h5 class="themetitle">Elegancy</h5>
-			</section>
-			<section>
-				<img src="images/backgrounds/RetrowaveDay.jpg" class="theme4" alt="Retrowave">
-				<h5 class="themetitle">Retrowave</h5>
+            <section  ng-repeat="style in styles">
+				<img ng-src="{{style.img}}" class="{{style.class}}" alt="{{style.name}}">
+				<h5 class="themetitle">{{style.name}}</h5>
 			</section>
         </div>
         <div id="settings" class="content none">
