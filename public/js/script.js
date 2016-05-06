@@ -125,73 +125,21 @@ app.controller('styles', function($scope){
         {
             name: 'Into The Woods',
             img: 'images/backgrounds/intoTheWoodsDay.png',
-            version: 'Day',
-            class: 'theme1'
-        },
-        {
-            name: 'Into The Woods',
-            img: 'images/backgrounds/intoTheWoodsEvening.png',
-            version: 'Evening',
-            class: 'theme1'
-        },
-        {
-            name: 'Into The Woods',
-            img: 'images/backgrounds/intoTheWoodsNight.png',
-            version: 'Night',
             class: 'theme1'
         },
         {
             name: 'The Raging Hills',
             img: 'images/backgrounds/theRagingHillsDay.png',
-            version: 'Day',
-            class: 'theme2'
-        },
-        {
-            name: 'The Raging Hills',
-            img: 'images/backgrounds/theRagingHillsEvening.png',
-            version: 'Evening',
-            class: 'theme2'
-        },
-        {
-            name: 'The Raging Hills',
-            img: 'images/backgrounds/theRagingHillsNight.png',
-            version: 'Night',
             class: 'theme2'
         },
         {
             name: 'Elegancy',
             img: 'images/backgrounds/theCalmingBeachDay.png',
-            version: 'Day',
-            class: 'theme3'
-        },
-        {
-            name: 'Elegancy',
-            img: 'images/backgrounds/theCalmingBeachEvening.png',
-            version: 'Evening',
-            class: 'theme3'
-        },
-        {
-            name: 'Elegancy',
-            img: 'images/backgrounds/theCalmingBeachNight.png',
-            version: 'Night',
             class: 'theme3'
         },
         {
             name: 'Retrowave',
-            img: 'images/backgrounds/RetrowaveDay.png',
-            version: 'Day',
-            class: 'theme4'
-        },
-        {
-            name: 'Retrowave',
-            img: 'images/backgrounds/RetrowaveEvening.png',
-            version: 'Evening',
-            class: 'theme4'
-        },
-        {
-            name: 'Retrowave',
-            img: 'images/backgrounds/RetrowaveNight.png',
-            version: 'Night',
+            img: 'images/backgrounds/RetrowaveDay.jpg',
             class: 'theme4'
         }
     ];
