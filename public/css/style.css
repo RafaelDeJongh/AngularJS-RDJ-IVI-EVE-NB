@@ -22,11 +22,11 @@ Content Table:
 			- Night
 			- Easter Egg
 		- Clock
+        - Progress Bar
 - MediaQueries
 - Links
 - Scrollbar
 - Selection
-
 Reset
 ------------------*/
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}
@@ -173,7 +173,7 @@ main .content header .close {
     top:0;
     font-size:1.8em;
 	padding:6px 7px;
-    background-color:rgba(200,0,0,.84);
+    background-color:rgb(200,0,0);
     -webkit-border-radius:0 4px 0 0;
     -moz-border-radius:0 4px 0 0;
     border-radius:0 4px 0 0;
@@ -196,7 +196,7 @@ main .content header .maximize, main .content header .minimize {
     top:0;
     font-size:1.8em;
 	padding:6px 7px;
-    background-color:rgba(76,175,80,.84);
+    background-color:rgb(76,175,80);
     -webkit-border-radius:0 0 0 4px;
     -moz-border-radius:0 0 0 4px;
     border-radius:0 0 0 4px;
@@ -343,7 +343,7 @@ input[type=checkbox] + label {display:inline-block;cursor:pointer}
 label {-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
 /*StyleSwitch
 ------------------*/
-.theme section{margin:1rem 1.5%;display:inline-block;}
+.theme section{margin:1rem 1.5%;display:inline-block}
 .theme img{
 	height:110px;
 	width:auto;
@@ -467,7 +467,7 @@ time#clock {
 .switch.on {box-shadow:-.2em .2em .5em rgba(0,0,0,.06),.4em 0.4em 1.5em rgba(0,0,0,.08)}
 .switch.off {box-shadow:.2em .2em .5em rgba(0,0,0,.06), -.4em .4em 1.5em rgba(0,0,0,.08)}
 .toggle label {
-  font-weight: 600;
+  font-weight:600;
   text-transform:uppercase;
   position:absolute;
   top:.26em;
@@ -481,8 +481,34 @@ time#clock {
     right:.55em;
     color:#fff;
     text-shadow:0 .1em 0 rgba(0,0,0,.1)
+    -webkit-appearance:none;
+   appearance:none;
 }
-
+/*Progress Bar
+------------------*/
+progress, progress[role] {
+    z-index:-1;
+    position:absolute;
+    top:0;
+    left:6em;
+    height:14px;
+    width:calc(100% - 6em);
+    appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+    background-size:auto;
+    border:none;
+}
+progress[role]:after {background-image:none}
+progress[role] strong {display:none}
+progress, progress[role][aria-valuenow] {background:#323a45!important}
+progress::-webkit-progress-bar {background:#323a45}
+progress {color:#25b695}
+progress::-moz-progress-bar {background:#25b695}
+progress::-webkit-progress-value {background:#25b695}
+progress[aria-valuenow]:before {background:#25b695}
+#progression {width:100%;text-align:center;line-height:1}
+#progression span{}
 /*MediaQueries
 ------------------*/
 @media screen and (max-width:780px){ 

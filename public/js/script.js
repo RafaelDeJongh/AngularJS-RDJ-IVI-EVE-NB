@@ -12,7 +12,7 @@ var minutes = nDate.getMinutes();
 var seconds = nDate.getSeconds();
 /*Current Year
 ------------------*/
-app.controller('yearC',function($scope){$scope.cDate = nDate.getFullYear();});
+app.controller('yearC',function($scope){$scope.cDate = nDate.getFullYear()});
 /*Clock
 ------------------*/
 app.controller('clock', function ($scope) {
@@ -92,6 +92,19 @@ app.controller('secondsSwitch', function ($scope) {
         }
     });
 });
+/*Progress Bar
+------------------*/
+var progress = 0;
+var int = setInterval(frame, 50);
+function frame() {
+   if (progress >= 100) {
+        clearInterval(int);
+    } else {
+        progress++; 
+        $("progress").attr("value", progress); 
+        $("#progression span").html(progress * 1);
+    }
+}
 /*Hash URL Check
 ------------------*/
 $(document).ready(function() {
@@ -107,15 +120,8 @@ $(document).ready(function() {
 $(function(){
     $(".content").draggable({containment:"main",scroll:false}).resizable({containment:"main"});
     $("a.close").closest("a.close").click(function(){$(this).closest(".content").addClass("none")});
-	$("a.maximize").closest("a.maximize").click(function(){
-		$(this).addClass("none").closest(".content").addClass("maximized");
-		$("a.minimize").closest("a.minimize").removeClass("none");
-	});
-	$("a.minimize").closest("a.minimize").click(function(){
-		$(this).closest(".content").removeClass("maximized");
-		$("a.minimize").closest("a.minimize").addClass("none");
-		$("a.maximize").closest("a.maximize").removeClass("none");
-	});
+	$("a.maximize").click(function(){$(this).addClass("none").next().removeClass("none").closest(".content").addClass("maximized")});
+	$("a.minimize").click(function(){$(this).addClass("none").prev().removeClass("none").closest(".content").removeClass("maximized")});
     $("nav a").click(function(){$($(this).attr("href")).removeClass("none").siblings(".content").addClass("none");});
 });
 /*StyleChanger
