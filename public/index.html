@@ -145,14 +145,39 @@
                 <a class="fa fa-times close" href="#close"></a>
 				<!--Window Buttons-->
             </header>
-            <p>The Quest Logger is a simple Angular webapp that will help you organize your quests!</p>
-            <p>Created by Rafa&euml;l De Jongh | Inias Van Ingelgom | Evelyne Van Esbroeck | Nico Bosmans | Copyright &copy; {{cDate}}</p>
+            <p>The Quest Logger is an Angular web-app that will help you organize your quests!</p>
+            <p>This application is created by:</p>
+            <div class="team">
+                <a href="http://rafaeldejongh.com/" target="_blank">
+                    <img src="images/team/rafael.jpg" alt="Rafael De Jongh"/>
+                </a>
+                <h3>Rafa&euml;l De Jongh</h3>
+            </div>
+            <div class="team">
+                <a href="#" target="_blank">
+                    <img src="images/team/inias.jpg" alt="Inias Van Ingelgom"/>
+                </a>
+                <h3>Inias Van Ingelgom</h3>
+            </div>
+            <div class="team">
+                <a href="#" target="_blank">
+                    <img src="images/team/evelyne.jpg" alt="Evelyne Van Esbroeck"/>
+                </a>
+                <h3>Evelyne Van Esbroeck</h3>
+            </div>
+            <div class="team">
+                <a href="#" target="_blank">
+                    <img src="images/team/nico.jpg" alt="Nico Bosmans"/>
+                </a>
+                <h3>Nico Bosmans</h3>
+            </div>
+            <footer>Copyright &copy; {{cDate}} | Quest Logger</footer>
         </div>
 	<time id="clock" ng-controller="clock">{{clock.now}}</time>
-        <div id="progressbar">
+        <!--<div id="progressbar">
             <progress max="100" value="0"></progress>
             <div id="progression"><span>0</span>%</div>
-        </div>
+        </div>-->
 	</main>
 </body>
 </html>

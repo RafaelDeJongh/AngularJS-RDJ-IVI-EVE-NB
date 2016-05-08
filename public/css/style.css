@@ -23,6 +23,7 @@ Content Table:
 			- Easter Egg
 		- Clock
         - Progress Bar
+        - The Team
 - MediaQueries
 - Links
 - Scrollbar
@@ -45,6 +46,7 @@ body{
     font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size:14px;
     line-height:1.6;
+    text-shadow:0 1px 1px rgba(0,0,0,.4);
     color:#eee;
     background-color:#1b1a1f;
     background-repeat:no-repeat;
@@ -509,6 +511,71 @@ progress::-webkit-progress-value {background:#25b695}
 progress[aria-valuenow]:before {background:#25b695}
 #progression {width:100%;text-align:center;line-height:1}
 #progression span{}
+/*The Team
+------------------*/
+.team {
+    display:inline-block;
+}
+.team h3 {
+    display:block;
+    border-top:1px solid #fff;
+    border-bottom:1px solid #fff;
+    padding:4px 0;
+    width:80%;
+    margin:auto;
+    text-align:center;
+}
+.team a{
+    margin:1.8em 1em;
+    display:block;
+    -webkit-border-radius:200px;
+    -moz-border-radius:200px;
+    border-radius:200px;
+    -webkit-transition:background .2s ease;
+    -moz-transition:background .2s ease;
+    -o-transition:background .2s ease;
+    transition:background .2s ease;
+}
+.team a::before{
+    content:"";
+    display:block;
+    width:180px;
+    height:180px;
+    background:initial;
+    -webkit-border-radius:200px;
+    -moz-border-radius:200px;
+    border-radius:200px;
+    position:absolute;
+    border:2px solid #fff;
+    -webkit-transition:inherit;
+    -moz-transition:inherit;
+    -o-transition:inherit;
+    transition:inherit;
+}
+.team a:hover::before{
+    content:"\f08e";
+    font-family:'FontAwesome';
+    text-align:center;
+    vertical-align:middle;
+    line-height:180px;
+    font-size:36px;
+    background:rgba(37,182,149,.6);
+    background:rgba(0,0,0,.33);
+}
+.team  a img {
+    width:180px;
+    display:block;
+    border:2px solid #fff;
+    -webkit-border-radius:200px;
+    -moz-border-radius:200px;
+    border-radius:200px;
+    -webkit-box-shadow:0 1px 3px rgba(0,0,0,.4);
+    -moz-box-shadow:0 1px 3px rgba(0,0,0,.4);
+    box-shadow:0 1px 3px rgba(0,0,0,.4);
+}
+#about footer {
+    margin: 1.5em;
+}
 /*MediaQueries
 ------------------*/
 @media screen and (max-width:780px){ 
