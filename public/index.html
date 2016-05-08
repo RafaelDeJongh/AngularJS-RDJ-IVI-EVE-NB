@@ -107,8 +107,6 @@
                 <a class="fa fa-times close" href="#close"></a>
 				<!--Window Buttons-->
             </header>
-            <p>Choose your theme!</p>
-			<!--<p>{{style}}</p>-->
             <section ng-repeat="styles in style">
 				<img ng-src="{{styles.img}}" ng-class="{currentTheme : $first}"  class="{{styles.class}}" alt="{{styles.name}}">
 				<h5 class="themetitle">{{styles.name}}</h5>

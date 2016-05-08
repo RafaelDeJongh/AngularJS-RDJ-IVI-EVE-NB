@@ -46,7 +46,7 @@ body{
     font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size:14px;
     line-height:1.6;
-    text-shadow:0 1px 1px rgba(0,0,0,.4);
+    text-shadow:0 1px 0 rgba(0,0,0,.4);
     color:#eee;
     background-color:#1b1a1f;
     background-repeat:no-repeat;
@@ -58,7 +58,8 @@ body{
     -o-transition:background-image 2s linear;
     transition:background-image 2s linear;
     position:relative;
-    height:100%
+    height:100%;
+	overflow:hidden;
 }
 .none{display:none}
 /*Aside
@@ -139,7 +140,6 @@ main {
 	background:-webkit-linear-gradient(-45deg, rgba(255,255,255,.1) 0%,rgba(255,255,255,.09) 9%,rgba(255,255,255,0) 11%,rgba(255,255,255,0) 16%,rgba(255,255,255,.1) 21%,rgba(255,255,255,.09) 37%,rgba(255,255,255,0) 41%,rgba(255,255,255,0) 47%,rgba(255,255,255,.09) 48%,rgba(255,255,255,.1) 49%,rgba(255,255,255,.1) 54%,rgba(255,255,255,.08) 55%,rgba(255,255,255,0) 57%,rgba(255,255,255,0) 60%,rgba(255,255,255,.1) 64%,rgba(255,255,255,.09) 76%,rgba(255,255,255,0) 80%,rgba(255,255,255,.01) 81%,rgba(255,255,255,.1) 84%,rgba(255,255,255,.1) 100%);
 	background:linear-gradient(135deg, rgba(255,255,255,.1) 0%,rgba(255,255,255,.09) 9%,rgba(255,255,255,0) 11%,rgba(255,255,255,0) 16%,rgba(255,255,255,.1) 21%,rgba(255,255,255,.09) 37%,rgba(255,255,255,0) 41%,rgba(255,255,255,0) 47%,rgba(255,255,255,.09) 48%,rgba(255,255,255,.1) 49%,rgba(255,255,255,.1) 54%,rgba(255,255,255,.08) 55%,rgba(255,255,255,0) 57%,rgba(255,255,255,0) 60%,rgba(255,255,255,.1) 64%,rgba(255,255,255,.09) 76%,rgba(255,255,255,0) 80%,rgba(255,255,255,.01) 81%,rgba(255,255,255,.1) 84%,rgba(255,255,255,.1) 100%);
 	background-color:rgba(150,180,220,.36);
-	overflow:hidden;
 }
 .content:hover{
     -moz-box-shadow:0 10px 32px rgba(0,0,0,.7);
@@ -211,7 +211,7 @@ main .content header .maximize:hover, main .content header .minimize:hover {back
 .content p {padding:5px 10px}
 /*ContentBox Styling
 --------------------*/
-#styles {min-height:460px}
+#styles {min-height:410px}
 /*ToDoList
 ------------------*/
 #logform{height:calc(100% - 165px)}
@@ -513,9 +513,7 @@ progress[aria-valuenow]:before {background:#25b695}
 #progression span{}
 /*The Team
 ------------------*/
-.team {
-    display:inline-block;
-}
+.team {display:inline-block}
 .team h3 {
     display:block;
     border-top:1px solid #fff;
@@ -524,6 +522,7 @@ progress[aria-valuenow]:before {background:#25b695}
     width:80%;
     margin:auto;
     text-align:center;
+	color:#fff
 }
 .team a{
     margin:1.8em 1em;
@@ -562,7 +561,7 @@ progress[aria-valuenow]:before {background:#25b695}
     background:rgba(37,182,149,.6);
     background:rgba(0,0,0,.33);
 }
-.team  a img {
+.team a img {
     width:180px;
     display:block;
     border:2px solid #fff;
@@ -573,9 +572,7 @@ progress[aria-valuenow]:before {background:#25b695}
     -moz-box-shadow:0 1px 3px rgba(0,0,0,.4);
     box-shadow:0 1px 3px rgba(0,0,0,.4);
 }
-#about footer {
-    margin: 1.5em;
-}
+#about footer {margin:1.5em;font-weight:500}
 /*MediaQueries
 ------------------*/
 @media screen and (max-width:780px){ 
@@ -593,6 +590,7 @@ progress[aria-valuenow]:before {background:#25b695}
         -webkit-border-radius:0;
         -moz-border-radius:0;
         border-radius:0;
+		overflow-x:auto;
     }
     .content:hover{-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none}
     .content:active{-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none}
