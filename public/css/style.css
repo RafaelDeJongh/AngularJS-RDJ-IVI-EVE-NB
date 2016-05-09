@@ -212,6 +212,7 @@ main .content header .maximize:hover, main .content header .minimize:hover {back
 /*ContentBox Styling
 --------------------*/
 #styles {min-height:410px}
+#about {min-height:710px}
 /*ToDoList
 ------------------*/
 #logform{height:calc(100% - 165px)}
