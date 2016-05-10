@@ -186,9 +186,9 @@ main .content header .close {
 }
 main .content header .close:hover {background-color:#b00}
 .maximized{
-	width:90%;
-	width:calc(100% - 6em);
-	height:100%;
+	width:90%!important;
+	width:calc(100% - 6em)!important;
+	height:100%!important;
     left:6em!important;
     top:0!important;
 }
