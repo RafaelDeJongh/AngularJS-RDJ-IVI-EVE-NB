@@ -47,7 +47,7 @@ body{
     font-size:14px;
     line-height:1.6;
     text-shadow:0 1px 0 rgba(0,0,0,.4);
-    color:#eee;
+    color:#fff;
     background-color:#1b1a1f;
     background-repeat:no-repeat;
     background-size:cover;
@@ -58,8 +58,8 @@ body{
     -o-transition:background-image 2s linear;
     transition:background-image 2s linear;
     position:relative;
-    height:100%;
 	overflow:hidden;
+	height:100%;
 }
 .none{display:none}
 /*Aside
@@ -208,7 +208,8 @@ main .content header .maximize, main .content header .minimize {
     transition:all .2s ease;
 }
 main .content header .maximize:hover, main .content header .minimize:hover {background-color:#45a049}
-.content p {padding:5px 10px}
+.content p {padding:5px 10px;font-weight:500}
+.ui-icon, .ui-widget-content .ui-icon {background-image:url("../images/UI/ui-icons.png")}
 /*ContentBox Styling
 --------------------*/
 #styles {min-height:410px}
@@ -240,9 +241,9 @@ input[type=submit] {
     -moz-transition:all .2s ease;
     -o-transition:all .2s ease;
     transition:all .2s ease;
-	appearance: none;
-	-moz-appearance: none;
-	-webkit-appearance: none;
+	appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
 }
 input[type=submit]:hover {background-color:#45a049}
 #todolist{max-height:625px;overflow:auto}
@@ -368,7 +369,7 @@ label {-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-
 img.currentTheme{border:2px solid #fff}
 /*Day Night Cycle
 ------------------*/
-.day main .content, .evening main .content {color:#444}
+.day main .content, .evening main .content {color:#fff}
 .night  main .content, .evening.theme3 main .content, .theme4 main .content {color:#fff}
 /*Day
 ------------------*/
