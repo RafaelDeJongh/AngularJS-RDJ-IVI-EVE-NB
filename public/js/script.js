@@ -25,43 +25,50 @@ app.controller('clock', function ($scope) {
 /*ToDoList
 ------------------*/
 app.controller('toDoC', function ($scope) {
-    $scope.todos = [];
-    $scope.markAll = false;
+	$scope.saved = localStorage.getItem('todos');
+    $scope.todos = (localStorage.getItem('todos')!==null) ? JSON.parse($scope.saved) : [];
+    localStorage.setItem('todos', JSON.stringify($scope.todos));
+	$scope.placeholder = "Add a new Quest";
+	$scope.markAll = false;
     //addToDo
     $scope.addTodo = function() {
         if($scope.todoText){
             $scope.todos.push({text:$scope.todoText, done:false});
             $scope.todoText = "";
-        }
+			$scope.placeholder = "Add a new Quest!";
+			localStorage.setItem('todos', JSON.stringify($scope.todos));
+        }else{
+			$scope.placeholder = "Please fill in your new quest!";
+		}
     };
     $scope.isTodo = function(){
-      return $scope.todos.length > 0;  
+		return $scope.todos.length > 0;  
     };
     //Toggle Edit Mode
     $scope.toggleEditMode = function(){
-      $(event.target).closest('li').toggleClass('editing');
+		$(event.target).closest('li').toggleClass('editing');
     };
     //Edit
     $scope.editOnEnter = function(todo){
-      if(event.keyCode == 13 && todo.text){
-          $scope.toggleEditMode();
+		if(event.keyCode == 13 && todo.text){
+			$scope.toggleEditMode();
       }
     };
     //Remaining
     $scope.remaining = function() {
     var count = 0;
     angular.forEach($scope.todos, function(todo) {
-      count += todo.done ? 0 : 1;
-        });
-        return count;
+		count += todo.done ? 0 : 1;
+	});
+		return count;
     };
     //isDone
     $scope.hasDone = function() {
-      return ($scope.todos.length != $scope.remaining());
+		return ($scope.todos.length != $scope.remaining());
     };
     //itemText
     $scope.itemText = function() {
-      return ($scope.todos.length - $scope.remaining() > 1) ? "items" : "item";     
+		return ($scope.todos.length - $scope.remaining() > 1) ? "items" : "item";     
     };
     //ToggleAll
     $scope.toggleMarkAll = function() {
@@ -76,6 +83,7 @@ app.controller('toDoC', function ($scope) {
         angular.forEach(oldTodos, function(todo) {
           if (!todo.done) $scope.todos.push(todo);
         });
+	localStorage.setItem('todos', JSON.stringify($scope.todos));
     };
 });
 /*Switches
@@ -84,10 +92,10 @@ app.controller('secondsSwitch', function ($scope) {
     $scope.secondsSwitch = "on";
     $scope.$watch('secondsSwitch', function () {
         if ($scope.secondsSwitch == "off") {
-            //Remove seconds
+            //Remove clock
             $("time").addClass("none");
         } else {
-            //Add seconds
+            //Add clock
             $("time").removeClass("none");
         }
     });
@@ -127,7 +135,7 @@ $(function(){
 /*Avatars
 ------------------*/
 app.controller('avatars', function($scope){
-		$scope.avatar = [
+	$scope.avatar = [
 		{
             name: 'White Male',
 			img: 'images/avatars/mwh.png',
@@ -171,7 +179,7 @@ $(function(){
 /*StyleChanger
 ------------------*/
 app.controller('styles', function($scope){
-		$scope.style = [
+	$scope.style = [
         {
             name: 'Into The Woods',
             img: 'images/backgrounds/intoTheWoodsDay.png',
@@ -235,9 +243,6 @@ $(document).keydown(function(e) {
   kkeys.push(e.keyCode);
   if (kkeys.toString().indexOf( kcode ) >= 0 ){
     $(document).unbind('keydown',arguments.call);
-	//window.open('http://games.freearcade.com/Contra.flash/ContraFlash.swf', '_blank');
-	//Add code here to do something fun!
-    $("body").removeClass("theme1 theme2 theme3 theme4 day");
-    $("body").addClass("night kcode");
+	window.open('http://games.freearcade.com/Contra.flash/ContraFlash.swf', '_blank');
   }
 });

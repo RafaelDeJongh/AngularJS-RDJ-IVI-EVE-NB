@@ -51,6 +51,7 @@
 		</nav>
 	</aside>
 	<main>
+<!--AvatarPicker-->   
         <div id="avatar" class="content none" ng-controller="avatars">
             <header>
                 <h2>Pick your avatar!</h2>
@@ -64,6 +65,7 @@
 				</div>
 			</section>
         </div>
+<!--toDoList-->   
         <div ng-controller="toDoC" id="addlist" class="content none">
         <header>
             <h2>Add a Quest!</h2>
@@ -71,16 +73,15 @@
 			<a class="fa fa-compress minimize none" href="#minimized"></a>
 			<a class="fa fa-times close" href="#close"></a>
         </header>
-<!--toDoList-->   
 <form id="logform" ng-submit="addTodo()">
-    <input type="text" ng-model="todoText" placeholder="Enter a new Quest...">
+    <input type="text" ng-model="todoText" placeholder="{{placeholder}}">
     <input type="submit" value="Add Quest">
     <div ng-show="isTodo()" id="markall">
         <input id="toggle" type="checkbox" ng-model="markAll" ng-click="toggleMarkAll()">
         <label for="toggle">Mark all as complete</label>
     </div>
     <ul id="todolist">
-        <li ng-repeat="todo in todos" ng-dblclick="toggleEditMode()">
+        <li ng-repeat="todo in todos track by $index" ng-dblclick="toggleEditMode()">
             <div class="view" ng-keyup="editTodo()">
                 <input id="{{'questtask' + $index}}" type="checkbox" ng-model="todo.done">
                 <label for="{{'questtask' + $index}}" class="done-{{todo.done}}">{{todo.text}}</label>
@@ -90,9 +91,9 @@
     </ul>
 </form>    
 <a id="clear" ng-click="clear()" ng-show="hasDone()">Remove {{(todos.length - remaining())}} {{itemText()}}.</a>
-<footer class="remaining">{{remaining()}} of {{todos.length}} Quests remaining!</footer>
-<!--toDoList-->       
+<footer class="remaining">{{remaining()}} of {{todos.length}} Quests remaining!</footer>   
         </div>
+<!--StylSwitcher-->    
         <div id="styles" class="content theme none" ng-controller="styles">
             <header>
                 <h2>Style Changer</h2>
@@ -105,6 +106,7 @@
 				<h5 class="themetitle">{{styles.name}}</h5>
 			</section>
         </div>
+<!--Settings-->   
         <div id="settings" class="content none">
             <header>
                 <h2>Settings</h2>
@@ -125,6 +127,7 @@
                 </form>
             </section>
         </div>
+<!--About-->   
         <div id="about" class="content none" ng-controller="yearC">
             <header>
                 <h2>About Quest Logger</h2>
@@ -160,6 +163,7 @@
             </div>
             <footer>Copyright &copy; {{cDate}} | Quest Logger</footer>
         </div>
+<!--Misc-->   
 	<time id="clock" ng-controller="clock">{{clock.now}}</time>
         <!--<div id="progressbar">
             <progress max="100" value="0"></progress>
