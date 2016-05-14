@@ -11,20 +11,25 @@
 <meta property="og:site_name" content="Quest Logger">
 <meta property="og:type" content="website">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" sizes="16x16 32x32 48x48 64x64" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-<!--
-<link rel="icon" type="image/png" sizes="194x194" href="images/favicons/favicon-194x194.png">
-<meta name="application-name" content="QuestLogger">
-<meta name="msapplication-config" content="browserconfig.xml">
-<meta name="msapplication-TileImage" content="images/favicons/mstile-large.png">
+<meta name="theme-color" content="#ee7645">
 <meta name="msapplication-TileColor" content="#da532c">
-<link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-touch-icon-152x152.png">
--->
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<link rel="shortcut icon" sizes="16x16 32x32 48x48 64x64" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ee7645">
+<link rel="manifest" href="/manifest.json">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
@@ -47,11 +52,9 @@
         <div id="avatar" class="content none">
             <header>
                 <h2>Avatar Settings</h2>
-				<!--Window Buttons-->
 				<a class="fa fa-expand maximize" href="#maximized"></a>
 				<a class="fa fa-compress minimize none" href="#minimized"></a>
                 <a class="fa fa-times close" href="#close"></a>
-				<!--Window Buttons-->
             </header>
             <p>Choose your avatar!</p>
             <img src="images/iphone_favicon.png" alt="avatar"/>
@@ -59,11 +62,9 @@
         <div ng-controller="toDoC" id="addlist" class="content none">
         <header>
             <h2>Quest Logger</h2>
-            <!--Window Buttons-->
 			<a class="fa fa-expand maximize" href="#maximized"></a>
 			<a class="fa fa-compress minimize none" href="#minimized"></a>
 			<a class="fa fa-times close" href="#close"></a>
-			<!--Window Buttons-->
         </header>
 <!--toDoList-->   
 <form id="logform" ng-submit="addTodo()">
@@ -90,22 +91,18 @@
         <div id="lists" class="content none">
             <header>
                 <h2>Lists Settings/Archive</h2>
-                <!--Window Buttons-->
 				<a class="fa fa-expand maximize" href="#maximized"></a>
 				<a class="fa fa-compress minimize none" href="#minimized"></a>
                 <a class="fa fa-times close" href="#close"></a>
-				<!--Window Buttons-->
             </header>
             <p>List Settings</p>
         </div>
         <div id="styles" class="content theme none" ng-controller="styles">
             <header>
                 <h2>Style Changer</h2>
-                <!--Window Buttons-->
 				<a class="fa fa-expand maximize" href="#maximized"></a>
 				<a class="fa fa-compress minimize none" href="#minimized"></a>
                 <a class="fa fa-times close" href="#close"></a>
-				<!--Window Buttons-->
             </header>
             <section ng-repeat="styles in style">
 				<img ng-src="{{styles.img}}" ng-class="{currentTheme : $first}"  class="{{styles.class}}" alt="{{styles.name}}">
@@ -115,11 +112,9 @@
         <div id="settings" class="content none">
             <header>
                 <h2>Settings</h2>
-                <!--Window Buttons-->
 				<a class="fa fa-expand maximize" href="#maximized"></a>
 				<a class="fa fa-compress minimize none" href="#minimized"></a>
                 <a class="fa fa-times close" href="#close"></a>
-				<!--Window Buttons-->
             </header>
             <section id="clockSwitch">
             <h5>Turn the clock on/off.</h5>
@@ -137,11 +132,9 @@
         <div id="about" class="content none" ng-controller="yearC">
             <header>
                 <h2>About Quest Logger</h2>
-                <!--Window Buttons-->
 				<a class="fa fa-expand maximize" href="#maximized"></a>
 				<a class="fa fa-compress minimize none" href="#minimized"></a>
                 <a class="fa fa-times close" href="#close"></a>
-				<!--Window Buttons-->
             </header>
             <p>The Quest Logger is an Angular web-app that will help you organize your quests!</p>
             <p>This application is created by:</p>
