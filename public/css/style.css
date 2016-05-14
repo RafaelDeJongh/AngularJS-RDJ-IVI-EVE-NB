@@ -9,10 +9,10 @@ Content Table:
 - Reset
 - Body
     - Aside
-        - Avatar
         - Navigation
     - Content
 		- ContentBox Styling
+		- Avatars
         - ToDoList
             - CheckBoxStyling
 		- StyleSwitch
@@ -141,16 +141,16 @@ main {
 	background:linear-gradient(135deg, rgba(255,255,255,.1) 0%,rgba(255,255,255,.09) 9%,rgba(255,255,255,0) 11%,rgba(255,255,255,0) 16%,rgba(255,255,255,.1) 21%,rgba(255,255,255,.09) 37%,rgba(255,255,255,0) 41%,rgba(255,255,255,0) 47%,rgba(255,255,255,.09) 48%,rgba(255,255,255,.1) 49%,rgba(255,255,255,.1) 54%,rgba(255,255,255,.08) 55%,rgba(255,255,255,0) 57%,rgba(255,255,255,0) 60%,rgba(255,255,255,.1) 64%,rgba(255,255,255,.09) 76%,rgba(255,255,255,0) 80%,rgba(255,255,255,.01) 81%,rgba(255,255,255,.1) 84%,rgba(255,255,255,.1) 100%);
 	background-color:rgba(150,180,220,.36);
 }
-.content:hover{
+.content:hover,.content:active{
     -moz-box-shadow:0 10px 32px rgba(0,0,0,.7);
     -webkit-box-shadow:0 10px 32px rgba(0,0,0,.7);
     box-shadow:0 10px 32px rgba(0,0,0,.7);
 }
-.content:active {
+/*.content:active {
     -moz-box-shadow:0 10px 50px rgba(0,0,0,.9);
     -webkit-box-shadow:0 10px 50px rgba(0,0,0,.9);
     box-shadow:0 10px 50px rgba(0,0,0,.9);
-}
+}*/
 main .content header {
     cursor:move;
     width:100%;
@@ -212,8 +212,49 @@ main .content header .maximize:hover, main .content header .minimize:hover {back
 .ui-icon, .ui-widget-content .ui-icon {background-image:url("../images/UI/ui-icons.png")}
 /*ContentBox Styling
 --------------------*/
+#avatar{min-height:390px}
 #styles {min-height:410px}
 #about {min-height:710px}
+/*Avatars
+------------------*/
+#avatarcon{
+	margin:auto;
+	text-align:center;
+	display:inline-block;
+	/*width:100%;
+	height:100%;*/
+}
+.avatars{
+	display:inline-block;
+	float:left;
+	padding:1em;
+    -webkit-transition:all .2s ease;
+    -moz-transition:all .2s ease;
+    -o-transition:all .2s ease;
+    transition:all .2s ease;
+	cursor:pointer;
+	/*width:28.6%;*/
+}
+.avatars:nth-of-type(4){clear:both}
+.avatar{
+	opacity:.6;
+	width:128px;
+	/*width:100%;
+	height:100%;*/
+}
+.avatar:hover,.currentAvatar{opacity:1}
+.ava{
+	background-size:94%;
+    background-repeat:no-repeat;
+    background-position:center center;
+}
+.ava.mwh{background-image:url("../images/avatars/mwh.png")}
+.ava.mbr{background-image:url("../images/avatars/mbr.png")}
+.ava.mbl{background-image:url("../images/avatars/mbl.png")}
+.ava.fwh{background-image:url("../images/avatars/fwh.png")}
+.ava.fbr{background-image:url("../images/avatars/fbr.png")}
+.ava.fbl{background-image:url("../images/avatars/fbl.png")}
+.fa-blank:before{content:"\00A0"}
 /*ToDoList
 ------------------*/
 #logform{height:calc(100% - 165px)}

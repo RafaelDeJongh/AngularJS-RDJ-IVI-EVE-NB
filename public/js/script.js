@@ -124,6 +124,50 @@ $(function(){
 	$("a.minimize").click(function(){$(this).addClass("none").prev().removeClass("none").closest(".content").removeClass("maximized")});
     $("nav a").click(function(){$($(this).attr("href")).removeClass("none").siblings(".content").addClass("none");});
 });
+/*Avatars
+------------------*/
+app.controller('avatars', function($scope){
+		$scope.avatar = [
+		{
+            name: 'White Male',
+			img: 'images/avatars/mwh.png',
+            class: 'mwh'
+        },
+				{
+            name: 'Brown Male',
+			img: 'images/avatars/mbr.png',
+            class: 'mbr'
+        },
+		{
+            name: 'Black Male',
+			img: 'images/avatars/mbl.png',
+            class: 'mbl'
+        },
+		{
+            name: 'White Female',
+			img: 'images/avatars/fwh.png',
+            class: 'fwh'
+        },
+		{
+            name: 'Brown Female',
+			img: 'images/avatars/fbr.png',
+            class: 'fbr'
+        },
+		{
+            name: 'Black Female',
+			img: 'images/avatars/fbl.png',
+            class: 'fbl'
+        }
+    ];
+});
+$(function(){
+   $(".avatars img").click(function(){
+      var avaClass = $(this).attr("class").split(" ")[0];
+      $(".avatars img").removeClass("currentAvatar");
+      $(this).closest("img").addClass("currentAvatar");
+      $(".ava").removeClass("fa-user mwh mbr mbl fwh fbr fbl").addClass(avaClass + " fa-blank");
+    }); 
+});
 /*StyleChanger
 ------------------*/
 app.controller('styles', function($scope){
@@ -152,11 +196,10 @@ app.controller('styles', function($scope){
 });
 $(function(){
    $(".theme img").click(function(){
-      var myClass = $(this).attr("class");
+      var themeClass = $(this).attr("class");
       $(".theme img").removeClass("currentTheme");
       $(this).closest("img").addClass("currentTheme");
-      $("body").removeClass("currentTheme theme1 theme2 theme3 theme4 kcode");
-      $("body").addClass(myClass).removeClass("currentTheme");
+      $("body").removeClass("theme1 theme2 theme3 theme4 kcode").addClass(themeClass).removeClass("currentTheme");
     }); 
 });
 /*Day-NightCycle

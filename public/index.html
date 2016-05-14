@@ -43,23 +43,26 @@
 <body ng-app="QuestLogger" class="day theme1">
 	<aside>
 		<nav>
-		<a href="#avatar"><i class="fa fa-user"></i></a>
+		<a href="#avatar"><i class="ava fa fa-user"></i></a>
 		<a href="#addlist"><i class="fa fa-plus"></i></a>
-		<!--<a href="#lists"><i class="fa fa-th-list"></i></a>-->
 		<a href="#styles"><i class="fa fa-paint-brush"></i></a>
 		<a href="#settings"><i class="fa fa-cog"></i></a>
         <a href="#about"><i class="fa fa-question"></i></a>
 		</nav>
 	</aside>
 	<main>
-        <div id="avatar" class="content none">
+        <div id="avatar" class="content none" ng-controller="avatars">
             <header>
                 <h2>Pick your avatar!</h2>
 				<a class="fa fa-expand maximize" href="#maximized"></a>
 				<a class="fa fa-compress minimize none" href="#minimized"></a>
                 <a class="fa fa-times close" href="#close"></a>
             </header>
-            
+			<section id="avatarcon">
+				<div class="avatars" ng-repeat="avatars in avatar">
+				   <img ng-src="{{avatars.img}}" class="{{avatars.class}} avatar" alt="{{avatars.name}}">
+				</div>
+			</section>
         </div>
         <div ng-controller="toDoC" id="addlist" class="content none">
         <header>
@@ -89,15 +92,6 @@
 <a id="clear" ng-click="clear()" ng-show="hasDone()">Remove {{(todos.length - remaining())}} {{itemText()}}.</a>
 <footer class="remaining">{{remaining()}} of {{todos.length}} Quests remaining!</footer>
 <!--toDoList-->       
-        </div>
-        <div id="lists" class="content none">
-            <header>
-                <h2>Lists Settings/Archive</h2>
-				<a class="fa fa-expand maximize" href="#maximized"></a>
-				<a class="fa fa-compress minimize none" href="#minimized"></a>
-                <a class="fa fa-times close" href="#close"></a>
-            </header>
-            <p>List Settings</p>
         </div>
         <div id="styles" class="content theme none" ng-controller="styles">
             <header>
