@@ -184,6 +184,11 @@ main .content header .close {
 	transition:all .2s ease;
 }
 main .content header .close:hover {background-color:#b00}
+main .content.maximized {
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+}
 .maximized{
 	width:90%!important;
 	width:calc(100% - 6em)!important;
@@ -298,7 +303,6 @@ input[type=submit]:hover {background-color:#45a049}
     padding-bottom:40px;
 }
 #todolist li .edit, #todolist li.editing .view {display:none}
-/*#todolist li.editing {} Usefull for editing specific styling*/
 #todolist li.editing .edit {
     display:block;
     width:86.5%;
@@ -345,13 +349,13 @@ input[type=submit]:hover {background-color:#45a049}
 #markall {
     color:#aaa;
     background-color:#fff;
-    width:30%;
+    width:auto;
     display:inline-block;
     margin:4px 0 6px 56%;
     -webkit-border-radius:4px;
     -moz-border-radius:4px;
     border-radius:4px;
-    padding:4px;
+    padding:4px 8px;
     text-align:center
 }
 .view label{
@@ -366,6 +370,21 @@ input[type=submit]:hover {background-color:#45a049}
     width:80%;
     margin:auto;
     display:inline-block
+}
+.view label::after {
+	content:"\f044";
+	font-family:"FontAwesome";
+	display:inline-block;
+	float:right;
+}
+#todolist li.editing::after {
+	content:"\f046";
+	font-family:"FontAwesome";
+	color:#aaa;
+	float:right;
+	margin-top:-36px;
+	margin-right:10%;
+	cursor:pointer;
 }
 /*CheckBoxStyling
 ------------------*/
@@ -432,7 +451,6 @@ img.currentTheme{border:2px solid #fff}
 /*Clock
 ------------------*/
 time#clock {
-	font-family:"Open Sans",sans-serif;
 	font-weight:300;
 	font-size:3vw;
 	color:#fff;
@@ -637,29 +655,29 @@ progress[aria-valuenow]:before {background:#25b695}
     .content:hover{-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none}
     .content:active{-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none}
     main .content header {
-        cursor:initial;
-        -webkit-border-radius:0;
-        -moz-border-radius:0;
-        border-radius:0;
+		cursor:initial;
+		-webkit-border-radius:0;
+		-moz-border-radius:0;
+		border-radius:0;
     }
     main .content header .close {
-        -webkit-border-top-right-radius:0;
-        -moz-border-radius-topright:0;
-        border-top-right-radius:0;
+		-webkit-border-top-right-radius:0;
+		-moz-border-radius-topright:0;
+		border-top-right-radius:0;
     }
     .remaining {
-        -webkit-border-radius:4px 4px 0 0;
-        -moz-border-radius:4px 4px 0 0;
-        border-radius:4px 4px 0 0;
+		-webkit-border-radius:4px 4px 0 0;
+		-moz-border-radius:4px 4px 0 0;
+		border-radius:4px 4px 0 0;
     }
-    #todolist{max-height:100%}
-    .maximize, .minimize, .ui-resizable-handle,time#clock,#clockSwitch{display:none!important;}
+	#todolist{max-height:100%}
+	.maximize, .minimize, .ui-resizable-handle,time#clock,#clockSwitch{display:none!important;}
 	.ui-draggable-handle {-ms-touch-action:initial!important;touch-action:initial!important}
 }
 @media screen and (max-width:635px){
     #markall{
-        margin:10px 0 5px 4px;
-        width:88%
+		margin:10px 0 5px 4px;
+		width:88%
     }
 }
 @media screen and (max-width:550px){

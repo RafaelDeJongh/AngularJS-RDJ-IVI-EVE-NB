@@ -127,9 +127,9 @@ $(document).ready(function() {
 ------------------*/
 $(function(){
     $(".content").draggable({containment:"main",scroll:false}).resizable({containment:"main"});
-    $("a.close").closest("a.close").click(function(){$(this).closest(".content").addClass("none")});
-	$("a.maximize").click(function(){$(this).addClass("none").next().removeClass("none").closest(".content").addClass("maximized")});
-	$("a.minimize").click(function(){$(this).addClass("none").prev().removeClass("none").closest(".content").removeClass("maximized")});
+    $("a.close").closest("a.close").click(function(e){e.preventDefault();$(this).closest(".content").addClass("none")});
+	$("a.maximize").click(function(e){e.preventDefault();$(this).addClass("none").next().removeClass("none").closest(".content").addClass("maximized")});
+	$("a.minimize").click(function(e){e.preventDefault();$(this).addClass("none").prev().removeClass("none").closest(".content").removeClass("maximized")});
     $("nav a").click(function(){$($(this).attr("href")).removeClass("none").siblings(".content").addClass("none");});
 });
 /*Avatars
