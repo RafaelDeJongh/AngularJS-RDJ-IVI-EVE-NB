@@ -10,9 +10,6 @@ var nDate = new Date();
 var hours = nDate.getHours();
 var minutes = nDate.getMinutes();
 var seconds = nDate.getSeconds();
-/*Current Year
-------------------*/
-app.controller('yearC',function($scope){$scope.cDate = nDate.getFullYear()});
 /*Clock
 ------------------*/
 app.controller('clock', function ($scope) {
@@ -235,6 +232,33 @@ $(function(){
             $(".theme .theme3").attr("src", "images/backgrounds/theSilentMoonNight.png");
             $(".theme .theme4").attr("src", "images/backgrounds/RetrowaveNight.jpg");
         }
+});
+/*Copyright
+------------------*/
+app.controller('team', function($scope){
+	$scope.people = [
+        {
+            name: 'Rafaël De Jongh',
+            img: 'images/team/rafael.jpg',
+            link: 'http://rafaeldejongh.com/'
+        },
+        {
+            name: 'Inias Van Ingelgom',
+            img: 'images/team/inias.jpg',
+            link: 'https://www.behance.net/Hystrix'
+        },
+        {
+            name: 'Evelyne Van Esbroeck',
+            img: 'images/team/evelyne.jpg',
+            link: 'http://evephotography.cloudaccess.host'
+        },
+        {
+            name: 'Nico Bosmans',
+            img: 'images/team/nico.jpg',
+            link: 'https://www.facebook.com/bosmansnico'
+        }
+    ];
+    $scope.cDate = nDate.getFullYear();
 });
 /*EasterEggs
 ------------------*/

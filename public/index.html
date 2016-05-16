@@ -128,7 +128,7 @@
             </section>
         </div>
 <!--About-->   
-        <div id="about" class="content none" ng-controller="yearC">
+        <div id="about" class="content none" ng-controller="team">
             <header>
                 <h2>About Quest Logger</h2>
 				<a class="fa fa-expand maximize" href="#maximized"></a>
@@ -137,30 +137,12 @@
             </header>
             <p>Quest Logger is an Angular web-app that will help you organize all your quests!</p>
             <p>This application is created by:</p>
-            <div class="team">
-                <a href="http://rafaeldejongh.com/" target="_blank">
-                    <img src="images/team/rafael.jpg" alt="Rafael De Jongh"/>
+            <div ng-repeat="team in people" class="team">
+				<a href="{{team.link}}" target="_blank">
+                    <img ng-src="{{team.img}}" alt="{{team.name}}"/>
                 </a>
-                <h3>Rafa&euml;l De Jongh</h3>
-            </div>
-            <div class="team">
-                <a href="https://www.behance.net/Hystrix" target="_blank">
-                    <img src="images/team/inias.jpg" alt="Inias Van Ingelgom"/>
-                </a>
-                <h3>Inias Van Ingelgom</h3>
-            </div>
-            <div class="team">
-                <a href="http://evephotography.cloudaccess.host" target="_blank">
-                    <img src="images/team/evelyne.jpg" alt="Evelyne Van Esbroeck"/>
-                </a>
-                <h3>Evelyne Van Esbroeck</h3>
-            </div>
-            <div class="team">
-                <a href="https://www.facebook.com/bosmansnico" target="_blank">
-                    <img src="images/team/nico.jpg" alt="Nico Bosmans"/>
-                </a>
-                <h3>Nico Bosmans</h3>
-            </div>
+				<h3 >{{team.name}}</h3>
+			</div>
             <footer>Copyright &copy; {{cDate}} | Quest Logger</footer>
         </div>
 <!--Misc-->   
