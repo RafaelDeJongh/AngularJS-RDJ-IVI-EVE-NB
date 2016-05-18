@@ -380,7 +380,7 @@ input[type=submit]:hover {background-color:#45a049}
 #todolist li.editing::after {
 	content:"\f046";
 	font-family:"FontAwesome";
-	color:#aaa;
+	color:#099;
 	float:right;
 	margin-top:-36px;
 	margin-right:10%;
@@ -391,6 +391,7 @@ input[type=submit]:hover {background-color:#45a049}
 input[type=checkbox]{display:none}
 input[type=checkbox] + label::before{
     content:"\00A0";
+    font-family:"FontAwesome";
     display:inline-block;
     font-size:14px;
     width:20px;
