@@ -151,14 +151,14 @@ app.controller('avatars', function($scope){
             class: 'fbl'
         }
     ];
-});
-$(function(){
-   $(".avatars img").click(function(){
-      var avaClass = $(this).attr("class").split(" ")[0];
-      $(".avatars img").removeClass("currentAvatar");
-      $(this).closest("img").addClass("currentAvatar");
-      $(".ava").removeClass("fa-user mwh mbr mbl fwh fbr fbl").addClass(avaClass + " fa-blank");
-    }); 
+    $scope.changeAvatar = function(avatar){
+        var avatar = $(event.target);
+        var thisAvatar = avatar.closest("img").attr("class").split(" ")[0];
+        $(".avatars img").removeClass("currentAvatar");
+        avatar.addClass("currentAvatar");
+        $(".ava").removeClass("fa-user mwh mbr mbl fwh fbr fbl").addClass(thisAvatar + " fa-blank");
+        
+    };
 });
 /*StyleChanger
 ------------------*/
@@ -185,14 +185,13 @@ app.controller('styles', function($scope){
             class: 'theme4'
         }
     ];
-});
-$(function(){
-   $(".theme img").click(function(){
-      var themeClass = $(this).attr("class");
-      $(".theme img").removeClass("currentTheme");
-      $(this).closest("img").addClass("currentTheme");
-      $("body").removeClass("theme1 theme2 theme3 theme4 kcode").addClass(themeClass).removeClass("currentTheme");
-    }); 
+    $scope.changeTheme = function(theme){
+        var theme = $(event.target);
+        var thisTheme = theme.closest("img").attr("class").split(" ")[0];
+        $(".theme img").removeClass("currentTheme");
+        theme.addClass("currentTheme");
+        $("body").removeClass("theme1 theme2 theme3 theme4").addClass(thisTheme);
+    };
 });
 /*Day-NightCycle
 ------------------*/

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="en" ng-app="QuestLogger">
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="all">
@@ -34,13 +34,13 @@
 <link rel="mask-icon" href="images/favicons/safari-pinned-tab.svg" color="#ee7645">
 <link rel="shortcut icon" sizes="16x16 32x32 48x48 64x64" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script src="js/script.js"></script>
 <title>Quest Logger</title>
 </head>
-<body ng-app="QuestLogger" class="day theme1">
+<body class="day theme1">
 	<aside>
 		<nav>
 		<a href="#avatar"><i class="ava fa fa-user"></i></a>
@@ -61,7 +61,7 @@
             </header>
 			<section id="avatarcon">
 				<div class="avatars" ng-repeat="avatars in avatar">
-				   <img ng-src="{{avatars.img}}" class="{{avatars.class}} avatar" alt="{{avatars.name}}">
+				   <img ng-src="{{avatars.img}}" ng-click="changeAvatar(avatar);" class="{{avatars.class}} avatar" alt="{{avatars.name}}">
 				</div>
 			</section>
         </div>
@@ -104,7 +104,7 @@
                 <a class="fa fa-times close" href="#close"></a>
             </header>
             <section ng-repeat="styles in style">
-				<img ng-src="{{styles.img}}" ng-class="{currentTheme : $first}"  class="{{styles.class}}" alt="{{styles.name}}">
+				<img ng-src="{{styles.img}}" ng-class="{currentTheme : $first}" ng-click="changeTheme($theme);" class="{{styles.class}}" alt="{{styles.name}}">
 				<h5 class="themetitle">{{styles.name}}</h5>
 			</section>
         </div>
@@ -143,7 +143,7 @@
 				<a href="{{team.link}}" target="_blank">
                     <img ng-src="{{team.img}}" alt="{{team.name}}"/>
                 </a>
-				<h3 >{{team.name}}</h3>
+				<h3>{{team.name}}</h3>
 			</div>
             <footer>Copyright &copy; {{cDate}} | Quest Logger</footer>
         </div>
