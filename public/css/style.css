@@ -145,11 +145,6 @@ main {
     -webkit-box-shadow:0 10px 32px rgba(0,0,0,.7);
     box-shadow:0 10px 32px rgba(0,0,0,.7);
 }
-/*.content:active {
-    -moz-box-shadow:0 10px 50px rgba(0,0,0,.9);
-    -webkit-box-shadow:0 10px 50px rgba(0,0,0,.9);
-    box-shadow:0 10px 50px rgba(0,0,0,.9);
-}*/
 main .content header {
     cursor:move;
     width:100%;
@@ -263,7 +258,7 @@ main .content header .maximize:hover, main .content header .minimize:hover {back
 ------------------*/
 #logform{height:calc(100% - 165px)}
 input, select, textarea {outline:none;border:none}
-input[type=text], select {
+input[type=text], select,textarea {
     padding:14px 20px;
     margin:8px -4px 8px 0;
     display:inline-block;
@@ -271,8 +266,10 @@ input[type=text], select {
     -webkit-border-radius:4px 0 0 4px;
     -moz-border-radius:4px 0 0 4px;
     border-radius:4px 0 0 4px;
-    width:70%
+    width:70%;
+    max-width:86%;
 }
+textarea{min-height:51px}
 input[type=submit] {
 	background-color:#4CAF50;
 	color:#fff;
@@ -302,17 +299,17 @@ input[type=submit]:hover {background-color:#45a049}
     border-bottom:none;
     padding-bottom:40px;
 }
-#todolist li .edit, #todolist li.editing .view {display:none}
+#todolist li .edit, #todolist li.editing .view,.dnEditToDo {display:none}
 #todolist li.editing .edit {
     display:block;
-    width:86.5%;
+    width:86%;
     margin:auto;
     -webkit-border-radius:4px;
     -moz-border-radius:4px;
     border-radius:4px;
     color:#333;
     font-size:18px;
-    padding:14px 20px 15px;
+    padding:14px 40px 15px 20px;
 }
 #todolist li.done label, #todolist li .done-true {text-decoration:line-through}
 #todolist .destroy {
@@ -336,6 +333,9 @@ input[type=submit]:hover {background-color:#45a049}
     color:#fff
 }
 #clear {
+    -webkit-border-radius:0 0 4px 4px;
+    -moz-border-radius:0 0 4px 4px;
+    border-radius:0 0 4px 4px;
     background-color:#900;
     padding:5px 0;
     width:100%;
@@ -366,26 +366,19 @@ input[type=submit]:hover {background-color:#45a049}
     color:#aaa;
     vertical-align:middle;
     text-align:left;
-    padding:14px 20px;
-    width:80%;
+    padding:14px 40px 14px 20px;
+    width:76%;
     margin:auto;
     display:inline-block
 }
-.view label::after {
-	content:"\f044";
-	font-family:"FontAwesome";
-	display:inline-block;
-	float:right;
+.editToDo,.dnEditToDo{
+    color:#099!important;
+    cursor:pointer;
+    position:absolute;
+    top:28px;
+    right:55px;
 }
-#todolist li.editing::after {
-	content:"\f046";
-	font-family:"FontAwesome";
-	color:#099;
-	float:right;
-	margin-top:-36px;
-	margin-right:10%;
-	cursor:pointer;
-}
+.editing .dnEditToDo {display:block}
 /*CheckBoxStyling
 ------------------*/
 input[type=checkbox]{display:none}

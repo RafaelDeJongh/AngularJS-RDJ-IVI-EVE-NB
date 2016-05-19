@@ -22,21 +22,18 @@ app.controller('clock', function ($scope) {
 /*ToDoList
 ------------------*/
 app.controller('toDoC', function ($scope) {
-	$scope.saved = localStorage.getItem('todos');
+    $scope.saved = localStorage.getItem('todos');
     $scope.todos = (localStorage.getItem('todos')!==null) ? JSON.parse($scope.saved) : [];
     localStorage.setItem('todos', JSON.stringify($scope.todos));
-	$scope.placeholder = "Add a new Quest";
-	$scope.markAll = false;
+    $scope.placeholder = "Add a new Quest!";
+    $scope.markAll = false;
     //addToDo
     $scope.addTodo = function() {
         if($scope.todoText){
             $scope.todos.push({text:$scope.todoText, done:false});
             $scope.todoText = "";
-			$scope.placeholder = "Add a new Quest!";
 			localStorage.setItem('todos', JSON.stringify($scope.todos));
-        }else{
-			$scope.placeholder = "Please fill in your new quest!";
-		}
+        }
     };
     $scope.isTodo = function(){
 		return $scope.todos.length > 0;  
@@ -45,31 +42,21 @@ app.controller('toDoC', function ($scope) {
     $scope.toggleEditMode = function(){
 		$(event.target).closest('li').toggleClass('editing');
     };
-    //Edit
-    $scope.editOnEnter = function(todo){
-		if(event.keyCode == 13 && todo.text){
-			$scope.toggleEditMode();
-      }
-    };
     //Remaining
     $scope.remaining = function() {
-    var count = 0;
-    angular.forEach($scope.todos, function(todo) {
-		count += todo.done ? 0 : 1;
-	});
+        var count = 0;
+        angular.forEach($scope.todos, function(todo) {
+            count += todo.done ? 0 : 1;
+        });
 		return count;
     };
     //isDone
-    $scope.hasDone = function() {
-		return ($scope.todos.length != $scope.remaining());
-    };
+    $scope.hasDone = function() {return($scope.todos.length != $scope.remaining());};
     //itemText
-    $scope.itemText = function() {
-		return ($scope.todos.length - $scope.remaining() > 1) ? "items" : "item";     
-    };
+    $scope.itemText = function() {return($scope.todos.length - $scope.remaining() > 1) ? "items" : "item";};
     //ToggleAll
     $scope.toggleMarkAll = function() {
-      angular.forEach($scope.todos, function(todo) {
+        angular.forEach($scope.todos, function(todo) {
         todo.done =$scope.markAll;
       });
     };
