@@ -247,13 +247,55 @@ main .content header .maximize:hover, main .content header .minimize:hover {back
 	background-repeat:no-repeat;
 	background-position:center center;
 }
-.ava.mwh{background-image:url("../images/avatars/mwh.png")}
-.ava.mbr{background-image:url("../images/avatars/mbr.png")}
-.ava.mbl{background-image:url("../images/avatars/mbl.png")}
-.ava.fwh{background-image:url("../images/avatars/fwh.png")}
-.ava.fbr{background-image:url("../images/avatars/fbr.png")}
-.ava.fbl{background-image:url("../images/avatars/fbl.png")}
+.ava.mwhme{background-image:url("../images/avatars/malewhitemedium.png")}
+.ava.mbrme{background-image:url("../images/avatars/malebrownmedium.png")}
+.ava.mblme{background-image:url("../images/avatars/maleblackmedium.png")}
+.ava.mwhsh{background-image:url("../images/avatars/malewhiteshort.png")}
+.ava.mbrsh{background-image:url("../images/avatars/malebrownshort.png")}
+.ava.mblsh{background-image:url("../images/avatars/maleblackshort.png")}
+.ava.mwhbe{background-image:url("../images/avatars/malewhitebeard.png")}
+.ava.mbrbe{background-image:url("../images/avatars/malebrownbeard.png")}
+.ava.mblbe{background-image:url("../images/avatars/maleblackbeard.png")}
+.ava.fwhsh{background-image:url("../images/avatars/femalewhiteshort.png")}
+.ava.fbrsh{background-image:url("../images/avatars/femalebrownshort.png")}
+.ava.fblsh{background-image:url("../images/avatars/femaleblackshort.png")}
+.ava.fwhlo{background-image:url("../images/avatars/femalewhitelong.png")}
+.ava.fbrlo{background-image:url("../images/avatars/femalebrownlong.png")}
+.ava.fbllo{background-image:url("../images/avatars/femaleblacklong.png")}
+.ava.fwhpo{background-image:url("../images/avatars/femalewhitepony.png")}
+.ava.fbrpo{background-image:url("../images/avatars/femalebrownpony.png")}
+.ava.fblpo{background-image:url("../images/avatars/femaleblackpony.png")}
 .fa-blank:before{content:"\00A0"}
+.skincolor{
+	width: 25px;
+	height: 25px;
+	background: white;
+	opacity:0.6;
+	display:inline-block;
+	margin:auto;
+	display:inline-block;
+	margin:0;
+	padding:0;
+}
+.avatars ul{
+	margin:auto;
+	text-align:center;
+}
+.white{background:#f5ce9f}
+.white:hover{
+	border-color: grey;
+	opacity:1;
+}
+.brown{background:#a67b52}
+.brown:hover{
+	border-color: grey;
+	opacity:1;
+}
+.black{background:#42200a}
+.black:hover{
+	border-color: grey;
+	opacity:1;
+}
 /*ToDoList
 ------------------*/
 #logform{height:calc(100% - 165px)}

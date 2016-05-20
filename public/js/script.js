@@ -121,34 +121,35 @@ $(function(){
 app.controller('avatars', function($scope){
 	$scope.avatar = [
 		{
-            name: 'White Male',
-			img: 'images/avatars/mwh.png',
-            class: 'mwh'
+            name: 'male white Short',
+			img: 'images/avatars/malewhiteshort.png',
+            class: 'mwhsh'
         },
+		
 				{
-            name: 'Brown Male',
-			img: 'images/avatars/mbr.png',
-            class: 'mbr'
+            name: 'male white medium',
+			img: 'images/avatars/malewhitemedium.png',
+            class: 'mwhme'
         },
 		{
-            name: 'Black Male',
-			img: 'images/avatars/mbl.png',
-            class: 'mbl'
+            name: 'male white beard',
+			img: 'images/avatars/malewhitebeard.png',
+            class: 'mwhbe'
         },
 		{
-            name: 'White Female',
-			img: 'images/avatars/fwh.png',
-            class: 'fwh'
+            name: 'female white short',
+			img: 'images/avatars/femalewhiteshort.png',
+            class: 'fwhsh'
         },
 		{
-            name: 'Brown Female',
-			img: 'images/avatars/fbr.png',
-            class: 'fbr'
+            name: 'female white long',
+			img: 'images/avatars/femalewhitelong.png',
+            class: 'fwhlo'
         },
 		{
-            name: 'Black Female',
-			img: 'images/avatars/fbl.png',
-            class: 'fbl'
+            name: 'female white pony',
+			img: 'images/avatars/femalewhitepony.png',
+            class: 'fwhpo'
         }
     ];
     $scope.changeAvatar = function(avatar){
@@ -156,8 +157,7 @@ app.controller('avatars', function($scope){
         var thisAvatar = avatar.closest("img").attr("class").split(" ")[0];
         $(".avatars img").removeClass("currentAvatar");
         avatar.addClass("currentAvatar");
-        $(".ava").removeClass("fa-user mwh mbr mbl fwh fbr fbl").addClass(thisAvatar + " fa-blank");
-        
+        $(".ava").removeClass("fa-user mwhsh mwhme mwhbe fwhsh fwhlo fwhpo").addClass(thisAvatar + " fa-blank");
     };
 });
 /*StyleChanger
