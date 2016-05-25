@@ -1,19 +1,32 @@
 /*
 ** QuestLogger created by Rafael De Jongh, Inias Van Ingelgom, Evelyne Vas Esbroeck and Nico Bosmans.
 ** This webapplication is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+Content Table:
+--------------
+= Angular Module
+    - Jquery
+= Content Controllers
+    - Avatars
+    - Quest Logger
+    - StyleChanger
+        - Day-NightCycle
+    - Settings
+    - Team
+= Directives
+    - Dragging
+    - Hash Routing
+    - Clock
 **/
 "use strict";
-/*Jquery
-------------------*/
-$(function(){
-    //$(".content").draggable({containment:"main",scroll:false}).resizable({containment:"main"});
-    /*$("a.close").closest("a.close").click(function(e){e.preventDefault();$(this).closest(".content").addClass("none")});
-	$("a.maximize").click(function(e){e.preventDefault();$(this).addClass("none").next().removeClass("none").closest(".content").addClass("maximized")});
-	$("a.minimize").click(function(e){e.preventDefault();$(this).addClass("none").prev().removeClass("none").closest(".content").removeClass("maximized")});*/
-});
 /*Angular Module
 ------------------*/
 var app = angular.module('QuestLogger', ['ngRoute']);
+/*Jquery
+------------------*/
+$(function(){
+    /*$("a.maximize").click(function(e){e.preventDefault();$(this).addClass("none").next().removeClass("none").closest(".content").addClass("maximized")});
+	$("a.minimize").click(function(e){e.preventDefault();$(this).addClass("none").prev().removeClass("none").closest(".content").removeClass("maximized")});*/
+});
 /*Avatars
 ------------------*/
 app.controller('avatars', function($scope){
@@ -58,7 +71,7 @@ app.controller('avatars', function($scope){
         $(".ava").removeClass("fa-user mwhsh mwhme mwhbe fwhsh fwhlo fwhpo").addClass(thisAvatar + " fa-blank");
     };
 });
-/*ToDoList
+/*Quest Logger
 ------------------*/
 app.controller('toDoC', function ($scope) {
     $scope.saved = localStorage.getItem('todos');
@@ -178,10 +191,10 @@ app.controller('settings', function ($scope) {
     $scope.$watch('sSwitch', function () {
         if ($scope.sSwitch == "off") {
             //Remove clock
-            $("time").addClass("none");
+            $("clock").addClass("none");
         } else {
             //Add clock
-            $("time").removeClass("none");
+            $("clock").removeClass("none");
         }
     });
 });
@@ -213,6 +226,58 @@ app.controller('team', function($scope){
         }
     ];
 });
+/*Dragging
+------------------*/
+app.directive('ngDraggable', function($document) {
+  return {
+    restrict: 'A',
+    link: function(scope, elem, attr) {
+      var startX, startY, x = 0,
+        y = 0,
+        start, stop, drag;
+      var container = document.querySelector("main").getBoundingClientRect();
+      var width = elem[0].offsetWidth,
+        height = elem[0].offsetHeight;
+      elem.on('mousedown', function(e) {
+        e.preventDefault();
+        startX = e.clientX - elem[0].offsetLeft;
+        startY = e.clientY - elem[0].offsetTop;
+        $document.on('mousemove', mousemove);
+        $document.on('mouseup', mouseup);
+        if (start) start(e);
+      });
+      function mousemove(e) {
+        y = e.clientY - startY;
+        x = e.clientX - startX;
+        setPosition();
+        if (drag) drag(e);
+      }
+      function mouseup(e) {
+        $document.unbind('mousemove', mousemove);
+        $document.unbind('mouseup', mouseup);
+        if (stop) stop(e);
+      }
+      function setPosition() {
+        if (container) {
+          if (x < container.left) {
+            x = container.left;
+          } else if (x > container.right - width) {
+            x = container.right - width;
+          }
+          if (y < container.top) {
+            y = container.top;
+          } else if (y > container.bottom - height) {
+            y = container.bottom - height;
+          }
+        }
+        elem.css({
+          top: y + 'px',
+          left: x + 'px'
+        });
+      }
+    }
+  }
+});
 /*Hash Routing
 ------------------*/
 app.config(function($routeProvider, $locationProvider) {
@@ -220,12 +285,12 @@ app.config(function($routeProvider, $locationProvider) {
     $routeProvider
         .when('/avatar', {
         template: `
-        <div id="avatar" class="content">
+        <div id="avatar" class="content" ng-draggable>
             <header>
                 <h2>{{titel}}</h2>
 				<a class="fa fa-expand maximize" href="#maximized"></a>
 				<a class="fa fa-compress minimize none" href="#minimized"></a>
-                <a class="fa fa-times close" href="#close"></a>
+                <a class="fa fa-times close" href="#"></a>
             </header>
 			<div id="avatarcon">
 				<div class="avatars" ng-repeat="avatars in avatar">
@@ -241,12 +306,12 @@ app.config(function($routeProvider, $locationProvider) {
         })
 		.when('/questlogger', {
 		template: `
-		  <div id="addlist" class="content">
+		  <div id="addlist" class="content" ng-draggable>
 				<header>
 					<h2>{{titel}}</h2>
 					<a class="fa fa-expand maximize" href="#maximized"></a>
 					<a class="fa fa-compress minimize none" href="#minimized"></a>
-					<a class="fa fa-times close" href="#close"></a>
+					<a class="fa fa-times close" href="#"></a>
 				</header>
 		<form id="logform" ng-submit="addTodo()">
 			<input type="text" ng-model="todoText" placeholder="{{titel}}" required>
@@ -275,12 +340,12 @@ app.config(function($routeProvider, $locationProvider) {
 		})
 		.when('/styles', {
         template: `
-        <div id="styles" class="content theme">
+        <div id="styles" class="content theme" ng-draggable>
             <header>
                 <h2>{{titel}}</h2>
 				<a class="fa fa-expand maximize" href="#maximized"></a>
 				<a class="fa fa-compress minimize none" href="#minimized"></a>
-                <a class="fa fa-times close" href="#close"></a>
+                <a class="fa fa-times close" href="#"></a>
             </header>
             <div ng-repeat="styles in style">
 				<img ng-src="{{styles.img}}" ng-class="{currentTheme : $first}" ng-click="changeTheme($theme);" class="{{styles.class}}" alt="{{styles.name}}">
@@ -292,12 +357,12 @@ app.config(function($routeProvider, $locationProvider) {
         })
 		.when('/settings', {
         template: `
-        <div id="settings" class="content">
+        <div id="settings" class="content" ng-draggable>
             <header>
                 <h2>{{titel}}</h2>
 				<a class="fa fa-expand maximize" href="#maximized"></a>
 				<a class="fa fa-compress minimize none" href="#minimized"></a>
-                <a class="fa fa-times close" href="#close"></a>
+                <a class="fa fa-times close" href="#"></a>
             </header>
             <div id="clockSwitch">
             <h5>Turn the clock on/off.</h5>
@@ -317,12 +382,12 @@ app.config(function($routeProvider, $locationProvider) {
         })
 		.when('/about', {
         template: `
-        <div id="about" class="content">
+        <div id="about" class="content" ng-draggable>
             <header>
                 <h2>{{titel}}</h2>
 				<a class="fa fa-expand maximize" href="#maximized"></a>
 				<a class="fa fa-compress minimize none" href="#minimized"></a>
-                <a class="fa fa-times close" href="#close"></a>
+                <a class="fa fa-times close" href="#"></a>
             </header>
             <p>Quest Logger is an Angular web-app that will help you organize all your quests!</p>
             <p>This application is created by:</p>
@@ -357,14 +422,4 @@ app.directive('clock', function() {
 			updateClock();
         }
     };
-});
-/*EasterEggs
-------------------*/
-var kkeys = [], kcode = "38,38,40,40,37,39,37,39,66,65";
-$(document).keydown(function(e) {
-  kkeys.push(e.keyCode);
-  if (kkeys.toString().indexOf( kcode ) >= 0 ){
-    $(document).unbind('keydown',arguments.call);
-	window.open('http://games.freearcade.com/Contra.flash/ContraFlash.swf', '_blank');
-  }
 });
