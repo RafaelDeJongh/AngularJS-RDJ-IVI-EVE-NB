@@ -66,7 +66,7 @@ body{
 ------------------*/
 aside {
 	background-color:rgba(150,180,220,.36);
-	display:inline-block;
+	display:block;
 	height:100%;
 	width:6em;
 	float:left;
@@ -245,7 +245,7 @@ main .content header .maximize:hover, main .content header .minimize:hover {back
 	display:inline-block;
 }
 .avatars{
-	display:inline-block;
+	display:block;
 	float:left;
 	padding:1em;
 	cursor:pointer;
@@ -554,7 +554,6 @@ clock {
 	cursor:pointer;
 	z-index:2;
 	zoom:1;
-	filter:alpha(opacity=0);
 }
 .toggle input:checked ~ .switch {left:0}
 .toggle input ~ :checked ~ .switch {left:2.48em}
@@ -590,7 +589,7 @@ clock {
 .toggle label.off {
 	right:.55em;
 	color:#fff;
-	text-shadow:0 .1em 0 rgba(0,0,0,.1)
+	text-shadow:0 .1em 0 rgba(0,0,0,.1);
 	-webkit-appearance:none;
 	appearance:none;
 }

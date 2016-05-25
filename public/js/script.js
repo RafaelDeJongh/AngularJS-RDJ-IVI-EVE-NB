@@ -232,19 +232,16 @@ app.directive('ngDraggable', function($document) {
   return {
     restrict: 'A',
     link: function(scope, elem, attr) {
-      var startX, startY, x = 0,
-        y = 0,
-        start, stop, drag;
+      var startX, startY, x = 0, y = 0, start, stop, drag;
       var container = document.querySelector("main").getBoundingClientRect();
-      var width = elem[0].offsetWidth,
-        height = elem[0].offsetHeight;
+      var width = elem[0].offsetWidth, height = elem[0].offsetHeight;
       elem.on('mousedown', function(e) {
-        e.preventDefault();
-        startX = e.clientX - elem[0].offsetLeft;
-        startY = e.clientY - elem[0].offsetTop;
-        $document.on('mousemove', mousemove);
-        $document.on('mouseup', mouseup);
-        if (start) start(e);
+		e.preventDefault();
+		startX = e.clientX - elem[0].offsetLeft;
+		startY = e.clientY - elem[0].offsetTop;
+		$document.on('mousemove', mousemove);
+		$document.on('mouseup', mouseup);
+		if (start) start(e);
       });
       function mousemove(e) {
         y = e.clientY - startY;
@@ -276,7 +273,7 @@ app.directive('ngDraggable', function($document) {
         });
       }
     }
-  }
+  };
 });
 /*Hash Routing
 ------------------*/
