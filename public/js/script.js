@@ -3,21 +3,60 @@
 ** This webapplication is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 **/
 "use strict";
-/*Global Variables
+/*Jquery
 ------------------*/
-var app = angular.module('QuestLogger', []);
-var nDate = new Date();
-var hours = nDate.getHours();
-var minutes = nDate.getMinutes();
-var seconds = nDate.getSeconds();
-/*Clock
+$(function(){
+    //$(".content").draggable({containment:"main",scroll:false}).resizable({containment:"main"});
+    /*$("a.close").closest("a.close").click(function(e){e.preventDefault();$(this).closest(".content").addClass("none")});
+	$("a.maximize").click(function(e){e.preventDefault();$(this).addClass("none").next().removeClass("none").closest(".content").addClass("maximized")});
+	$("a.minimize").click(function(e){e.preventDefault();$(this).addClass("none").prev().removeClass("none").closest(".content").removeClass("maximized")});*/
+});
+/*Angular Module
 ------------------*/
-app.controller('clock', function ($scope) {
-  $scope.clock = {clock:nDate};
-    var updateClock = function(){
-		$scope.clock.now = (new Date().getHours()<10?'0':'') + new Date().getHours() + ':' + (new Date().getMinutes()<10?'0':'') + new Date().getMinutes() + ':' + (new Date().getSeconds()<10?'0':'') + new Date().getSeconds();};
-    setInterval(function(){$scope.$apply(updateClock);},500);
-    updateClock();
+var app = angular.module('QuestLogger', ['ngRoute']);
+/*Avatars
+------------------*/
+app.controller('avatars', function($scope){
+	$scope.titel = 'Pick your avatar!';
+	$scope.avatar = [
+		{
+            name: 'male white Short',
+			img: 'images/avatars/malewhiteshort.png',
+            class: 'mwhsh'
+        },
+		{
+            name: 'male white medium',
+			img: 'images/avatars/malewhitemedium.png',
+            class: 'mwhme'
+        },
+		{
+            name: 'male white beard',
+			img: 'images/avatars/malewhitebeard.png',
+            class: 'mwhbe'
+        },
+		{
+            name: 'female white short',
+			img: 'images/avatars/femalewhiteshort.png',
+            class: 'fwhsh'
+        },
+		{
+            name: 'female white long',
+			img: 'images/avatars/femalewhitelong.png',
+            class: 'fwhlo'
+        },
+		{
+            name: 'female white pony',
+			img: 'images/avatars/femalewhitepony.png',
+            class: 'fwhpo'
+        }
+    ];
+    $scope.changeAvatar = function(avatar){
+        var avatar = $(event.target);
+        var thisAvatar = avatar.closest("img").attr("class").split(" ")[0];
+        $(".avatars img").removeClass("currentAvatar");
+        avatar.addClass("currentAvatar");
+        $(".ava").removeClass("fa-user mwhsh mwhme mwhbe fwhsh fwhlo fwhpo").addClass(thisAvatar + " fa-blank");
+    };
 });
 /*ToDoList
 ------------------*/
@@ -25,7 +64,7 @@ app.controller('toDoC', function ($scope) {
     $scope.saved = localStorage.getItem('todos');
     $scope.todos = (localStorage.getItem('todos')!==null) ? JSON.parse($scope.saved) : [];
     localStorage.setItem('todos', JSON.stringify($scope.todos));
-    $scope.placeholder = "Add a new Quest!";
+    $scope.titel = "Add a new Quest!";
     $scope.markAll = false;
     //addToDo
     $scope.addTodo = function() {
@@ -70,99 +109,10 @@ app.controller('toDoC', function ($scope) {
 	localStorage.setItem('todos', JSON.stringify($scope.todos));
     };
 });
-/*Switches
-------------------*/
-app.controller('secondsSwitch', function ($scope) {
-    $scope.secondsSwitch = "on";
-    $scope.$watch('secondsSwitch', function () {
-        if ($scope.secondsSwitch == "off") {
-            //Remove clock
-            $("time").addClass("none");
-        } else {
-            //Add clock
-            $("time").removeClass("none");
-        }
-    });
-});
-/*Progress Bar
-------------------*/
-var progress = 0;
-var int = setInterval(frame, 50);
-function frame() {
-   if (progress >= 100) {
-        clearInterval(int);
-    } else {
-        progress++; 
-        $("progress").attr("value", progress); 
-        $("#progression span").html(progress * 1);
-    }
-}
-/*Hash URL Check
-------------------*/
-$(document).ready(function() {
-    if(window.location.hash == "#avatar"){$("#avatar").removeClass("none")}
-    if(window.location.hash == "#addlist"){$("#addlist").removeClass("none")}
-    if(window.location.hash == "#lists"){$("#lists").removeClass("none")}
-    if(window.location.hash == "#styles"){$("#styles").removeClass("none")}
-    if(window.location.hash == "#settings"){$("#settings").removeClass("none")}
-    if(window.location.hash == "#about"){$("#about").removeClass("none")}
-});
-/*Jquery
-------------------*/
-$(function(){
-    $(".content").draggable({containment:"main",scroll:false}).resizable({containment:"main"});
-    $("a.close").closest("a.close").click(function(e){e.preventDefault();$(this).closest(".content").addClass("none")});
-	$("a.maximize").click(function(e){e.preventDefault();$(this).addClass("none").next().removeClass("none").closest(".content").addClass("maximized")});
-	$("a.minimize").click(function(e){e.preventDefault();$(this).addClass("none").prev().removeClass("none").closest(".content").removeClass("maximized")});
-    $("nav a").click(function(){$($(this).attr("href")).removeClass("none").siblings(".content").addClass("none");});
-});
-/*Avatars
-------------------*/
-app.controller('avatars', function($scope){
-	$scope.avatar = [
-		{
-            name: 'male white Short',
-			img: 'images/avatars/malewhiteshort.png',
-            class: 'mwhsh'
-        },
-		
-				{
-            name: 'male white medium',
-			img: 'images/avatars/malewhitemedium.png',
-            class: 'mwhme'
-        },
-		{
-            name: 'male white beard',
-			img: 'images/avatars/malewhitebeard.png',
-            class: 'mwhbe'
-        },
-		{
-            name: 'female white short',
-			img: 'images/avatars/femalewhiteshort.png',
-            class: 'fwhsh'
-        },
-		{
-            name: 'female white long',
-			img: 'images/avatars/femalewhitelong.png',
-            class: 'fwhlo'
-        },
-		{
-            name: 'female white pony',
-			img: 'images/avatars/femalewhitepony.png',
-            class: 'fwhpo'
-        }
-    ];
-    $scope.changeAvatar = function(avatar){
-        var avatar = $(event.target);
-        var thisAvatar = avatar.closest("img").attr("class").split(" ")[0];
-        $(".avatars img").removeClass("currentAvatar");
-        avatar.addClass("currentAvatar");
-        $(".ava").removeClass("fa-user mwhsh mwhme mwhbe fwhsh fwhlo fwhpo").addClass(thisAvatar + " fa-blank");
-    };
-});
 /*StyleChanger
 ------------------*/
 app.controller('styles', function($scope){
+	$scope.titel = "Style Changer";
 	$scope.style = [
         {
             name: 'Into The Woods',
@@ -196,6 +146,7 @@ app.controller('styles', function($scope){
 /*Day-NightCycle
 ------------------*/
 $(function(){
+	var hours = new Date().getHours();
         if(hours >= 7 && hours < 17){
             $("body").removeClass("night evening");
             $("body").addClass("day");
@@ -219,9 +170,26 @@ $(function(){
             $(".theme .theme4").attr("src", "images/backgrounds/RetrowaveNight.jpg");
         }
 });
-/*Copyright
+/*Settings
+------------------*/
+app.controller('settings', function ($scope) {
+	$scope.titel = "Settings";
+    $scope.sSwitch = "on";
+    $scope.$watch('sSwitch', function () {
+        if ($scope.sSwitch == "off") {
+            //Remove clock
+            $("time").addClass("none");
+        } else {
+            //Add clock
+            $("time").removeClass("none");
+        }
+    });
+});
+/*Team
 ------------------*/
 app.controller('team', function($scope){
+	$scope.titel = "About Quest Logger";
+	$scope.cDate = new Date().getFullYear();
 	$scope.people = [
         {
             name: 'Rafaël De Jongh',
@@ -244,7 +212,151 @@ app.controller('team', function($scope){
             link: 'https://www.facebook.com/bosmansnico'
         }
     ];
-    $scope.cDate = nDate.getFullYear();
+});
+/*Hash Routing
+------------------*/
+app.config(function($routeProvider, $locationProvider) {
+	//$locationProvider.html5Mode(true);
+    $routeProvider
+        .when('/avatar', {
+        template: `
+        <div id="avatar" class="content">
+            <header>
+                <h2>{{titel}}</h2>
+				<a class="fa fa-expand maximize" href="#maximized"></a>
+				<a class="fa fa-compress minimize none" href="#minimized"></a>
+                <a class="fa fa-times close" href="#close"></a>
+            </header>
+			<div id="avatarcon">
+				<div class="avatars" ng-repeat="avatars in avatar">
+				   <img ng-src="{{avatars.img}}" ng-click="changeAvatar(avatar);" class="{{avatars.class}} avatar" alt="{{avatars.name}}">
+					<ul>
+					<li class="skincolor white"></li><li class="skincolor brown"></li><li class="skincolor black"></li>
+					</ul>
+				</div>
+			</div>
+        </div>
+        `,
+        controller: 'avatars'
+        })
+		.when('/questlogger', {
+		template: `
+		  <div id="addlist" class="content">
+				<header>
+					<h2>{{titel}}</h2>
+					<a class="fa fa-expand maximize" href="#maximized"></a>
+					<a class="fa fa-compress minimize none" href="#minimized"></a>
+					<a class="fa fa-times close" href="#close"></a>
+				</header>
+		<form id="logform" ng-submit="addTodo()">
+			<input type="text" ng-model="todoText" placeholder="{{titel}}" required>
+			<input type="submit" value="Add Quest">
+			<div ng-show="isTodo()" id="markall">
+				<input id="toggle" type="checkbox" ng-model="markAll" ng-click="toggleMarkAll()">
+				<label for="toggle">Mark all as complete</label>
+			</div>
+			<ul id="todolist">
+				<li ng-repeat="todo in todos track by $index" >
+					<div class="view">
+						<input id="{{'questtask' + $index}}" type="checkbox" ng-model="todo.done">
+						<label for="{{'questtask' + $index}}" class="done-{{todo.done}}">{{todo.text}}</label>
+						<i class="fa fa-pencil-square-o editToDo" ng-click="toggleEditMode()"></i>
+					</div>
+					<textarea class="edit" type="text" ng-model="todo.text" ng-keyup="editOnEnter(todo)"></textarea>
+						<i class="fa fa-check-square-o dnEditToDo" ng-click="toggleEditMode()"></i>
+				</li>
+			</ul>
+		</form>    
+			<a id="clear" ng-click="clear()" ng-show="hasDone()">Remove {{(todos.length - remaining())}} {{itemText()}}.</a>
+			<footer class="remaining">{{remaining()}} of {{todos.length}} Quests remaining!</footer>   
+        </div>
+		`,
+		controller: 'toDoC'
+		})
+		.when('/styles', {
+        template: `
+        <div id="styles" class="content theme">
+            <header>
+                <h2>{{titel}}</h2>
+				<a class="fa fa-expand maximize" href="#maximized"></a>
+				<a class="fa fa-compress minimize none" href="#minimized"></a>
+                <a class="fa fa-times close" href="#close"></a>
+            </header>
+            <div ng-repeat="styles in style">
+				<img ng-src="{{styles.img}}" ng-class="{currentTheme : $first}" ng-click="changeTheme($theme);" class="{{styles.class}}" alt="{{styles.name}}">
+				<h5 class="themetitle">{{styles.name}}</h5>
+			</div>
+        </div>
+        `,
+        controller: 'styles'
+        })
+		.when('/settings', {
+        template: `
+        <div id="settings" class="content">
+            <header>
+                <h2>{{titel}}</h2>
+				<a class="fa fa-expand maximize" href="#maximized"></a>
+				<a class="fa fa-compress minimize none" href="#minimized"></a>
+                <a class="fa fa-times close" href="#close"></a>
+            </header>
+            <div id="clockSwitch">
+            <h5>Turn the clock on/off.</h5>
+                <form class="switches">
+                    <div class="toggle {{sSwitch}}">
+                        <label class="{{sSwitch}}">{{sSwitch}}</label>
+                        <input type="radio" name="toggle" value="off" ng-model="sSwitch">
+                        <input type="radio" name="toggle" value="on" ng-model="sSwitch">
+                        <span class="switch {{sSwitch}}"></span>
+                        <!--<p>State:{{sSwitch}}</p>-->
+                    </div> 
+                </form>
+            </div>
+        </div>
+        `,
+        controller: 'settings'
+        })
+		.when('/about', {
+        template: `
+        <div id="about" class="content">
+            <header>
+                <h2>{{titel}}</h2>
+				<a class="fa fa-expand maximize" href="#maximized"></a>
+				<a class="fa fa-compress minimize none" href="#minimized"></a>
+                <a class="fa fa-times close" href="#close"></a>
+            </header>
+            <p>Quest Logger is an Angular web-app that will help you organize all your quests!</p>
+            <p>This application is created by:</p>
+            <div ng-repeat="team in people" class="team">
+				<a href="{{team.link}}" target="_blank">
+                    <img ng-src="{{team.img}}" alt="{{team.name}}"/>
+                </a>
+				<h3>{{team.name}}</h3>
+			</div>
+            <footer>Copyright &copy; {{cDate}} | Quest Logger</footer>
+        </div>
+        `,
+        controller: 'team'
+        })
+		.otherwise({ redirectTo: '/' });
+});
+/*Clock
+------------------*/
+app.directive('clock', function() {
+    return {
+        scope: {
+            object: '=',
+            view: '@'
+        },
+        template: `{{clock.now}}`,
+        controller: function($scope) {
+            $scope.theTime = $scope.object;
+			$scope.clock = {clock:new Date()};
+			var updateClock = function(){
+			$scope.clock.now = (new Date().getHours()<10?'0':'') + new Date().getHours() + ':' + (new Date().getMinutes()<10?'0':'') + new Date().getMinutes() + ':' + (new Date().getSeconds()<10?'0':'') + new Date().getSeconds();};
+			setInterval(function(){$scope.$apply(updateClock);},500);
+			updateClock();
+        }
+    };
 });
 /*EasterEggs
 ------------------*/

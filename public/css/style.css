@@ -110,8 +110,26 @@ main {
     width:92%;
     width:calc(100% - 6em);
     height:100%;
-    float:left
+    float:left;
+	/*background:inherit*/
 }
+/*.content::before {
+	content:"";
+	display:inline-block;
+    width:610px;
+    min-height:310px;
+    height:105%;
+    position:absolute;
+    z-index:1;
+    left:-5px;
+    top:-5px;
+	background:inherit;
+	-webkit-filter:blur(4px);
+	-moz-filter:blur(4px);
+	-o-filter:blur(4px);
+	-ms-filter:blur(4px);
+	filter:blur(4px);
+}*/
 .content {
 	width:600px;
 	min-width:600px;
@@ -139,6 +157,8 @@ main {
 	background:-webkit-linear-gradient(-45deg, rgba(255,255,255,.1) 0%,rgba(255,255,255,.09) 9%,rgba(255,255,255,0) 11%,rgba(255,255,255,0) 16%,rgba(255,255,255,.1) 21%,rgba(255,255,255,.09) 37%,rgba(255,255,255,0) 41%,rgba(255,255,255,0) 47%,rgba(255,255,255,.09) 48%,rgba(255,255,255,.1) 49%,rgba(255,255,255,.1) 54%,rgba(255,255,255,.08) 55%,rgba(255,255,255,0) 57%,rgba(255,255,255,0) 60%,rgba(255,255,255,.1) 64%,rgba(255,255,255,.09) 76%,rgba(255,255,255,0) 80%,rgba(255,255,255,.01) 81%,rgba(255,255,255,.1) 84%,rgba(255,255,255,.1) 100%);
 	background:linear-gradient(135deg, rgba(255,255,255,.1) 0%,rgba(255,255,255,.09) 9%,rgba(255,255,255,0) 11%,rgba(255,255,255,0) 16%,rgba(255,255,255,.1) 21%,rgba(255,255,255,.09) 37%,rgba(255,255,255,0) 41%,rgba(255,255,255,0) 47%,rgba(255,255,255,.09) 48%,rgba(255,255,255,.1) 49%,rgba(255,255,255,.1) 54%,rgba(255,255,255,.08) 55%,rgba(255,255,255,0) 57%,rgba(255,255,255,0) 60%,rgba(255,255,255,.1) 64%,rgba(255,255,255,.09) 76%,rgba(255,255,255,0) 80%,rgba(255,255,255,.01) 81%,rgba(255,255,255,.1) 84%,rgba(255,255,255,.1) 100%);
 	background-color:rgba(150,180,220,.36);
+	/*background:inherit;
+	overflow:hidden;*/
 }
 .content:hover,.content:active{
     -moz-box-shadow:0 10px 32px rgba(0,0,0,.7);
@@ -146,7 +166,7 @@ main {
     box-shadow:0 10px 32px rgba(0,0,0,.7);
 }
 main .content header {
-    cursor:move;
+    /*cursor:move; Activate Later*/
     width:100%;
     height:36px;
     background-color:rgba(255,255,255,.2);
@@ -164,6 +184,7 @@ main .content header h2 {
     text-transform:capitalize;
 }
 main .content header .close {
+	display:none;/*Remove Later*/
 	position:absolute;
 	right:0;
 	top:0;
@@ -192,6 +213,7 @@ main .content.maximized {
 	top:0!important;
 }
 main .content header .maximize, main .content header .minimize {
+	display:none;/*Remove Later*/
 	position:absolute;
 	right:33px;
 	top:0;
@@ -267,15 +289,12 @@ main .content header .maximize:hover, main .content header .minimize:hover {back
 .ava.fblpo{background-image:url("../images/avatars/femaleblackpony.png")}
 .fa-blank:before{content:"\00A0"}
 .skincolor{
-	width: 25px;
-	height: 25px;
-	background: white;
-	opacity:0.6;
-	display:inline-block;
+	width:25px;
+	height:25px;
+	background:#fff;
+	opacity:.6;
 	margin:auto;
 	display:inline-block;
-	margin:0;
-	padding:0;
 }
 .avatars ul{
 	margin:auto;
@@ -283,17 +302,17 @@ main .content header .maximize:hover, main .content header .minimize:hover {back
 }
 .white{background:#f5ce9f}
 .white:hover{
-	border-color: grey;
+	border-color:grey;
 	opacity:1;
 }
 .brown{background:#a67b52}
 .brown:hover{
-	border-color: grey;
+	border-color:grey;
 	opacity:1;
 }
 .black{background:#42200a}
 .black:hover{
-	border-color: grey;
+	border-color:grey;
 	opacity:1;
 }
 /*ToDoList
@@ -445,10 +464,10 @@ input[type=checkbox] + label {display:inline-block;cursor:pointer}
 label {-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
 /*StyleSwitch
 ------------------*/
-.theme section{margin:1rem 1.5%;display:inline-block}
+.theme div{margin:1rem 1.5%;display:inline-block}
 .theme img{
-	height:110px;
-	width:auto;
+	height:112px;
+    width:200px;
 	clear:both;
 	-webkit-transition:all .2s ease;
 	-moz-transition:all .2s ease;
@@ -486,7 +505,7 @@ img.currentTheme{border:2px solid #fff}
 .night.theme4 {background-image:url("../images/backgrounds/RetrowaveNight.jpg")}
 /*Clock
 ------------------*/
-time#clock {
+clock {
 	font-weight:300;
 	font-size:3vw;
 	color:#fff;
@@ -582,31 +601,6 @@ time#clock {
 	-webkit-appearance:none;
 	appearance:none;
 }
-/*Progress Bar
-------------------*/
-progress, progress[role] {
-	z-index:-1;
-	position:absolute;
-	top:0;
-	left:6em;
-	height:14px;
-	width:calc(100% - 6em);
-	appearance:none;
-	-moz-appearance:none;
-	-webkit-appearance:none;
-	background-size:auto;
-	border:none;
-}
-progress[role]:after {background-image:none}
-progress[role] strong {display:none}
-progress, progress[role][aria-valuenow] {background:#323a45!important}
-progress::-webkit-progress-bar {background:#323a45}
-progress {color:#25b695}
-progress::-moz-progress-bar {background:#25b695}
-progress::-webkit-progress-value {background:#25b695}
-progress[aria-valuenow]:before {background:#25b695}
-#progression {width:100%;text-align:center;line-height:1}
-#progression span{}
 /*The Team
 ------------------*/
 .team {display:inline-block}

@@ -35,6 +35,7 @@
 <link rel="shortcut icon" sizes="16x16 32x32 48x48 64x64" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <script src="js/script.js"></script>
@@ -44,119 +45,15 @@
 	<aside>
 		<nav>
 		<a href="#avatar"><i class="ava fa fa-user"></i></a>
-		<a href="#addlist"><i class="fa fa-plus"></i></a>
+		<a href="#questlogger"><i class="fa fa-plus"></i></a>
 		<a href="#styles"><i class="fa fa-paint-brush"></i></a>
 		<a href="#settings"><i class="fa fa-cog"></i></a>
         <a href="#about"><i class="fa fa-question"></i></a>
 		</nav>
 	</aside>
-	<main>
-<!--AvatarPicker-->   
-        <div id="avatar" class="content none" ng-controller="avatars">
-            <header>
-                <h2>Pick your avatar!</h2>
-				<a class="fa fa-expand maximize" href="#maximized"></a>
-				<a class="fa fa-compress minimize none" href="#minimized"></a>
-                <a class="fa fa-times close" href="#close"></a>
-            </header>
-			<section id="avatarcon">
-				<div class="avatars" ng-repeat="avatars in avatar">
-				   <img ng-src="{{avatars.img}}" ng-click="changeAvatar(avatar);" class="{{avatars.class}} avatar" alt="{{avatars.name}}">
-					<ul>
-					<li class="skincolor white"></li><li class="skincolor brown"></li><li class="skincolor black"></li>
-					</ul>
-				</div>
-				
-			</section>
-        </div>
-<!--toDoList-->   
-        <div ng-controller="toDoC" id="addlist" class="content none">
-        <header>
-            <h2>Add a Quest!</h2>
-			<a class="fa fa-expand maximize" href="#maximized"></a>
-			<a class="fa fa-compress minimize none" href="#minimized"></a>
-			<a class="fa fa-times close" href="#close"></a>
-        </header>
-<form id="logform" ng-submit="addTodo()">
-    <input type="text" ng-model="todoText" placeholder="{{placeholder}}" required>
-    <input type="submit" value="Add Quest">
-    <div ng-show="isTodo()" id="markall">
-        <input id="toggle" type="checkbox" ng-model="markAll" ng-click="toggleMarkAll()">
-        <label for="toggle">Mark all as complete</label>
-    </div>
-    <ul id="todolist">
-        <li ng-repeat="todo in todos track by $index" >
-            <div class="view">
-                <input id="{{'questtask' + $index}}" type="checkbox" ng-model="todo.done">
-                <label for="{{'questtask' + $index}}" class="done-{{todo.done}}">{{todo.text}}</label>
-                <i class="fa fa-pencil-square-o editToDo" ng-click="toggleEditMode()"></i>
-            </div>
-            <textarea class="edit" type="text" ng-model="todo.text" ng-keyup="editOnEnter(todo)"></textarea>
-                <i class="fa fa-check-square-o dnEditToDo" ng-click="toggleEditMode()"></i>
-        </li>
-    </ul>
-</form>    
-<a id="clear" ng-click="clear()" ng-show="hasDone()">Remove {{(todos.length - remaining())}} {{itemText()}}.</a>
-<footer class="remaining">{{remaining()}} of {{todos.length}} Quests remaining!</footer>   
-        </div>
-<!--StylSwitcher-->    
-        <div id="styles" class="content theme none" ng-controller="styles">
-            <header>
-                <h2>Style Changer</h2>
-				<a class="fa fa-expand maximize" href="#maximized"></a>
-				<a class="fa fa-compress minimize none" href="#minimized"></a>
-                <a class="fa fa-times close" href="#close"></a>
-            </header>
-            <section ng-repeat="styles in style">
-				<img ng-src="{{styles.img}}" ng-class="{currentTheme : $first}" ng-click="changeTheme($theme);" class="{{styles.class}}" alt="{{styles.name}}">
-				<h5 class="themetitle">{{styles.name}}</h5>
-			</section>
-        </div>
-<!--Settings-->   
-        <div id="settings" class="content none">
-            <header>
-                <h2>Settings</h2>
-				<a class="fa fa-expand maximize" href="#maximized"></a>
-				<a class="fa fa-compress minimize none" href="#minimized"></a>
-                <a class="fa fa-times close" href="#close"></a>
-            </header>
-            <section id="clockSwitch">
-            <h5>Turn the clock on/off.</h5>
-                <form class="switches" ng-controller="secondsSwitch">
-                    <div class="toggle {{secondsSwitch}}">
-                        <label class="{{secondsSwitch}}">{{secondsSwitch}}</label>
-                        <input type="radio" name="toggle" value="off" ng-model="secondsSwitch">
-                        <input type="radio" name="toggle" value="on" ng-model="secondsSwitch">
-                        <span class="switch {{secondsSwitch}}"></span>
-                        <!--<p>State:{{secondsSwitch}}</p>-->
-                    </div> 
-                </form>
-            </section>
-        </div>
-<!--About-->   
-        <div id="about" class="content none" ng-controller="team">
-            <header>
-                <h2>About Quest Logger</h2>
-				<a class="fa fa-expand maximize" href="#maximized"></a>
-				<a class="fa fa-compress minimize none" href="#minimized"></a>
-                <a class="fa fa-times close" href="#close"></a>
-            </header>
-            <p>Quest Logger is an Angular web-app that will help you organize all your quests!</p>
-            <p>This application is created by:</p>
-            <div ng-repeat="team in people" class="team">
-				<a href="{{team.link}}" target="_blank">
-                    <img ng-src="{{team.img}}" alt="{{team.name}}"/>
-                </a>
-				<h3>{{team.name}}</h3>
-			</div>
-            <footer>Copyright &copy; {{cDate}} | Quest Logger</footer>
-        </div>
-<!--Misc-->   
-	<time id="clock" ng-controller="clock">{{clock.now}}</time>
-        <!--<div id="progressbar">
-            <progress max="100" value="0"></progress>
-            <div id="progression"><span>0</span>%</div>
-        </div>-->
-	</main>
+<!--Content-->  
+<main ng-view></main>
+<!--Clock-->   
+<clock object="theTime" view="small"></clock>
 </body>
 </html>
