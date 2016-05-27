@@ -118,6 +118,7 @@ app.config(function($routeProvider, $locationProvider) {
 					<ul>
 					<li class="skincolor white"></li><li class="skincolor brown"></li><li class="skincolor black"></li>
 					</ul>
+
 				</div>
 			</div>
         </div>
