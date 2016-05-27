@@ -58,7 +58,6 @@ app.directive('ngDraggable', function($document) {
       var container = document.querySelector("main").getBoundingClientRect();
       var width = elem[0].offsetWidth, height = elem[0].offsetHeight;
       elem.on('mousedown', function(e) {
-		//e.preventDefault();
 		startX = e.clientX - elem[0].offsetLeft;
 		startY = e.clientY - elem[0].offsetTop;
 		$document.on('mousemove', mousemove);
@@ -72,12 +71,13 @@ app.directive('ngDraggable', function($document) {
         if (drag) drag(e);
       }
       function mouseup(e) {
-        $document.unbind('mousemove', mousemove);
-        $document.unbind('mouseup', mouseup);
-        if (stop) stop(e);
+		$document.unbind('mousemove', mousemove);
+		$document.unbind('mouseup', mouseup);
+		if (stop) stop(e);
       }
       function setPosition() {
         if (container) {
+		height = elem[0].offsetHeight;
           if (x < container.left) {
             x = container.left;
           } else if (x > container.right - width) {
@@ -87,6 +87,7 @@ app.directive('ngDraggable', function($document) {
             y = container.top;
           } else if (y > container.bottom - height) {
             y = container.bottom - height;
+			console.log(height);
           }
         }
         elem.css({
