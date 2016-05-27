@@ -58,7 +58,7 @@ app.directive('ngDraggable', function($document) {
       var container = document.querySelector("main").getBoundingClientRect();
       var width = elem[0].offsetWidth, height = elem[0].offsetHeight;
       elem.on('mousedown', function(e) {
-		e.preventDefault();
+		//e.preventDefault();
 		startX = e.clientX - elem[0].offsetLeft;
 		startY = e.clientY - elem[0].offsetTop;
 		$document.on('mousemove', mousemove);
