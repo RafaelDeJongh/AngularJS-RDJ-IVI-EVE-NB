@@ -4,6 +4,7 @@
 Content Table:
 --------------
 = Angular Modules
+= Services
 = Jquery Modules
 	- Day-NightCycle
 = Content Controllers
@@ -21,6 +22,131 @@ Content Table:
 /*Angular Module
 ------------------*/
 var app = angular.module('QuestLogger', ['ngRoute']);
+/*Services
+------------------*/
+app.service('TodoService', function(){
+    this.getTitle = function(){
+        return "Add a new Quest!";
+    }
+});
+app.service('AvatarService', function(){
+    this.getTitle = function(){
+        return "Pick Your Avatar!";
+    };
+    this.getAvatar = function() {
+        return [
+            {
+				name: 'male white Short',
+				img: 'images/avatars/malewhiteshort.png',
+				class: 'mwhsh'
+            },
+            {
+                name: 'male white medium',
+                img: 'images/avatars/malewhitemedium.png',
+                class: 'mwhme'
+            },
+			{
+				name: 'male white beard',
+				img: 'images/avatars/malewhitebeard.png',
+				class: 'mwhbe'
+			},
+			{
+				name: 'female white short',
+				img: 'images/avatars/femalewhiteshort.png',
+				class: 'fwhsh'
+			},
+			{
+				name: 'female white long',
+				img: 'images/avatars/femalewhitelong.png',
+				class: 'fwhlo'
+			},
+			{
+				name: 'female white pony',
+				img: 'images/avatars/femalewhitepony.png',
+				class: 'fwhpo'
+			}
+        ];
+    };    
+});
+app.service('StyleService', function(){
+    this.getTitle = function(){
+        return "Style Changer";
+    };
+    this.getStyles = function() {
+        return [
+            {
+			name: 'Into The Woods',
+			img: 'images/backgrounds/intoTheWoodsDay.png',
+			class: 'theme1'
+            },
+            {
+                name: 'The Raging Hills',
+                img: 'images/backgrounds/theRagingHillsDay.png',
+                class: 'theme2'
+            },
+            {
+                name: 'Elegancy',
+                img: 'images/backgrounds/theCalmingBeachDay.png',
+                class: 'theme3'
+            },
+            {
+                name: 'Retrowave',
+                img: 'images/backgrounds/RetrowaveDay.jpg',
+                class: 'theme4'
+            }
+        ];
+    }; 
+});
+app.service('AboutService', function(){
+    this.getTitle = function(){
+        return "About Quest Logger";
+    };
+    this.getTeamMember = function() {
+        return [
+            {
+				name: 'Rafaël De Jongh',
+				img: 'images/team/rafael.jpg',
+				link: 'http://rafaeldejongh.com/'
+			},
+			{
+				name: 'Inias Van Ingelgom',
+				img: 'images/team/inias.jpg',
+				link: 'https://www.behance.net/Hystrix'
+			},
+			{
+				name: 'Evelyne Van Esbroeck',
+				img: 'images/team/evelyne.jpg',
+				link: 'http://evephotography.cloudaccess.host'
+			},
+			{
+				name: 'Nico Bosmans',
+				img: 'images/team/nico.jpg',
+				link: 'https://www.facebook.com/bosmansnico'
+			}
+        ];
+    };   
+});
+app.directive('team', function(AboutService) {
+    return {
+        scope: {
+            object: '=',
+            view: '@'
+        },
+        template: `
+            <div class="team">
+				<a href="{{team.link}}" target="_blank">
+                    <img ng-src="{{team.img}}" alt="{{team.name}}"/>
+                </a>
+				<h3>{{team.name}}</h3>
+			</div>
+        `,
+        controller: function($scope) {
+            $scope.team = $scope.object;
+        }
+    };
+});
+
+
 /*Day-NightCycle
 ------------------*/
 $(function(){
@@ -123,40 +249,9 @@ app.config(function($routeProvider, $locationProvider) {
 			</div>
         </div>
         `,
-        controller: function($scope){
-			$scope.titel = 'Pick your avatar!';
-			$scope.avatar = [
-				{
-					name: 'male white Short',
-					img: 'images/avatars/malewhiteshort.png',
-					class: 'mwhsh'
-				},
-				{
-					name: 'male white medium',
-					img: 'images/avatars/malewhitemedium.png',
-					class: 'mwhme'
-				},
-				{
-					name: 'male white beard',
-					img: 'images/avatars/malewhitebeard.png',
-					class: 'mwhbe'
-				},
-				{
-					name: 'female white short',
-					img: 'images/avatars/femalewhiteshort.png',
-					class: 'fwhsh'
-				},
-				{
-					name: 'female white long',
-					img: 'images/avatars/femalewhitelong.png',
-					class: 'fwhlo'
-				},
-				{
-					name: 'female white pony',
-					img: 'images/avatars/femalewhitepony.png',
-					class: 'fwhpo'
-				}
-			];
+        controller: function($scope, AvatarService){
+			$scope.titel = AvatarService.getTitle();
+			$scope.avatar = AvatarService.getAvatar();
 			$scope.changeAvatar = function(avatar){
 				var avatar = $(event.target);
 				var thisAvatar = avatar.closest("img").attr("class").split(" ")[0];
@@ -198,11 +293,11 @@ app.config(function($routeProvider, $locationProvider) {
 			<footer class="remaining">{{remaining()}} of {{todos.length}} Quests remaining!</footer>   
         </div>
 		`,
-		controller: function ($scope) {
+		controller: function ($scope, TodoService) {
 			$scope.saved = localStorage.getItem('todos');
 			$scope.todos = (localStorage.getItem('todos')!==null) ? JSON.parse($scope.saved) : [];
 			localStorage.setItem('todos', JSON.stringify($scope.todos));
-			$scope.titel = "Add a new Quest!";
+			$scope.titel = TodoService.getTitle();
 			$scope.markAll = false;
 			//addToDo
 			$scope.addTodo = function() {
@@ -263,30 +358,9 @@ app.config(function($routeProvider, $locationProvider) {
 			</div>
         </div>
         `,
-        controller: function($scope){
-			$scope.titel = "Style Changer";
-			$scope.style = [
-				{
-					name: 'Into The Woods',
-					img: 'images/backgrounds/intoTheWoodsDay.png',
-					class: 'theme1'
-				},
-				{
-					name: 'The Raging Hills',
-					img: 'images/backgrounds/theRagingHillsDay.png',
-					class: 'theme2'
-				},
-				{
-					name: 'Elegancy',
-					img: 'images/backgrounds/theCalmingBeachDay.png',
-					class: 'theme3'
-				},
-				{
-					name: 'Retrowave',
-					img: 'images/backgrounds/RetrowaveDay.jpg',
-					class: 'theme4'
-				}
-			];
+        controller: function($scope, StyleService){
+            $scope.titel = StyleService.getTitle();
+            $scope.style = StyleService.getStyles();
 			$scope.changeTheme = function(theme){
 				var theme = $(event.target);
 				var thisTheme = theme.closest("img").attr("class").split(" ")[0];
@@ -336,40 +410,14 @@ app.config(function($routeProvider, $locationProvider) {
             </header>
             <p>Quest Logger is an Angular web-app that will help you organize all your quests!</p>
             <p>This application is created by:</p>
-            <div ng-repeat="team in people" class="team">
-				<a href="{{team.link}}" target="_blank">
-                    <img ng-src="{{team.img}}" alt="{{team.name}}"/>
-                </a>
-				<h3>{{team.name}}</h3>
-			</div>
+            <team ng-repeat="team in people" object="team" view="small"></team>
             <footer>Copyright &copy; {{cDate}} | Quest Logger</footer>
         </div>
         `,
-        controller:  function($scope){
-			$scope.titel = "About Quest Logger";
+        controller:  function($scope, AboutService){
+			$scope.titel = AboutService.getTitle();
 			$scope.cDate = new Date().getFullYear();
-			$scope.people = [
-				{
-					name: 'Rafaël De Jongh',
-					img: 'images/team/rafael.jpg',
-					link: 'http://rafaeldejongh.com/'
-				},
-				{
-					name: 'Inias Van Ingelgom',
-					img: 'images/team/inias.jpg',
-					link: 'https://www.behance.net/Hystrix'
-				},
-				{
-					name: 'Evelyne Van Esbroeck',
-					img: 'images/team/evelyne.jpg',
-					link: 'http://evephotography.cloudaccess.host'
-				},
-				{
-					name: 'Nico Bosmans',
-					img: 'images/team/nico.jpg',
-					link: 'https://www.facebook.com/bosmansnico'
-				}
-			];
+			$scope.people = AboutService.getTeamMember();
 		}
         })
 		.otherwise({ redirectTo: '/' });
