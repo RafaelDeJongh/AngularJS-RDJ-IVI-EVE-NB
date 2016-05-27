@@ -278,7 +278,7 @@ app.directive('ngDraggable', function($document) {
 /*Hash Routing
 ------------------*/
 app.config(function($routeProvider, $locationProvider) {
-	//$locationProvider.html5Mode(true);
+	//$locationProvider.html5Mode(true); //Activate when server & set base in html
     $routeProvider
         .when('/avatar', {
         template: `

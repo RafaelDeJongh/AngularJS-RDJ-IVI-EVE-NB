@@ -236,7 +236,7 @@ main .content header .maximize:hover, main .content header .minimize:hover {back
 --------------------*/
 #avatar{min-height:390px}
 #styles {min-height:410px}
-#about {min-height:710px}
+/*#about {min-height:710px}*/
 /*Avatars
 ------------------*/
 #avatarcon{
@@ -696,13 +696,37 @@ clock {
 		border-radius:4px 4px 0 0;
     }
 	#todolist{max-height:100%}
-	.maximize, .minimize, .ui-resizable-handle,time#clock,#clockSwitch{display:none!important;}
+	.maximize, .minimize, .ui-resizable-handle,clock,#clockSwitch{display:none!important;}
 	.ui-draggable-handle {-ms-touch-action:initial!important;touch-action:initial!important}
 }
 @media screen and (max-width:635px){
     #markall{
 		margin:10px 0 5px 4px;
 		width:88%
+    }
+}
+@media screen and (max-height:768px){
+	#about {
+		width:900px;
+		left:calc(50% - 450px);
+	}
+}
+@media (max-height:768px) and (max-width:1150px){
+	.content {
+		width:calc(100% - 6em)!important;
+		height:100%!important;
+		max-height:100%!important;
+		min-width:initial;
+		right:0!important;
+		top:0!important;
+		left:initial!important;
+		-moz-box-shadow:none;
+		-webkit-box-shadow:none;
+		box-shadow:none;
+		-webkit-border-radius:0;
+		-moz-border-radius:0;
+		border-radius:0;
+		overflow-x:auto;
     }
 }
 @media screen and (max-width:550px){
