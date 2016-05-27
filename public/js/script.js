@@ -3,13 +3,13 @@
 ** This webapplication is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 Content Table:
 --------------
-= Angular Module
-    - Jquery
+= Angular Modules
+= Jquery Modules
+	- Day-NightCycle
 = Content Controllers
     - Avatars
     - Quest Logger
     - StyleChanger
-        - Day-NightCycle
     - Settings
     - Team
 = Directives
@@ -21,141 +21,6 @@ Content Table:
 /*Angular Module
 ------------------*/
 var app = angular.module('QuestLogger', ['ngRoute']);
-/*Jquery
-------------------*/
-$(function(){
-    /*$("a.maximize").click(function(e){e.preventDefault();$(this).addClass("none").next().removeClass("none").closest(".content").addClass("maximized")});
-	$("a.minimize").click(function(e){e.preventDefault();$(this).addClass("none").prev().removeClass("none").closest(".content").removeClass("maximized")});*/
-});
-/*Avatars
-------------------*/
-app.controller('avatars', function($scope){
-	$scope.titel = 'Pick your avatar!';
-	$scope.avatar = [
-		{
-            name: 'male white Short',
-			img: 'images/avatars/malewhiteshort.png',
-            class: 'mwhsh'
-        },
-		{
-            name: 'male white medium',
-			img: 'images/avatars/malewhitemedium.png',
-            class: 'mwhme'
-        },
-		{
-            name: 'male white beard',
-			img: 'images/avatars/malewhitebeard.png',
-            class: 'mwhbe'
-        },
-		{
-            name: 'female white short',
-			img: 'images/avatars/femalewhiteshort.png',
-            class: 'fwhsh'
-        },
-		{
-            name: 'female white long',
-			img: 'images/avatars/femalewhitelong.png',
-            class: 'fwhlo'
-        },
-		{
-            name: 'female white pony',
-			img: 'images/avatars/femalewhitepony.png',
-            class: 'fwhpo'
-        }
-    ];
-    $scope.changeAvatar = function(avatar){
-        var avatar = $(event.target);
-        var thisAvatar = avatar.closest("img").attr("class").split(" ")[0];
-        $(".avatars img").removeClass("currentAvatar");
-        avatar.addClass("currentAvatar");
-        $(".ava").removeClass("fa-user mwhsh mwhme mwhbe fwhsh fwhlo fwhpo").addClass(thisAvatar + " fa-blank");
-    };
-});
-/*Quest Logger
-------------------*/
-app.controller('toDoC', function ($scope) {
-    $scope.saved = localStorage.getItem('todos');
-    $scope.todos = (localStorage.getItem('todos')!==null) ? JSON.parse($scope.saved) : [];
-    localStorage.setItem('todos', JSON.stringify($scope.todos));
-    $scope.titel = "Add a new Quest!";
-    $scope.markAll = false;
-    //addToDo
-    $scope.addTodo = function() {
-        if($scope.todoText){
-            $scope.todos.push({text:$scope.todoText, done:false});
-            $scope.todoText = "";
-			localStorage.setItem('todos', JSON.stringify($scope.todos));
-        }
-    };
-    $scope.isTodo = function(){
-		return $scope.todos.length > 0;  
-    };
-    //Toggle Edit Mode
-    $scope.toggleEditMode = function(){
-		$(event.target).closest('li').toggleClass('editing');
-    };
-    //Remaining
-    $scope.remaining = function() {
-        var count = 0;
-        angular.forEach($scope.todos, function(todo) {
-            count += todo.done ? 0 : 1;
-        });
-		return count;
-    };
-    //isDone
-    $scope.hasDone = function() {return($scope.todos.length != $scope.remaining());};
-    //itemText
-    $scope.itemText = function() {return($scope.todos.length - $scope.remaining() > 1) ? "items" : "item";};
-    //ToggleAll
-    $scope.toggleMarkAll = function() {
-        angular.forEach($scope.todos, function(todo) {
-        todo.done =$scope.markAll;
-      });
-    };
-    //Clear
-    $scope.clear = function() {
-        var oldTodos = $scope.todos;
-        $scope.todos = [];
-        angular.forEach(oldTodos, function(todo) {
-          if (!todo.done) $scope.todos.push(todo);
-        });
-	localStorage.setItem('todos', JSON.stringify($scope.todos));
-    };
-});
-/*StyleChanger
-------------------*/
-app.controller('styles', function($scope){
-	$scope.titel = "Style Changer";
-	$scope.style = [
-        {
-            name: 'Into The Woods',
-            img: 'images/backgrounds/intoTheWoodsDay.png',
-            class: 'theme1'
-        },
-        {
-            name: 'The Raging Hills',
-            img: 'images/backgrounds/theRagingHillsDay.png',
-            class: 'theme2'
-        },
-        {
-            name: 'Elegancy',
-            img: 'images/backgrounds/theCalmingBeachDay.png',
-            class: 'theme3'
-        },
-        {
-            name: 'Retrowave',
-            img: 'images/backgrounds/RetrowaveDay.jpg',
-            class: 'theme4'
-        }
-    ];
-    $scope.changeTheme = function(theme){
-        var theme = $(event.target);
-        var thisTheme = theme.closest("img").attr("class").split(" ")[0];
-        $(".theme img").removeClass("currentTheme");
-        theme.addClass("currentTheme");
-        $("body").removeClass("theme1 theme2 theme3 theme4").addClass(thisTheme);
-    };
-});
 /*Day-NightCycle
 ------------------*/
 $(function(){
@@ -182,49 +47,6 @@ $(function(){
             $(".theme .theme3").attr("src", "images/backgrounds/theSilentMoonNight.png");
             $(".theme .theme4").attr("src", "images/backgrounds/RetrowaveNight.jpg");
         }
-});
-/*Settings
-------------------*/
-app.controller('settings', function ($scope) {
-	$scope.titel = "Settings";
-    $scope.sSwitch = "on";
-    $scope.$watch('sSwitch', function () {
-        if ($scope.sSwitch == "off") {
-            //Remove clock
-            $("clock").addClass("none");
-        } else {
-            //Add clock
-            $("clock").removeClass("none");
-        }
-    });
-});
-/*Team
-------------------*/
-app.controller('team', function($scope){
-	$scope.titel = "About Quest Logger";
-	$scope.cDate = new Date().getFullYear();
-	$scope.people = [
-        {
-            name: 'Rafaël De Jongh',
-            img: 'images/team/rafael.jpg',
-            link: 'http://rafaeldejongh.com/'
-        },
-        {
-            name: 'Inias Van Ingelgom',
-            img: 'images/team/inias.jpg',
-            link: 'https://www.behance.net/Hystrix'
-        },
-        {
-            name: 'Evelyne Van Esbroeck',
-            img: 'images/team/evelyne.jpg',
-            link: 'http://evephotography.cloudaccess.host'
-        },
-        {
-            name: 'Nico Bosmans',
-            img: 'images/team/nico.jpg',
-            link: 'https://www.facebook.com/bosmansnico'
-        }
-    ];
 });
 /*Dragging
 ------------------*/
@@ -299,7 +121,48 @@ app.config(function($routeProvider, $locationProvider) {
 			</div>
         </div>
         `,
-        controller: 'avatars'
+        controller: function($scope){
+			$scope.titel = 'Pick your avatar!';
+			$scope.avatar = [
+				{
+					name: 'male white Short',
+					img: 'images/avatars/malewhiteshort.png',
+					class: 'mwhsh'
+				},
+				{
+					name: 'male white medium',
+					img: 'images/avatars/malewhitemedium.png',
+					class: 'mwhme'
+				},
+				{
+					name: 'male white beard',
+					img: 'images/avatars/malewhitebeard.png',
+					class: 'mwhbe'
+				},
+				{
+					name: 'female white short',
+					img: 'images/avatars/femalewhiteshort.png',
+					class: 'fwhsh'
+				},
+				{
+					name: 'female white long',
+					img: 'images/avatars/femalewhitelong.png',
+					class: 'fwhlo'
+				},
+				{
+					name: 'female white pony',
+					img: 'images/avatars/femalewhitepony.png',
+					class: 'fwhpo'
+				}
+			];
+			$scope.changeAvatar = function(avatar){
+				var avatar = $(event.target);
+				var thisAvatar = avatar.closest("img").attr("class").split(" ")[0];
+				$(".avatars img").removeClass("currentAvatar");
+				avatar.addClass("currentAvatar");
+				$(".ava").removeClass("fa-user mwhsh mwhme mwhbe fwhsh fwhlo fwhpo").addClass(thisAvatar + " fa-blank");
+			};
+		}
         })
 		.when('/questlogger', {
 		template: `
@@ -333,7 +196,55 @@ app.config(function($routeProvider, $locationProvider) {
 			<footer class="remaining">{{remaining()}} of {{todos.length}} Quests remaining!</footer>   
         </div>
 		`,
-		controller: 'toDoC'
+		controller: function ($scope) {
+			$scope.saved = localStorage.getItem('todos');
+			$scope.todos = (localStorage.getItem('todos')!==null) ? JSON.parse($scope.saved) : [];
+			localStorage.setItem('todos', JSON.stringify($scope.todos));
+			$scope.titel = "Add a new Quest!";
+			$scope.markAll = false;
+			//addToDo
+			$scope.addTodo = function() {
+				if($scope.todoText){
+					$scope.todos.push({text:$scope.todoText, done:false});
+					$scope.todoText = "";
+					localStorage.setItem('todos', JSON.stringify($scope.todos));
+				}
+			};
+			$scope.isTodo = function(){
+				return $scope.todos.length > 0;  
+			};
+			//Toggle Edit Mode
+			$scope.toggleEditMode = function(){
+				$(event.target).closest('li').toggleClass('editing');
+			};
+			//Remaining
+			$scope.remaining = function() {
+				var count = 0;
+				angular.forEach($scope.todos, function(todo) {
+					count += todo.done ? 0 : 1;
+				});
+				return count;
+			};
+			//isDone
+			$scope.hasDone = function() {return($scope.todos.length != $scope.remaining());};
+			//itemText
+			$scope.itemText = function() {return($scope.todos.length - $scope.remaining() > 1) ? "items" : "item";};
+			//ToggleAll
+			$scope.toggleMarkAll = function() {
+				angular.forEach($scope.todos, function(todo) {
+				todo.done =$scope.markAll;
+			  });
+			};
+			//Clear
+			$scope.clear = function() {
+				var oldTodos = $scope.todos;
+				$scope.todos = [];
+				angular.forEach(oldTodos, function(todo) {
+				  if (!todo.done) $scope.todos.push(todo);
+				});
+			localStorage.setItem('todos', JSON.stringify($scope.todos));
+			};
+		}
 		})
 		.when('/styles', {
         template: `
@@ -350,7 +261,38 @@ app.config(function($routeProvider, $locationProvider) {
 			</div>
         </div>
         `,
-        controller: 'styles'
+        controller: function($scope){
+			$scope.titel = "Style Changer";
+			$scope.style = [
+				{
+					name: 'Into The Woods',
+					img: 'images/backgrounds/intoTheWoodsDay.png',
+					class: 'theme1'
+				},
+				{
+					name: 'The Raging Hills',
+					img: 'images/backgrounds/theRagingHillsDay.png',
+					class: 'theme2'
+				},
+				{
+					name: 'Elegancy',
+					img: 'images/backgrounds/theCalmingBeachDay.png',
+					class: 'theme3'
+				},
+				{
+					name: 'Retrowave',
+					img: 'images/backgrounds/RetrowaveDay.jpg',
+					class: 'theme4'
+				}
+			];
+			$scope.changeTheme = function(theme){
+				var theme = $(event.target);
+				var thisTheme = theme.closest("img").attr("class").split(" ")[0];
+				$(".theme img").removeClass("currentTheme");
+				theme.addClass("currentTheme");
+				$("body").removeClass("theme1 theme2 theme3 theme4").addClass(thisTheme);
+			};
+		}
         })
 		.when('/settings', {
         template: `
@@ -375,7 +317,11 @@ app.config(function($routeProvider, $locationProvider) {
             </div>
         </div>
         `,
-        controller: 'settings'
+        controller: function ($scope) {
+			$scope.titel = "Settings";
+			$scope.sSwitch = "on";
+			$scope.$watch('sSwitch', function () {if ($scope.sSwitch == "off") {$("clock").addClass("none")}else{$("clock").removeClass("none")}});
+		}
         })
 		.when('/about', {
         template: `
@@ -397,7 +343,32 @@ app.config(function($routeProvider, $locationProvider) {
             <footer>Copyright &copy; {{cDate}} | Quest Logger</footer>
         </div>
         `,
-        controller: 'team'
+        controller:  function($scope){
+			$scope.titel = "About Quest Logger";
+			$scope.cDate = new Date().getFullYear();
+			$scope.people = [
+				{
+					name: 'Rafaël De Jongh',
+					img: 'images/team/rafael.jpg',
+					link: 'http://rafaeldejongh.com/'
+				},
+				{
+					name: 'Inias Van Ingelgom',
+					img: 'images/team/inias.jpg',
+					link: 'https://www.behance.net/Hystrix'
+				},
+				{
+					name: 'Evelyne Van Esbroeck',
+					img: 'images/team/evelyne.jpg',
+					link: 'http://evephotography.cloudaccess.host'
+				},
+				{
+					name: 'Nico Bosmans',
+					img: 'images/team/nico.jpg',
+					link: 'https://www.facebook.com/bosmansnico'
+				}
+			];
+		}
         })
 		.otherwise({ redirectTo: '/' });
 });
