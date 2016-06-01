@@ -69,9 +69,9 @@ app.service('AvatarService',function(){
 app.service('StyleService',function(){
     var styles = [
 			{
-			name: 'Into The Woods',
-			img: 'images/backgrounds/intoTheWoodsDay.png',
-			class: 'theme1'
+				name: 'Into The Woods',
+				img: 'images/backgrounds/intoTheWoodsDay.png',
+				class: 'theme1'
 			},
 			{
 				name: 'The Raging Hills',
@@ -252,7 +252,7 @@ app.config(function($routeProvider,$locationProvider){
 				<a class="fa fa-times close" href="#"></a>
 			</header>
 					<!--<ul>
-					<li class="skincolor white"></li><li class="skincolor brown"></li><li class="skincolor black"></li>
+						<li class="skincolor white"></li><li class="skincolor brown"></li><li class="skincolor black"></li>
 					ul>-->
 			<div id="avatarcon">
 				<div class="avatars" ng-repeat="avatars in avatar">

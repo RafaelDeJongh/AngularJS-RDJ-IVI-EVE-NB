@@ -285,7 +285,7 @@ main .content header .maximize:hover, main .content header .minimize:hover{backg
 .ava.fbrpo{background-image:url("../images/avatars/femalebrownpony.png")}
 .ava.fblpo{background-image:url("../images/avatars/femaleblackpony.png")}
 .fa-blank:before{content:"\00A0"}
-/*.skincolor{
+.skincolor{
 	width:25px;
 	height:25px;
 	background:#fff;
@@ -293,27 +293,13 @@ main .content header .maximize:hover, main .content header .minimize:hover{backg
 	margin:auto;
 	display:inline-block;
 }
-.avatars ul{
-	margin:auto;
-	text-align:center;
-}
+.avatars ul{margin:auto;text-align:center}
 .white{background:#f5ce9f}
-.white:hover{
-	border-color:grey;
-	opacity:1;
-}
+.white:hover{border-color:#666;opacity:1}
 .brown{background:#a67b52}
-.brown:hover{
-	border-color:grey;
-	opacity:1;
-}
+.brown:hover{border-color:#666;opacity:1}
 .black{background:#42200a}
-.black:hover{
-	border-color:grey;
-	opacity:1;
-}
-*/
-
+.black:hover{border-color:#666;opacity:1}
 /*ToDoList
 ------------------*/
 #logform{height:calc(100% - 165px);width:86%;margin:auto;}
@@ -569,8 +555,8 @@ clock{
 .toggle input ~ :checked ~ .switch{left:2.48em}
 .toggle input:checked{z-index:0}
 sbutton {
-    display: block;
-    margin-bottom: 2em;
+    display:block;
+    margin-bottom:2em;
 }
 .switch{
 	background:#fff;
