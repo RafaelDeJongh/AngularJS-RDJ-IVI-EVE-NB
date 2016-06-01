@@ -17,6 +17,8 @@ Content Table:
     - Dragging
     - Hash Routing
     - Clock
+= Misc
+	- Preload
 **/
 "use strict";
 /*Angular Module
@@ -24,15 +26,10 @@ Content Table:
 var app = angular.module('QuestLogger', ['ngRoute']);
 /*Services
 ------------------*/
-app.service('TodoService', function(){
-    this.getTitle = function(){
-        return "Add a new Quest!";
-    }
-});
+app.service('TodoService', function(){this.getTitle = function(){return "Add a new Quest!"}});
+/*AvatarService*/
 app.service('AvatarService', function(){
-    this.getTitle = function(){
-        return "Pick Your Avatar!";
-    };
+    this.getTitle = function(){return "Pick Your Avatar!"};
     this.getAvatar = function() {
         return [
             {
@@ -68,10 +65,9 @@ app.service('AvatarService', function(){
         ];
     };    
 });
+/*TodoService*/
 app.service('StyleService', function(){
-    this.getTitle = function(){
-        return "Style Changer";
-    };
+    this.getTitle = function(){return "Style Changer"};
     this.getStyles = function() {
         return [
             {
@@ -97,10 +93,9 @@ app.service('StyleService', function(){
         ];
     }; 
 });
+/*AboutService*/
 app.service('AboutService', function(){
-    this.getTitle = function(){
-        return "About Quest Logger";
-    };
+    this.getTitle = function(){return "About Quest Logger"};
     this.getTeamMember = function() {
         return [
             {
@@ -126,6 +121,7 @@ app.service('AboutService', function(){
         ];
     };   
 });
+/*Team*/
 app.directive('team', function(AboutService) {
     return {
         scope: {
@@ -145,8 +141,6 @@ app.directive('team', function(AboutService) {
         }
     };
 });
-
-
 /*Day-NightCycle
 ------------------*/
 $(function(){
@@ -177,9 +171,9 @@ $(function(){
 /*Dragging
 ------------------*/
 app.directive('ngDraggable', function($document) {
-  return {
-    restrict: 'A',
-    link: function(scope, elem, attr) {
+return {
+    restrict:'A',
+    link: function(scope, elem) {
       var startX, startY, x = 0, y = 0, start, stop, drag;
       var container = document.querySelector("main").getBoundingClientRect();
       var width = elem[0].offsetWidth, height = elem[0].offsetHeight;
@@ -203,6 +197,7 @@ app.directive('ngDraggable', function($document) {
       }
       function setPosition() {
         if (container) {
+		container = document.querySelector("main").getBoundingClientRect();
 		height = elem[0].offsetHeight;
           if (x < container.left) {
             x = container.left;
@@ -216,15 +211,12 @@ app.directive('ngDraggable', function($document) {
 			console.log(height);
           }
         }
-        elem.css({
-          top: y + 'px',
-          left: x + 'px'
-        });
+        elem.css({top:y+'px',left:x+'px'});
       }
     }
   };
 });
-/*Hash Routing
+/*Routing
 ------------------*/
 app.config(function($routeProvider, $locationProvider) {
 	//$locationProvider.html5Mode(true); //Activate when server & set base in html
@@ -285,7 +277,7 @@ app.config(function($routeProvider, $locationProvider) {
 						<i class="fa fa-pencil-square-o editToDo" ng-click="toggleEditMode()"></i>
 					</div>
 					<textarea class="edit" type="text" ng-model="todo.text" ng-keyup="editOnEnter(todo)"></textarea>
-						<i class="fa fa-check-square-o dnEditToDo" ng-click="toggleEditMode()"></i>
+					<i class="fa fa-check-square-o dnEditToDo" ng-click="toggleEditMode()"></i>
 				</li>
 			</ul>
 		</form>    
@@ -307,12 +299,11 @@ app.config(function($routeProvider, $locationProvider) {
 					localStorage.setItem('todos', JSON.stringify($scope.todos));
 				}
 			};
-			$scope.isTodo = function(){
-				return $scope.todos.length > 0;  
-			};
+			$scope.isTodo = function(){return $scope.todos.length > 0};
 			//Toggle Edit Mode
 			$scope.toggleEditMode = function(){
 				$(event.target).closest('li').toggleClass('editing');
+				localStorage.setItem('todos', JSON.stringify($scope.todos));
 			};
 			//Remaining
 			$scope.remaining = function() {
@@ -323,7 +314,7 @@ app.config(function($routeProvider, $locationProvider) {
 				return count;
 			};
 			//isDone
-			$scope.hasDone = function() {return($scope.todos.length != $scope.remaining());};
+			$scope.hasDone = function(){return($scope.todos.length != $scope.remaining());};
 			//itemText
 			$scope.itemText = function() {return($scope.todos.length - $scope.remaining() > 1) ? "items" : "item";};
 			//ToggleAll
@@ -441,3 +432,24 @@ app.directive('clock', function() {
         }
     };
 });
+/*Preload
+------------------*/
+function preload(arrayOfImages){$(arrayOfImages).each(function(){$('<img/>')[0].src = "images/" + this})}
+preload([
+	'team/rafael.jpg',
+	'team/inias.jpg',
+	'team/evelyne.jpg',
+    'team/nico.jpg',
+	'backgrounds/intoTheWoodsDay.png',
+	'backgrounds/intoTheWoodsEvening.png',
+	'backgrounds/intoTheWoodsNight.png',
+	'backgrounds/RetrowaveDay.jpg',
+	'backgrounds/RetrowaveEvening.jpg',
+	'backgrounds/RetrowaveNight.jpg',
+	'backgrounds/theCalmingBeachDay.png',
+	'backgrounds/theHowlingDesertEvening.png',
+	'backgrounds/theRagingHillsDay.png',
+	'backgrounds/theRagingHillsEvening.png',
+	'backgrounds/theRagingHillsNight.png',
+	'backgrounds/theSilentMoonNight.png'
+]);

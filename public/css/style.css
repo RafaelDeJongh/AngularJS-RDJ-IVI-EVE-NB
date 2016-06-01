@@ -28,6 +28,7 @@ Content Table:
 - Links
 - Scrollbar
 - Selection
+
 Reset
 ------------------*/
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}
@@ -157,10 +158,15 @@ main {
 	background:-webkit-linear-gradient(-45deg, rgba(255,255,255,.1) 0%,rgba(255,255,255,.09) 9%,rgba(255,255,255,0) 11%,rgba(255,255,255,0) 16%,rgba(255,255,255,.1) 21%,rgba(255,255,255,.09) 37%,rgba(255,255,255,0) 41%,rgba(255,255,255,0) 47%,rgba(255,255,255,.09) 48%,rgba(255,255,255,.1) 49%,rgba(255,255,255,.1) 54%,rgba(255,255,255,.08) 55%,rgba(255,255,255,0) 57%,rgba(255,255,255,0) 60%,rgba(255,255,255,.1) 64%,rgba(255,255,255,.09) 76%,rgba(255,255,255,0) 80%,rgba(255,255,255,.01) 81%,rgba(255,255,255,.1) 84%,rgba(255,255,255,.1) 100%);
 	background:linear-gradient(135deg, rgba(255,255,255,.1) 0%,rgba(255,255,255,.09) 9%,rgba(255,255,255,0) 11%,rgba(255,255,255,0) 16%,rgba(255,255,255,.1) 21%,rgba(255,255,255,.09) 37%,rgba(255,255,255,0) 41%,rgba(255,255,255,0) 47%,rgba(255,255,255,.09) 48%,rgba(255,255,255,.1) 49%,rgba(255,255,255,.1) 54%,rgba(255,255,255,.08) 55%,rgba(255,255,255,0) 57%,rgba(255,255,255,0) 60%,rgba(255,255,255,.1) 64%,rgba(255,255,255,.09) 76%,rgba(255,255,255,0) 80%,rgba(255,255,255,.01) 81%,rgba(255,255,255,.1) 84%,rgba(255,255,255,.1) 100%);
 	background-color:rgba(150,180,220,.36);
+	-webkit-user-select:none;   
+	-khtml-user-select:none;    
+	-moz-user-select:none;      
+	-ms-user-select:none;       
+	user-select:none;     
 	/*background:inherit;
 	overflow:hidden;
     resize:both;
-    overflow:auto;*/
+    overflow:auto;*/	
 }
 .content:hover,.content:active{
     -moz-box-shadow:0 10px 32px rgba(0,0,0,.7);
@@ -309,25 +315,25 @@ main .content header .maximize:hover, main .content header .minimize:hover {back
 }
 /*ToDoList
 ------------------*/
-#logform{height:calc(100% - 165px)}
+#logform{height:calc(100% - 165px);width:86%;margin:auto;}
 input, select, textarea {outline:none;border:none}
 input[type=text], select,textarea {
     padding:14px 20px;
-    margin:8px -4px 8px 0;
-    display:inline-block;
-    box-sizing:border-box;
+    padding:3% 4%;
+    float:left;
+    -webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
     -webkit-border-radius:4px 0 0 4px;
     -moz-border-radius:4px 0 0 4px;
     border-radius:4px 0 0 4px;
-    width:70%;
-    max-width:86%;
+    width:80%;
 }
 textarea{min-height:51px}
 input[type=submit] {
 	background-color:#4CAF50;
 	color:#fff;
-	padding:14px 20px;
-	margin:8px 0;
+	padding:3% 4%;
 	cursor:pointer;
 	-webkit-border-radius:0 4px 4px 0;
 	-moz-border-radius:0 4px 4px 0;
@@ -339,13 +345,14 @@ input[type=submit] {
 	appearance:none;
 	-moz-appearance:none;
 	-webkit-appearance:none;
+	width:20%;
 }
 input[type=submit]:hover {background-color:#45a049}
-#todolist{max-height:625px;overflow:auto}
+#todolist{max-height:625px;overflow:auto;clear:both;}
 #todolist li {
-    padding:12px 0;
+    padding:2.3% 0;
     position:relative;
-    border-bottom:1px solid #ccc;
+    border-bottom:1px solid #099;
     list-style:none;
 }
 #todolist li:last-child {
@@ -354,15 +361,21 @@ input[type=submit]:hover {background-color:#45a049}
 }
 #todolist li .edit, #todolist li.editing .view,.dnEditToDo {display:none}
 #todolist li.editing .edit {
-    display:block;
-    width:86%;
+    display:inline-block;
+    width:100%;
     margin:auto;
     -webkit-border-radius:4px;
     -moz-border-radius:4px;
     border-radius:4px;
+    -webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
     color:#333;
     font-size:18px;
-    padding:14px 40px 15px 20px;
+    padding:3% 10% 3% 4%;
+    resize:none;
+    clear:both;
+    float:none;
 }
 #todolist li.done label, #todolist li .done-true {text-decoration:line-through}
 #todolist .destroy {
@@ -402,14 +415,15 @@ input[type=submit]:hover {background-color:#45a049}
 #markall {
     color:#aaa;
     background-color:#fff;
-    width:auto;
-    display:inline-block;
-    margin:4px 0 6px 56%;
+    clear:both;
+    float:right;
+    margin:3% 0 1%;
     -webkit-border-radius:4px;
     -moz-border-radius:4px;
     border-radius:4px;
-    padding:4px 8px;
-    text-align:center
+    padding:5px 8px;
+    vertical-align:middle;
+    text-align:center;
 }
 .view label{
     background-color:#fff;
@@ -417,25 +431,24 @@ input[type=submit]:hover {background-color:#45a049}
     -moz-border-radius:4px;
     border-radius:4px;
     color:#aaa;
-    vertical-align:middle;
     text-align:left;
-    padding:14px 40px 14px 20px;
-    width:76%;
+    padding:3% 8% 3% 4%;
+    width:88%;
     margin:auto;
-    display:inline-block;
-    word-break:break-all
+    word-break:break-all;
 }
 .editToDo,.dnEditToDo{
     color:#099!important;
     cursor:pointer;
     position:absolute;
-    top:28px;
-    right:55px;
+    top:18px;
+    right:2%;
+    padding:12px;
 }
 .editing .dnEditToDo {display:block}
 /*CheckBoxStyling
 ------------------*/
-input[type=checkbox]{display:none}
+input[type=checkbox]{display:none;}
 input[type=checkbox] + label::before{
     content:"\00A0";
     font-family:"FontAwesome";
@@ -453,7 +466,7 @@ input[type=checkbox] + label::before{
     text-align:center;
 }
 input[type=checkbox]:checked + label::before{content:"\2714"}
-input[type=checkbox] + label {display:inline-block;cursor:pointer}
+input[type=checkbox] + label {display:inline-block;cursor:pointer;}
 label {-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
 /*StyleSwitch
 ------------------*/
@@ -546,7 +559,6 @@ clock {
 	padding:0;
 	width:6.24em;
 	height:100%;
-	filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
 	opacity:0;
 	position:absolute;
 	left:0;
@@ -642,7 +654,6 @@ clock {
     vertical-align:middle;
     line-height:180px;
     font-size:36px;
-    background:rgba(37,182,149,.6);
     background:rgba(0,0,0,.33);
 }
 .team a img {
@@ -690,7 +701,7 @@ clock {
 		-moz-border-radius-topright:0;
 		border-top-right-radius:0;
     }
-    .remaining {
+    .remaining,#clear {
 		-webkit-border-radius:4px 4px 0 0;
 		-moz-border-radius:4px 4px 0 0;
 		border-radius:4px 4px 0 0;
@@ -699,17 +710,11 @@ clock {
 	.maximize, .minimize, .ui-resizable-handle,clock,#clockSwitch{display:none!important;}
 	.ui-draggable-handle {-ms-touch-action:initial!important;touch-action:initial!important}
 }
-@media screen and (max-width:635px){
-    #markall{
-		margin:10px 0 5px 4px;
-		width:88%
-    }
+@media screen and (max-width:690px){
+    #markall{float:none}
 }
 @media screen and (max-height:768px){
-	#about {
-		width:900px;
-		left:calc(50% - 450px);
-	}
+	#about {width:900px;left:calc(50% - 450px)}
 }
 @media (max-height:768px) and (max-width:1150px){
 	.content {
@@ -729,23 +734,24 @@ clock {
 		overflow-x:auto;
     }
 }
-@media screen and (max-width:550px){
+@media screen and (max-width:650px){
     input[type=text], select, input[type=submit] {
         -webkit-border-radius:4px 4px 0 0;
         -moz-border-radius:4px 4px 0 0;
         border-radius:4px 4px 0 0;
-        width:90%;
+        width:100%;
         text-align:center;
         margin-bottom:0;
     }
     input[type=submit] {
         margin-top:0;
-        margin-left:4px;
         -webkit-border-radius:0 0 4px 4px;
         -moz-border-radius:0 0 4px 4px;
         border-radius:0 0 4px 4px;
     }
     #logform{height:calc(100% - 220px)}
+	.view label {width:87.4%}
+	.editToDo,.dnEditToDo{top:12px}
 }
 /*Links
 ------------------*/
