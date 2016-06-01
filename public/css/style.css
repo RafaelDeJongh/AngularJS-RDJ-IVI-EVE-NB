@@ -707,7 +707,7 @@ sbutton {
 		border-radius:4px 4px 0 0;
 	}
 	#todolist{max-height:100%}
-	.maximize, .minimize, .ui-resizable-handle,clock,#clockSwitch,a .fa.fa-cog,sbutton{display:none!important;}
+	.maximize, .minimize, .ui-resizable-handle,clock,#clockSwitch,a .fa.fa-cog,sbutton, #settings{display:none!important;}
 	.ui-draggable-handle{-ms-touch-action:initial!important;touch-action:initial!important}
 }
 @media screen and (max-width:690px){
@@ -733,6 +733,11 @@ sbutton {
 		border-radius:0;
 		overflow-x:auto;
 	}
+    .content:hover,.content:active{
+        -moz-box-shadow:none!important;
+        -webkit-box-shadow:none!important;
+        box-shadow:none!important;
+    }
 }
 @media screen and (max-width:650px){
 	input[type=text], select, input[type=submit]{

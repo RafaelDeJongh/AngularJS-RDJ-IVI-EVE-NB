@@ -28,9 +28,7 @@ var app = angular.module('QuestLogger',['ngRoute']);
 app.service('TodoService',function(){this.getTitle = function(){return "Add a new Quest!"}});
 /*AvatarService*/
 app.service('AvatarService',function(){
-	this.getTitle = function(){return "Pick Your Avatar!"};
-	this.getAvatar = function(){
-		return [
+    var avatars = [
 			{
 				name: 'male white Short',
 				img: 'images/avatars/malewhiteshort.png',
@@ -62,13 +60,14 @@ app.service('AvatarService',function(){
 				class: 'fwhpo'
 			}
 		];
+	this.getTitle = function(){return "Pick Your Avatar!"};
+	this.getAvatar = function(){
+		return avatars;
 	};
 });
-/*StyleService*/
+/*Style*/
 app.service('StyleService',function(){
-	this.getTitle = function(){return "Style Changer"};
-	this.getStyles = function(){
-		return [
+    var styles = [
 			{
 			name: 'Into The Woods',
 			img: 'images/backgrounds/intoTheWoodsDay.png',
@@ -90,13 +89,12 @@ app.service('StyleService',function(){
 				class: 'theme4'
 			}
 		];
-	}; 
+	this.getTitle = function(){return "Style Changer"};
+	this.getStyles = function(){return styles;}; 
 });
-/*AboutService*/
+/*Team*/
 app.service('AboutService',function(){
-	this.getTitle = function(){return "About Quest Logger"};
-	this.getTeamMember = function(){
-		return [
+    var teamMembers = [
 			{
 				name: 'Rafaël De Jongh',
 				img: 'images/team/rafael.jpg',
@@ -118,9 +116,9 @@ app.service('AboutService',function(){
 				link: 'https://www.facebook.com/bosmansnico'
 			}
 		];
-	};
+	this.getTitle = function(){return "About Quest Logger"};
+	this.getTeamMember = function(){return teamMembers;};
 });
-/*Team*/
 app.directive('team',function(AboutService){
 	return{
 		scope:{
