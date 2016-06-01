@@ -285,7 +285,7 @@ main .content header .maximize:hover, main .content header .minimize:hover{backg
 .ava.fbrpo{background-image:url("../images/avatars/femalebrownpony.png")}
 .ava.fblpo{background-image:url("../images/avatars/femaleblackpony.png")}
 .fa-blank:before{content:"\00A0"}
-.skincolor{
+/*.skincolor{
 	width:25px;
 	height:25px;
 	background:#fff;
@@ -312,6 +312,8 @@ main .content header .maximize:hover, main .content header .minimize:hover{backg
 	border-color:grey;
 	opacity:1;
 }
+*/
+
 /*ToDoList
 ------------------*/
 #logform{height:calc(100% - 165px);width:86%;margin:auto;}

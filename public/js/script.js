@@ -251,9 +251,9 @@ app.config(function($routeProvider,$locationProvider){
 				<a class="fa fa-compress minimize none" href="#minimized"></a>
 				<a class="fa fa-times close" href="#"></a>
 			</header>
-					<ul>
+					<!--<ul>
 					<li class="skincolor white"></li><li class="skincolor brown"></li><li class="skincolor black"></li>
-					</ul>
+					ul>-->
 			<div id="avatarcon">
 				<div class="avatars" ng-repeat="avatars in avatar">
 					<img ng-src="{{avatars.img}}" ng-click="changeAvatar(avatar);" class="{{avatars.class}} avatar" alt="{{avatars.name}}">
