@@ -1,15 +1,6 @@
-# AngularJS-RDJ-IVI-EVE-NB
+# Quest Logger
 
-Link: http://rafaeldejongh.github.io/AngularJS-RDJ-IVI-EVE-NB/public/
+QuestLogger created by Rafaël De Jongh, Inias Van Ingelgom, Evelyne Vas Esbroeck and Nico Bosmans.
+This webapplication is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 
-Folder sorting: 
-
-CSS = for all CSS files
-
-JS = for all JS fiels
-
-Images = for all images
-
-DEV = for all project related files (psd/ai/etc).
-
-Document: https://goo.gl/jInL1I
+Public Preview: http://rafaeldejongh.github.io/Quest-Logger/public/#/
